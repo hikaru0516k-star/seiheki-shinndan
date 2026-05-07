@@ -2,25 +2,29 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>性癖タイプ診断｜あなたの隠れたタイプがわかる無料診断</title>
+  <title>性癖タイプ診断｜20問でわかる大人の恋愛・相性診断</title>
+  <meta name="description" content="20個の質問に答えるだけで、あなたの性癖タイプ・恋愛傾向・相性タイプがわかる無料診断サイト。S・M・言葉責め・甘えたいタイプなど全10種類の診断結果を表示。" />
+  <meta name="keywords" content="性癖診断,性癖タイプ診断,恋愛診断,S診断,M診断,相性診断,大人向け診断,無料診断" />
+  <meta name="robots" content="index, follow" />
 
-  <meta
-    name="description"
-    content="簡単な質問に答えるだけで、あなたの性癖タイプ・相性タイプ・隠れた傾向がわかる無料診断サイトです。"
-  />
-
-  <meta property="og:title" content="性癖タイプ診断" />
-  <meta
-    property="og:description"
-    content="あなたの隠れたタイプや相性タイプを無料で診断できます。"
-  />
+  <meta property="og:title" content="性癖タイプ診断｜20問でわかる大人の恋愛・相性診断" />
+  <meta property="og:description" content="あなたの隠れた性癖タイプ・恋愛傾向・相性タイプを無料で診断できます。" />
   <meta property="og:type" content="website" />
-
   <meta property="og:url" content="https://seiheki-shindan.vercel.app/" />
 
   <link rel="canonical" href="https://seiheki-shindan.vercel.app/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "性癖タイプ診断",
+    "url": "https://seiheki-shindan.vercel.app/",
+    "description": "20問でわかる大人向けの性癖タイプ・恋愛傾向・相性診断サイト"
+  }
+  </script>
 
   <style>
     * {
@@ -29,42 +33,57 @@
 
     body {
       margin: 0;
-      padding: 20px;
-      font-family: sans-serif;
-      background: linear-gradient(135deg, #170018, #320033, #120014);
-      color: white;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      background: linear-gradient(135deg, #130014, #320033, #100010);
+      color: #fff;
     }
 
     .container {
-      max-width: 850px;
+      max-width: 900px;
       margin: auto;
+      padding: 24px 16px 60px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 35px 0 25px;
     }
 
     h1 {
-      text-align: center;
       font-size: 38px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .description {
+    .lead {
+      color: #f4caff;
+      line-height: 1.8;
+    }
+
+    .age-box,
+    .card,
+    .result,
+    .seo-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .age-box {
       text-align: center;
-      color: #f3cfff;
-      line-height: 1.7;
-      margin-bottom: 35px;
+      margin-top: 40px;
     }
 
     .question {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 20px;
-      padding: 22px;
-      margin-bottom: 22px;
-      backdrop-filter: blur(6px);
+      margin-bottom: 26px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
     .question h2 {
       font-size: 18px;
-      margin-bottom: 15px;
+      margin-bottom: 14px;
     }
 
     .buttons {
@@ -72,283 +91,460 @@
       gap: 10px;
     }
 
-    button {
+    button,
+    .share,
+    .work-link {
       border: none;
       border-radius: 999px;
-      padding: 14px;
-      cursor: pointer;
+      padding: 14px 18px;
       font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
       transition: 0.2s;
     }
 
     .answer-btn {
-      background: white;
+      background: #fff;
       color: #320033;
-      font-weight: bold;
+      font-weight: 700;
     }
 
     .answer-btn:hover {
-      background: #ffdfff;
+      background: #ffe0ff;
       transform: translateY(-2px);
     }
 
-    .result-btn {
-      width: 100%;
+    .answer-btn.selected {
       background: #ff4fd8;
-      color: white;
-      font-weight: bold;
-      margin-top: 25px;
-      font-size: 17px;
+      color: #fff;
     }
 
-    .result-btn:hover {
+    .main-btn {
+      width: 100%;
+      background: #ff4fd8;
+      color: #fff;
+      font-weight: 800;
+      font-size: 17px;
+      margin-top: 20px;
+    }
+
+    .main-btn:hover {
       opacity: 0.9;
     }
 
+    .sub-btn {
+      background: #fff;
+      color: #320033;
+      font-weight: 700;
+      margin-top: 12px;
+    }
+
     .result {
-      background: rgba(255,255,255,0.1);
-      border-radius: 25px;
-      padding: 30px;
-      margin-top: 35px;
       text-align: center;
-      border: 1px solid rgba(255,255,255,0.15);
+      margin-top: 30px;
     }
 
     .result h2 {
-      color: #ffd4ff;
       font-size: 32px;
-      margin-bottom: 15px;
+      color: #ffd8ff;
     }
 
     .percent {
       font-size: 58px;
-      font-weight: bold;
-      margin: 20px 0;
+      font-weight: 900;
       color: #ff4fd8;
+      margin: 18px 0;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(255,79,216,0.18);
+      color: #ffd8ff;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .match,
+    .works {
+      background: rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 22px;
+    }
+
+    .work-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .work-link {
+      display: block;
+      background: #fff;
+      color: #320033;
+      font-weight: 700;
     }
 
     .share {
-      display: inline-block;
-      margin-top: 20px;
-      background: black;
-      color: white;
-      padding: 14px 22px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: bold;
+      display: block;
+      background: #111;
+      color: #fff;
+      font-weight: 700;
+      margin-top: 22px;
     }
 
-    .retry {
-      margin-top: 15px;
-      background: white;
-      color: #320033;
-      width: 100%;
-    }
-
-    .seo {
-      margin-top: 55px;
+    .seo-box {
+      margin-top: 40px;
       line-height: 1.8;
       color: #f4d4ff;
     }
 
-    .seo h2 {
-      color: white;
+    .seo-box h2,
+    .seo-box h3 {
+      color: #fff;
+    }
+
+    .notice {
+      font-size: 13px;
+      color: #e8b8ef;
+      line-height: 1.7;
+      margin-top: 18px;
+    }
+
+    footer {
+      margin-top: 35px;
+      text-align: center;
+      color: #cfa8d6;
+      font-size: 13px;
     }
 
     @media (max-width: 600px) {
-
       h1 {
         font-size: 30px;
       }
 
-      .question {
-        padding: 18px;
-      }
-
       .result h2 {
-        font-size: 25px;
+        font-size: 24px;
       }
 
       .percent {
-        font-size: 48px;
+        font-size: 46px;
+      }
+
+      .card,
+      .result,
+      .seo-box,
+      .age-box {
+        padding: 18px;
       }
     }
   </style>
 </head>
 
 <body>
+  <div class="container">
 
-<div class="container">
+    <section class="hero">
+      <h1>性癖タイプ診断</h1>
+      <p class="lead">
+        20個の質問に答えるだけで、あなたの隠れたタイプ・恋愛傾向・相性タイプがわかります。
+      </p>
+    </section>
 
-  <h1>性癖タイプ診断</h1>
+    <div id="ageCheck" class="age-box">
+      <h2>年齢確認</h2>
+      <p>この診断は大人向けの内容を含みます。18歳以上の方のみご利用ください。</p>
+      <button class="main-btn" onclick="startSite()">18歳以上なので診断をはじめる</button>
+    </div>
 
-  <p class="description">
-    10個の質問に答えるだけで、あなたの隠れたタイプ・相性タイプ・傾向がわかります。
-  </p>
+    <main id="app" style="display:none;">
+      <section class="card">
+        <div id="questions"></div>
 
-  <div id="questions"></div>
+        <button class="main-btn" onclick="showResult()">診断する</button>
+        <p class="notice">すべての質問に回答すると診断できます。</p>
+      </section>
 
-  <button class="result-btn" onclick="showResult()">
-    診断する
-  </button>
+      <div id="result"></div>
 
-  <div id="result"></div>
+      <section class="seo-box">
+        <h2>性癖タイプ診断とは？</h2>
+        <p>
+          性癖タイプ診断は、20個の質問からあなたの恋愛傾向・相性の良いタイプ・隠れた好みをチェックできる無料診断です。
+          S気質、M気質、言葉責め、甘えたい傾向、支配欲、安心感重視など、全10種類の診断結果を用意しています。
+        </p>
 
-  <div class="seo">
-    <h2>性癖タイプ診断とは？</h2>
+        <h3>こんな人におすすめ</h3>
+        <p>
+          自分の恋愛傾向を知りたい人、相性の良いタイプを知りたい人、友達やSNSで楽しめる診断を探している人におすすめです。
+        </p>
 
-    <p>
-      性癖タイプ診断は、あなたの恋愛傾向・刺激を感じやすいポイント・相性の良いタイプを簡単にチェックできる無料診断です。
-      S気質、M気質、言葉責め、甘えたい傾向、安心感重視など、さまざまなタイプから結果を表示します。
-    </p>
+        <h3>注意事項</h3>
+        <p>
+          この診断は娯楽目的のコンテンツです。結果は医学的・心理学的な診断ではありません。
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      © 性癖タイプ診断
+    </footer>
+
   </div>
 
-</div>
-
 <script>
+const SITE_URL = "https://seiheki-shindan.vercel.app/";
 
 const questions = [
-  "相手にリードされるより、自分が主導権を握りたい？",
-  "強めの言葉で責める・責められる関係に惹かれる？",
-  "甘やかされるより、少し意地悪される方がドキッとする？",
-  "相手の反応を見るのが好き？",
-  "恥ずかしさや背徳感のあるシチュエーションに弱い？",
-  "言葉で褒められると弱い？",
-  "尽くされたいと思う？",
-  "少し支配的な雰囲気に安心感を感じる？",
-  "普段とのギャップがある人に惹かれやすい？",
-  "刺激より安心感を重視する？"
+  { text: "相手にリードされるより、自分が主導権を握りたい？", type: "s" },
+  { text: "相手の反応を見るのが好き？", type: "s" },
+  { text: "頼られたり、求められたりすると燃える？", type: "s" },
+  { text: "少し支配的な雰囲気に惹かれる？", type: "s" },
+
+  { text: "強めにリードされると安心する？", type: "m" },
+  { text: "少し意地悪されるとドキッとする？", type: "m" },
+  { text: "尽くす側にまわることが多い？", type: "m" },
+  { text: "相手に振り回される恋に弱い？", type: "m" },
+
+  { text: "言葉で褒められるとかなり弱い？", type: "praise" },
+  { text: "甘い言葉や雰囲気で気持ちが動きやすい？", type: "praise" },
+
+  { text: "言葉で責める・責められる空気に惹かれる？", type: "word" },
+  { text: "直接的な行動より、会話や空気感にドキドキする？", type: "word" },
+
+  { text: "秘密っぽい関係や背徳感に弱い？", type: "secret" },
+  { text: "非日常感やスリルのある展開に惹かれやすい？", type: "secret" },
+
+  { text: "自分を特別扱いしてくれる相手に弱い？", type: "queen" },
+  { text: "尽くされると一気に気持ちが高まる？", type: "queen" },
+
+  { text: "普段とのギャップがある人に惹かれやすい？", type: "gap" },
+  { text: "清楚そうな人の意外な一面に弱い？", type: "gap" },
+
+  { text: "刺激よりも安心感や信頼感を重視する？", type: "soft" },
+  { text: "ゆっくり距離が縮まる関係の方が好き？", type: "soft" }
 ];
 
-const results = [
-  {
+const resultData = {
+  s: {
     name: "支配欲強めのリードタイプ",
-    desc: "相手を引っ張ることに魅力を感じやすいタイプ。頼られるほど燃えやすい傾向があります。",
-    match: "甘えん坊タイプ"
+    desc: "相手を引っ張ることに魅力を感じやすいタイプ。相手の反応を見ることで気持ちが高まりやすく、頼られるほど魅力が出ます。",
+    match: "素直に甘えてくれる受け身タイプ",
+    works: [
+      ["リード系のおすすめ作品を探す", "https://www.dmm.co.jp/"],
+      ["主導権タイプ向け作品を探す", "https://www.dmm.co.jp/"],
+      ["相性重視の作品を探す", "https://www.dmm.co.jp/"]
+    ]
   },
-  {
+  m: {
     name: "いじられ快感の受け身タイプ",
-    desc: "少し強めにリードされることでドキドキしやすいタイプ。",
-    match: "包容力のあるタイプ"
+    desc: "少し強めにリードされることで安心感やドキドキを感じやすいタイプ。信頼できる相手との関係で魅力が出やすいです。",
+    match: "包容力のあるリードタイプ",
+    works: [
+      ["受け身タイプ向け作品を探す", "https://www.dmm.co.jp/"],
+      ["包容力系の作品を探す", "https://www.dmm.co.jp/"],
+      ["甘やかし系の作品を探す", "https://www.dmm.co.jp/"]
+    ]
   },
-  {
+  praise: {
+    name: "褒められたい承認欲求タイプ",
+    desc: "優しい言葉や肯定されることに弱いタイプ。褒められることで安心し、気持ちが高まりやすい傾向があります。",
+    match: "よく褒めてくれる包容力タイプ",
+    works: [
+      ["褒められ系の作品を探す", "https://www.dmm.co.jp/"],
+      ["甘い雰囲気の作品を探す", "https://www.dmm.co.jp/"],
+      ["癒し系の作品を探す", "https://www.dmm.co.jp/"]
+    ]
+  },
+  word: {
     name: "言葉責めに弱い妄想タイプ",
-    desc: "雰囲気や言葉による刺激に弱いタイプ。",
-    match: "会話上手タイプ"
+    desc: "会話や空気感、言葉のニュアンスに強く反応しやすいタイプ。想像力が豊かで、雰囲気作りを重視します。",
+    match: "言葉選びが上手い大人タイプ",
+    works: [
+      ["言葉責め系の作品を探す", "https://www.dmm.co.jp/"],
+      ["会話重視の作品を探す", "https://www.dmm.co.jp/"],
+      ["妄想タイプ向け作品を探す", "https://www.dmm.co.jp/"]
+    ]
   },
-  {
+  secret: {
+    name: "背徳感に惹かれるスリルタイプ",
+    desc: "秘密っぽさや非日常感に惹かれやすいタイプ。刺激を求める一方で、安心できる相手とのバランスが大切です。",
+    match: "落ち着きのある安心タイプ",
+    works: [
+      ["背徳感系の作品を探す", "https://www.dmm.co.jp/"],
+      ["スリル系の作品を探す", "https://www.dmm.co.jp/"],
+      ["非日常系の作品を探す", "https://www.dmm.co.jp/"]
+    ]
+  },
+  queen: {
+    name: "愛され女王様タイプ",
+    desc: "自分を大切に扱ってくれる相手に惹かれやすいタイプ。尽くされることで安心して魅力を出せます。",
+    match: "尽くすのが好きな献身タイプ",
+    works: [
+      ["愛され系の作品を探す", "https://www.dmm.co.jp/"],
+      ["尽くされ系の作品を探す", "https://www.dmm.co.jp/"],
+      ["特別扱い系の作品を探す", "https://www.dmm.co.jp/"]
+    ]
+  },
+  gap: {
+    name: "ギャップ萌え妄想タイプ",
+    desc: "普段との違いや意外な一面に強く惹かれるタイプ。見た目や雰囲気の変化に敏感で、想像力も豊かです。",
+    match: "二面性のあるミステリアスタイプ",
+    works: [
+      ["ギャップ系の作品を探す", "https://www.dmm.co.jp/"],
+      ["清楚ギャップ系を探す", "https://www.dmm.co.jp/"],
+      ["意外性のある作品を探す", "https://www.dmm.co.jp/"]
+    ]
+  },
+  soft: {
     name: "安心感重視のやさしめタイプ",
-    desc: "刺激よりも安心感や信頼感を大切にするタイプ。",
-    match: "誠実タイプ"
+    desc: "過激さよりも信頼感や優しさを重視するタイプ。ゆっくり距離が縮まる関係に向いています。",
+    match: "落ち着いて向き合ってくれる誠実タイプ",
+    works: [
+      ["癒し系の作品を探す", "https://www.dmm.co.jp/"],
+      ["安心感重視の作品を探す", "https://www.dmm.co.jp/"],
+      ["やさしめ作品を探す", "https://www.dmm.co.jp/"]
+    ]
   }
-];
+};
 
-const answers = [];
+const extraResults = {
+  balance: {
+    name: "バランス型オールラウンダー",
+    desc: "S気質・M気質・安心感・刺激のバランスが取れたタイプ。相手によって雰囲気を変えられる柔軟さがあります。",
+    match: "相手に合わせられる柔軟タイプ",
+    works: [
+      ["人気作品を探す", "https://www.dmm.co.jp/"],
+      ["総合ランキングを見る", "https://www.dmm.co.jp/"],
+      ["相性重視の作品を探す", "https://www.dmm.co.jp/"]
+    ]
+  },
+  fantasy: {
+    name: "妄想暴走ロマンスタイプ",
+    desc: "現実そのものより、シチュエーションや物語性に惹かれやすいタイプ。世界観や設定がハマると一気に入り込みます。",
+    match: "世界観を一緒に楽しめるタイプ",
+    works: [
+      ["シチュエーション作品を探す", "https://www.dmm.co.jp/"],
+      ["物語性のある作品を探す", "https://www.dmm.co.jp/"],
+      ["妄想系の作品を探す", "https://www.dmm.co.jp/"]
+    ]
+  }
+};
 
-const questionsDiv = document.getElementById("questions");
+let answers = [];
 
-questions.forEach((q, index) => {
+function startSite() {
+  document.getElementById("ageCheck").style.display = "none";
+  document.getElementById("app").style.display = "block";
+}
 
-  const div = document.createElement("div");
+function renderQuestions() {
+  const wrap = document.getElementById("questions");
 
-  div.className = "question";
+  questions.forEach((q, index) => {
+    const div = document.createElement("div");
+    div.className = "question";
 
-  div.innerHTML = `
-    <h2>Q${index + 1}. ${q}</h2>
+    div.innerHTML = `
+      <h2>Q${index + 1}. ${q.text}</h2>
+      <div class="buttons">
+        <button class="answer-btn" onclick="answer(${index}, 3, this)">とても当てはまる</button>
+        <button class="answer-btn" onclick="answer(${index}, 2, this)">少し当てはまる</button>
+        <button class="answer-btn" onclick="answer(${index}, 1, this)">あまり当てはまらない</button>
+        <button class="answer-btn" onclick="answer(${index}, 0, this)">当てはまらない</button>
+      </div>
+    `;
 
-    <div class="buttons">
-      <button class="answer-btn" onclick="answer(${index}, 3)">とても当てはまる</button>
+    wrap.appendChild(div);
+  });
+}
 
-      <button class="answer-btn" onclick="answer(${index}, 2)">少し当てはまる</button>
-
-      <button class="answer-btn" onclick="answer(${index}, 1)">あまり当てはまらない</button>
-
-      <button class="answer-btn" onclick="answer(${index}, 0)">当てはまらない</button>
-    </div>
-  `;
-
-  questionsDiv.appendChild(div);
-
-});
-
-function answer(index, score) {
-
+function answer(index, score, btn) {
   answers[index] = score;
 
+  const parent = btn.parentElement;
+  const buttons = parent.querySelectorAll("button");
+  buttons.forEach(b => b.classList.remove("selected"));
+  btn.classList.add("selected");
 }
 
 function showResult() {
+  const answeredCount = answers.filter(v => v !== undefined).length;
 
-  if (answers.length < questions.length) {
-
+  if (answeredCount < questions.length) {
     alert("すべての質問に答えてください");
-
     return;
   }
 
-  const total = answers.reduce((a, b) => a + b, 0);
+  const scores = {};
+
+  questions.forEach((q, i) => {
+    scores[q.type] = (scores[q.type] || 0) + answers[i];
+  });
+
+  let sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  let topType = sorted[0][0];
+
+  const totalScore = answers.reduce((a, b) => a + b, 0);
+  const topScore = sorted[0][1];
+  const secondScore = sorted[1][1];
 
   let result;
 
-  if (total >= 24) {
-
-    result = results[0];
-
-  } else if (total >= 18) {
-
-    result = results[1];
-
-  } else if (total >= 12) {
-
-    result = results[2];
-
+  if (topScore - secondScore <= 1 && totalScore >= 38) {
+    result = extraResults.fantasy;
+  } else if (topScore - secondScore <= 1) {
+    result = extraResults.balance;
   } else {
-
-    result = results[3];
+    result = resultData[topType];
   }
 
-  const percent = Math.min(
-    99,
-    Math.floor((total / 30) * 100)
-  );
+  const percent = Math.min(99, Math.max(55, Math.round((topScore / 12) * 100)));
+
+  const shareText = `私の診断結果は「${result.name}」でした！あなたも性癖タイプ診断をやってみて👇`;
 
   document.getElementById("result").innerHTML = `
-
-    <div class="result">
-
-      <p>あなたの診断結果</p>
-
+    <section class="result">
+      <span class="tag">診断結果</span>
       <h2>${result.name}</h2>
-
       <div class="percent">${percent}%</div>
-
       <p>${result.desc}</p>
 
-      <h3>相性が良いタイプ</h3>
+      <div class="match">
+        <h3>相性が良いタイプ</h3>
+        <p>${result.match}</p>
+      </div>
 
-      <p>${result.match}</p>
+      <div class="works">
+        <h3>あなたにおすすめの作品ジャンル</h3>
+        <p class="notice">
+          下のリンクは仮リンクです。FANZA・MGS・MyFansなどのアフィリエイトリンクを取得したら、このURL部分だけ差し替えてください。
+        </p>
+        <div class="work-list">
+          ${result.works.map(w => `<a class="work-link" href="${w[1]}" target="_blank" rel="nofollow sponsored noopener">${w[0]}</a>`).join("")}
+        </div>
+      </div>
 
       <a
         class="share"
+        href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(SITE_URL)}"
         target="_blank"
-        href="https://twitter.com/intent/tweet?text=${encodeURIComponent(
-          "私の診断結果は「" + result.name + "」でした！"
-        )}&url=${encodeURIComponent(
-          "https://seiheki-shindan.vercel.app/"
-        )}"
+        rel="noopener"
       >
-        Xで共有する
+        Xで結果を共有する
       </a>
 
-      <button class="retry" onclick="location.reload()">
-        もう一度診断する
-      </button>
-
-    </div>
+      <button class="sub-btn" onclick="location.reload()">もう一度診断する</button>
+    </section>
   `;
+
+  document.getElementById("result").scrollIntoView({ behavior: "smooth" });
 }
 
+renderQuestions();
 </script>
-
 </body>
 </html>
