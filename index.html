@@ -4,22 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>性癖タイプ診断｜あなたの隠れた性癖を無料診断</title>
+  <title>性癖タイプ診断｜S・M・恋愛傾向を無料でチェック</title>
 
   <meta
     name="description"
-    content="質問に答えるだけで、あなたの性癖タイプを無料診断。S・M・甘えたい・支配されたいなど、隠れた傾向をチェックできます。"
+    content="20問の質問に答えるだけで、あなたの隠れた性癖タイプ・S傾向・M傾向・恋愛傾向を無料診断。相性タイプやおすすめ作品傾向もチェックできます。"
   />
 
   <meta
     name="keywords"
-    content="性癖診断, 性癖タイプ診断, S診断, M診断, 恋愛診断, 心理テスト"
+    content="性癖診断,性癖タイプ診断,S診断,M診断,隠れS,隠れM,恋愛診断,心理テスト,SM診断"
   />
 
-  <meta property="og:title" content="性癖タイプ診断" />
+  <meta property="og:title" content="性癖タイプ診断｜あなたの隠れた傾向をチェック" />
   <meta
     property="og:description"
-    content="質問に答えるだけで、あなたの隠れた性癖タイプを無料診断。"
+    content="20問であなたの性癖タイプ・S/M傾向・恋愛傾向を無料診断。"
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://seiheki-shinndan.vercel.app" />
@@ -32,57 +32,89 @@
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
-      background: linear-gradient(135deg, #170b24, #35113c, #100814);
+      background: radial-gradient(circle at top, #4b164f, #170b24 45%, #08040c);
       color: white;
       min-height: 100vh;
-      padding: 24px;
+      padding: 20px;
     }
 
     .container {
-      max-width: 760px;
+      max-width: 860px;
       margin: 0 auto;
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 28px;
       padding: 28px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(10px);
     }
 
     h1 {
       text-align: center;
-      font-size: 30px;
-      margin-bottom: 8px;
+      font-size: 34px;
+      margin: 8px 0 10px;
+      letter-spacing: 0.04em;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-top: 28px;
     }
 
     .lead {
       text-align: center;
-      opacity: 0.85;
-      line-height: 1.8;
-      margin-bottom: 28px;
+      line-height: 1.9;
+      opacity: 0.9;
+      margin-bottom: 26px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .badge {
+      font-size: 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.16);
     }
 
     .age-box {
       text-align: center;
-      padding: 24px;
+      padding: 28px 10px;
     }
 
     .question {
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       padding: 18px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
     .question h3 {
       margin-top: 0;
       font-size: 17px;
+      line-height: 1.7;
     }
 
     label {
       display: block;
-      margin: 10px 0;
+      margin: 11px 0;
       cursor: pointer;
-      line-height: 1.6;
+      line-height: 1.7;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.13);
+    }
+
+    label:hover {
+      background: rgba(255,255,255,0.12);
     }
 
     input {
@@ -99,45 +131,61 @@
       color: white;
       text-decoration: none;
       background: linear-gradient(135deg, #ff4d88, #8b5cf6);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.3);
       margin-top: 12px;
+      font-size: 15px;
     }
 
     button:hover, .share-button:hover, .affiliate-button:hover {
       opacity: 0.9;
+      transform: translateY(-1px);
     }
 
     .result {
       display: none;
       text-align: center;
-      padding: 24px;
+      padding: 20px 4px;
     }
 
     .result-name {
-      font-size: 28px;
+      font-size: 31px;
       margin-bottom: 10px;
       color: #ffd1e3;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+
+    .catch {
+      font-size: 17px;
+      opacity: 0.92;
+      line-height: 1.8;
+      margin-bottom: 18px;
     }
 
     .percent {
-      font-size: 20px;
+      font-size: 21px;
       margin: 16px 0;
       color: #ffe082;
+      font-weight: bold;
     }
 
     .desc {
-      line-height: 1.9;
-      opacity: 0.95;
+      line-height: 2;
+      opacity: 0.96;
       text-align: left;
       margin-top: 18px;
+      background: rgba(0,0,0,0.16);
+      padding: 18px;
+      border-radius: 18px;
     }
 
-    .match-box, .recommend-box {
+    .match-box, .recommend-box, .seo-box {
       margin-top: 22px;
       padding: 18px;
       border-radius: 18px;
       background: rgba(255,255,255,0.10);
       text-align: left;
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
     .recommend-title {
@@ -152,22 +200,31 @@
       padding: 14px;
       border-radius: 14px;
       background: rgba(0,0,0,0.18);
+      line-height: 1.8;
     }
 
     .recommend-item strong {
       display: block;
       margin-bottom: 6px;
+      color: #ffe0ef;
     }
 
     .notice {
       margin-top: 20px;
       font-size: 12px;
-      opacity: 0.7;
-      line-height: 1.6;
+      opacity: 0.72;
+      line-height: 1.7;
     }
 
     .center {
       text-align: center;
+    }
+
+    .progress {
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.8;
+      margin-bottom: 16px;
     }
 
     footer {
@@ -175,7 +232,26 @@
       font-size: 12px;
       text-align: center;
       opacity: 0.65;
-      line-height: 1.7;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
+
+      .container {
+        padding: 20px;
+        border-radius: 22px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .result-name {
+        font-size: 25px;
+      }
     }
   </style>
 </head>
@@ -185,19 +261,36 @@
 
     <div id="ageGate" class="age-box">
       <h1>性癖タイプ診断</h1>
+
+      <div class="badge-row">
+        <span class="badge">無料診断</span>
+        <span class="badge">20問</span>
+        <span class="badge">S/M傾向</span>
+        <span class="badge">恋愛タイプ</span>
+        <span class="badge">相性診断</span>
+      </div>
+
       <p class="lead">
-        この診断は18歳以上向けの内容を含みます。<br>
-        あなたの隠れた性癖傾向をチェックします。
+        あなたの隠れた性癖タイプ・S傾向・M傾向・恋愛で惹かれやすい関係性をチェックします。<br>
+        この診断は18歳以上向けの内容を含みます。
       </p>
+
       <button onclick="enterSite()">18歳以上なので診断する</button>
+
+      <p class="notice">
+        ※この診断はエンタメ目的の心理診断です。医学的・専門的な診断ではありません。
+      </p>
     </div>
 
     <div id="quiz" style="display:none;">
       <h1>性癖タイプ診断</h1>
+
       <p class="lead">
         直感で答えてください。<br>
-        最後にあなたのタイプとおすすめ傾向が表示されます。
+        最後にあなたの性癖タイプ・相性・おすすめ作品傾向が表示されます。
       </p>
+
+      <div class="progress">全20問</div>
 
       <form id="quizForm">
         <div id="questions"></div>
@@ -211,8 +304,8 @@
     <div id="result" class="result"></div>
 
     <footer>
-      ※この診断はエンタメ目的です。<br>
-      ※おすすめ作品欄にはアフィリエイトリンクを設置できます。
+      性癖診断・S診断・M診断・恋愛傾向チェックを無料で楽しめる診断サイトです。<br>
+      ※18歳未満の方は利用しないでください。
     </footer>
   </div>
 
@@ -221,204 +314,333 @@
       {
         text: "恋愛ではどちらかというと主導権を握りたい？",
         answers: [
-          { text: "かなり握りたい", type: "s", point: 3 },
-          { text: "少し握りたい", type: "s", point: 2 },
-          { text: "相手に任せたい", type: "m", point: 2 },
-          { text: "どちらでもいい", type: "balance", point: 1 }
+          { text: "かなり握りたい", type: "dom", point: 3 },
+          { text: "少し握りたい", type: "gapS", point: 2 },
+          { text: "相手に任せたい", type: "softM", point: 2 },
+          { text: "相手によって変わる", type: "switch", point: 2 }
         ]
       },
       {
-        text: "相手に強めに求められるとドキッとする？",
+        text: "相手から強めに求められるとドキッとする？",
         answers: [
-          { text: "かなりする", type: "m", point: 3 },
-          { text: "少しする", type: "m", point: 2 },
-          { text: "自分が求めたい", type: "s", point: 2 },
-          { text: "あまりない", type: "cool", point: 1 }
+          { text: "かなりする", type: "softM", point: 3 },
+          { text: "少しする", type: "depend", point: 2 },
+          { text: "自分が求めたい", type: "dom", point: 2 },
+          { text: "落ち着いた関係がいい", type: "pure", point: 2 }
         ]
       },
       {
-        text: "言葉で攻める、または攻められるのは好き？",
+        text: "言葉で攻める・攻められるならどっちが近い？",
         answers: [
-          { text: "言葉責めするのが好き", type: "s", point: 3 },
-          { text: "言葉責めされるのが好き", type: "m", point: 3 },
-          { text: "どちらも好き", type: "fantasy", point: 3 },
-          { text: "あまり興味ない", type: "pure", point: 1 }
+          { text: "言葉で攻めるのが好き", type: "wordS", point: 3 },
+          { text: "言葉で攻められるのが好き", type: "wordM", point: 3 },
+          { text: "どっちも少し気になる", type: "switch", point: 2 },
+          { text: "言葉より雰囲気重視", type: "fantasy", point: 2 }
         ]
       },
       {
         text: "恋愛では甘えたい？甘えられたい？",
         answers: [
-          { text: "甘えたい", type: "m", point: 2 },
-          { text: "甘えられたい", type: "s", point: 2 },
-          { text: "両方ある", type: "balance", point: 2 },
+          { text: "甘えたい", type: "softM", point: 2 },
+          { text: "甘えられたい", type: "careS", point: 3 },
+          { text: "両方ある", type: "switch", point: 2 },
           { text: "距離感は大事", type: "cool", point: 2 }
         ]
       },
       {
-        text: "少し危うい雰囲気に惹かれる？",
+        text: "少し秘密っぽい関係や背徳感に惹かれる？",
         answers: [
           { text: "かなり惹かれる", type: "fantasy", point: 3 },
           { text: "少し惹かれる", type: "fantasy", point: 2 },
           { text: "安心感の方が大事", type: "pure", point: 2 },
-          { text: "相手による", type: "balance", point: 1 }
+          { text: "相手による", type: "switch", point: 1 }
         ]
       },
       {
-        text: "相手に独占されたい気持ちはある？",
+        text: "独占されたい・独占したい気持ちはある？",
         answers: [
-          { text: "かなりある", type: "m", point: 3 },
-          { text: "少しある", type: "m", point: 2 },
-          { text: "自分が独占したい", type: "s", point: 3 },
+          { text: "独占されたい", type: "depend", point: 3 },
+          { text: "独占したい", type: "possessive", point: 3 },
+          { text: "どちらも少しある", type: "yandere", point: 2 },
           { text: "自由でいたい", type: "cool", point: 2 }
-        ]
-      },
-      {
-        text: "恋愛では刺激と安心、どちらが大事？",
-        answers: [
-          { text: "刺激", type: "fantasy", point: 3 },
-          { text: "安心", type: "pure", point: 3 },
-          { text: "両方", type: "balance", point: 3 },
-          { text: "相手次第", type: "cool", point: 1 }
         ]
       },
       {
         text: "相手の反応を見るのが好き？",
         answers: [
-          { text: "かなり好き", type: "s", point: 3 },
-          { text: "少し好き", type: "s", point: 2 },
-          { text: "自分が反応する方", type: "m", point: 2 },
-          { text: "自然体がいい", type: "pure", point: 1 }
+          { text: "かなり好き", type: "dom", point: 3 },
+          { text: "照れる反応を見るのが好き", type: "gapS", point: 3 },
+          { text: "自分が反応する方", type: "softM", point: 2 },
+          { text: "自然体がいい", type: "pure", point: 2 }
         ]
       },
       {
-        text: "秘密の関係っぽい雰囲気に弱い？",
+        text: "恋愛で一番惹かれるのは？",
         answers: [
-          { text: "かなり弱い", type: "fantasy", point: 3 },
-          { text: "少し弱い", type: "fantasy", point: 2 },
-          { text: "普通がいい", type: "pure", point: 2 },
-          { text: "状況による", type: "balance", point: 1 }
+          { text: "刺激", type: "fantasy", point: 3 },
+          { text: "安心感", type: "pure", point: 3 },
+          { text: "支配感・主導権", type: "dom", point: 3 },
+          { text: "強い愛情・独占欲", type: "yandere", point: 3 }
         ]
       },
       {
-        text: "自分の本音を見抜かれると？",
+        text: "普段の自分と恋愛中の自分にギャップはある？",
         answers: [
-          { text: "ドキッとする", type: "m", point: 3 },
-          { text: "嬉しい", type: "pure", point: 2 },
-          { text: "逆に見抜きたい", type: "s", point: 3 },
-          { text: "少し苦手", type: "cool", point: 2 }
+          { text: "かなりある", type: "gapS", point: 3 },
+          { text: "甘えると変わる", type: "softM", point: 2 },
+          { text: "冷静なまま", type: "cool", point: 2 },
+          { text: "相手による", type: "switch", point: 2 }
+        ]
+      },
+      {
+        text: "相手に必要とされると嬉しい？",
+        answers: [
+          { text: "かなり嬉しい", type: "careS", point: 3 },
+          { text: "依存されても少し嬉しい", type: "possessive", point: 2 },
+          { text: "自分が必要としたい", type: "depend", point: 2 },
+          { text: "ほどほどがいい", type: "pure", point: 2 }
+        ]
+      },
+      {
+        text: "強引さと優しさ、どっちに弱い？",
+        answers: [
+          { text: "強引さ", type: "softM", point: 3 },
+          { text: "優しさ", type: "pure", point: 3 },
+          { text: "優しいのに少し強い感じ", type: "careS", point: 3 },
+          { text: "ミステリアスさ", type: "fantasy", point: 2 }
+        ]
+      },
+      {
+        text: "相手の本音を引き出したい？",
+        answers: [
+          { text: "かなり引き出したい", type: "wordS", point: 3 },
+          { text: "反応を見ながら攻めたい", type: "dom", point: 2 },
+          { text: "自分の本音を見抜かれたい", type: "wordM", point: 3 },
+          { text: "自然に話したい", type: "pure", point: 2 }
+        ]
+      },
+      {
+        text: "恋愛で少し重めの愛情はあり？",
+        answers: [
+          { text: "かなりあり", type: "yandere", point: 3 },
+          { text: "求められるならあり", type: "depend", point: 2 },
+          { text: "自分が重くなるかも", type: "possessive", point: 2 },
+          { text: "軽やかな方がいい", type: "cool", point: 2 }
+        ]
+      },
+      {
+        text: "相手をからかったり、照れさせたりするのは好き？",
+        answers: [
+          { text: "かなり好き", type: "gapS", point: 3 },
+          { text: "言葉で揺さぶるのが好き", type: "wordS", point: 3 },
+          { text: "からかわれる方が好き", type: "wordM", point: 2 },
+          { text: "あまり得意ではない", type: "pure", point: 1 }
+        ]
+      },
+      {
+        text: "理想の関係性に近いのは？",
+        answers: [
+          { text: "リードする・されるがはっきりしている", type: "dom", point: 2 },
+          { text: "甘やかし合える", type: "pure", point: 3 },
+          { text: "刺激と安心の両方がある", type: "switch", point: 3 },
+          { text: "特別扱い・独占感がある", type: "possessive", point: 3 }
+        ]
+      },
+      {
+        text: "相手に褒められる・認められると弱い？",
+        answers: [
+          { text: "かなり弱い", type: "softM", point: 2 },
+          { text: "自分が褒めたい", type: "careS", point: 2 },
+          { text: "言葉で揺れる", type: "wordM", point: 3 },
+          { text: "態度で示してほしい", type: "cool", point: 2 }
+        ]
+      },
+      {
+        text: "非日常っぽいシチュエーションに惹かれる？",
+        answers: [
+          { text: "かなり惹かれる", type: "fantasy", point: 3 },
+          { text: "少しなら惹かれる", type: "fantasy", point: 2 },
+          { text: "日常の安心感が好き", type: "pure", point: 2 },
+          { text: "相手の雰囲気次第", type: "switch", point: 2 }
+        ]
+      },
+      {
+        text: "好きな相手には少し束縛したくなる？",
+        answers: [
+          { text: "かなりある", type: "possessive", point: 3 },
+          { text: "少しある", type: "yandere", point: 2 },
+          { text: "束縛されたい方", type: "depend", point: 2 },
+          { text: "自由が一番", type: "cool", point: 3 }
+        ]
+      },
+      {
+        text: "恋愛では自分のペースを崩されるのは？",
+        answers: [
+          { text: "崩されるとドキッとする", type: "softM", point: 3 },
+          { text: "崩す側でいたい", type: "dom", point: 3 },
+          { text: "相手によってはあり", type: "switch", point: 2 },
+          { text: "あまり好きじゃない", type: "cool", point: 2 }
+        ]
+      },
+      {
+        text: "最後に、あなたが一番近いと思うものは？",
+        answers: [
+          { text: "支配するより、上手にリードしたい", type: "dom", point: 3 },
+          { text: "強く求められると弱い", type: "softM", point: 3 },
+          { text: "秘密・背徳・妄想に惹かれる", type: "fantasy", point: 3 },
+          { text: "相手次第でSにもMにもなる", type: "switch", point: 3 }
         ]
       }
     ];
 
     const results = {
-      s: {
+      dom: {
         name: "支配欲を秘めたリード型",
-        percent: "S傾向 82%",
-        match: "相性がいいタイプ：甘えん坊M型・受け身ドキドキ型",
-        desc: "あなたは相手の反応を見ながら距離を詰めていくリード型。強引すぎるより、余裕を持って主導権を握るタイプです。",
+        catch: "相手の反応を見ながら、自然に主導権を握りたいタイプ。",
+        percent: "S傾向 86%",
+        match: "相性がいいタイプ：甘く支配されたいM気質型・言葉に弱い受け身型",
+        desc: "あなたは恋愛や親密な関係で、自然と主導権を握りやすいタイプです。ただし、ただ強引に進めたいというより、相手の反応や空気を読みながら距離を詰めるのが得意。相手が照れたり、少し戸惑ったり、あなたにペースを預けてくれる瞬間に魅力を感じやすい傾向があります。隠れS気質はありますが、冷たく支配するというより、相手の気持ちを見ながらリードする余裕型。恋愛では、自分を信頼して委ねてくれる相手と相性が良いです。",
         recommends: [
-          {
-            title: "主導権強め・リード系作品",
-            text: "Sっ気のある雰囲気や、相手を引っ張る展開が好きな人向け。",
-            url: "https://example.com"
-          },
-          {
-            title: "言葉責め・心理戦系",
-            text: "言葉や雰囲気でじわじわ攻めるタイプが好きな人におすすめ。",
-            url: "https://example.com"
-          }
+          ["リード強め・主導権系", "相手を引っ張る展開や、余裕のあるSっ気に惹かれる人向け。"],
+          ["言葉責め・心理戦系", "言葉や雰囲気でじわじわ距離を詰める作品傾向と相性が良いです。"]
         ]
       },
-      m: {
+      softM: {
         name: "甘く支配されたいM気質型",
-        percent: "M傾向 86%",
-        match: "相性がいいタイプ：リード型・包容力強めタイプ",
-        desc: "あなたは強く求められたり、相手にペースを握られることで気持ちが高まりやすいタイプ。安心感のある支配に弱い傾向があります。",
+        catch: "強く求められるほど、安心して気持ちを預けたくなるタイプ。",
+        percent: "M傾向 88%",
+        match: "相性がいいタイプ：支配欲を秘めたリード型・包容力のあるS型",
+        desc: "あなたは相手に強く求められたり、少しペースを握られたりすることで気持ちが高まりやすいタイプです。ただし、雑に扱われたいわけではなく、安心感や信頼感がある相手にだけ委ねたい傾向があります。優しさの中に少し強引さがある関係に弱く、『自分だけを見てくれている』と感じると一気に心を開きやすいです。M気質といっても受け身一辺倒ではなく、相手の愛情や本気度を感じたいタイプ。甘やかされながらリードされる関係と相性抜群です。",
         recommends: [
-          {
-            title: "甘めリード・支配されたい系",
-            text: "強引すぎず、優しさのあるリード展開が好きな人向け。",
-            url: "https://example.com"
-          },
-          {
-            title: "独占欲・溺愛系",
-            text: "相手に求められる、特別扱いされる雰囲気が好きな人におすすめ。",
-            url: "https://example.com"
-          }
+          ["甘めリード・優しい支配系", "強引すぎず、安心感のあるリード展開が好きな人向け。"],
+          ["溺愛・独占されたい系", "求められる感覚や特別扱いに弱い人におすすめ。"]
+        ]
+      },
+      wordS: {
+        name: "言葉で揺さぶる知的S型",
+        catch: "直接的な強さより、言葉と空気で相手を動かしたいタイプ。",
+        percent: "言葉責めS傾向 84%",
+        match: "相性がいいタイプ：言葉に弱い受け身型・反応が素直なタイプ",
+        desc: "あなたは力で押すよりも、言葉や空気感で相手の感情を動かすことに惹かれやすいタイプです。相手がどんな言葉に反応するのか、どんな距離感で揺れるのかを観察するのが得意。恋愛では、会話の駆け引きや少し意地悪な一言、余裕を感じさせる態度に魅力が出ます。あなたのS気質は派手ではありませんが、心理的な主導権を握るのがうまいタイプ。言葉で関係性を深めたい人や、照れやすい相手と相性が良いです。",
+        recommends: [
+          ["言葉責め・会話駆け引き系", "心理的な距離感や言葉の攻防が好きな人向け。"],
+          ["大人の余裕・知的S系", "落ち着いた雰囲気の中で主導権を握る作品傾向と相性良し。"]
+        ]
+      },
+      wordM: {
+        name: "言葉に弱い受け身ロマン型",
+        catch: "強い言葉より、“自分を見抜かれる感覚”に弱いタイプ。",
+        percent: "言葉責めされたい傾向 85%",
+        match: "相性がいいタイプ：知的S型・余裕のあるリード型",
+        desc: "あなたは言葉によって感情が大きく動きやすいタイプです。ただ刺激的な言葉が好きというより、自分の本音を見抜かれたり、気持ちを言語化されたりすることに弱い傾向があります。恋愛では、相手の一言で急に意識してしまったり、何気ない言葉が頭から離れなくなったりしやすいかもしれません。受け身寄りではありますが、心の奥では『ちゃんと自分を見てほしい』という欲求が強め。言葉選びが上手い相手や、精神的にリードしてくれる相手と相性が良いです。",
+        recommends: [
+          ["言葉責めされたい系", "言葉で心を揺さぶられる展開が好きな人向け。"],
+          ["心理描写・感情重視系", "雰囲気やセリフでドキドキしたい人におすすめ。"]
         ]
       },
       fantasy: {
         name: "妄想深めの背徳ロマン型",
-        percent: "妄想・刺激傾向 88%",
-        match: "相性がいいタイプ：ミステリアス型・刺激好きタイプ",
-        desc: "あなたは普通の恋愛より、少し秘密っぽい雰囲気や非日常感に惹かれやすいタイプ。ストーリー性や空気感を重視します。",
+        catch: "普通の恋愛より、少し秘密めいた空気に惹かれるタイプ。",
+        percent: "妄想・背徳傾向 90%",
+        match: "相性がいいタイプ：ミステリアス型・刺激好きなスイッチ型",
+        desc: "あなたは現実的な関係だけでなく、ストーリー性や非日常感、秘密っぽい雰囲気に惹かれやすいタイプです。関係性の背景や空気感を重視し、『ただの刺激』よりも、そこに至るまでの流れや心理描写にドキドキしやすい傾向があります。背徳感やミステリアスな相手、普段とは違う一面が見える瞬間に弱いかもしれません。妄想力が強く、作品を見る時も設定や関係性に入り込むタイプ。普通すぎる展開より、少し危うさや秘密がある方が印象に残りやすいです。",
         recommends: [
-          {
-            title: "背徳感・ストーリー重視系",
-            text: "雰囲気や関係性にドキドキしたい人向け。",
-            url: "https://example.com"
-          },
-          {
-            title: "ミステリアス・秘密の関係系",
-            text: "日常から少し外れた設定が好きな人におすすめ。",
-            url: "https://example.com"
-          }
+          ["背徳感・ストーリー重視系", "設定や関係性にドキドキしたい人向け。"],
+          ["秘密の関係・非日常系", "日常から少し外れた雰囲気が好きな人におすすめ。"]
         ]
       },
       pure: {
         name: "安心感重視のピュア密着型",
-        percent: "安心・甘え傾向 80%",
+        catch: "強い刺激より、信頼・優しさ・距離の近さを大事にするタイプ。",
+        percent: "安心・甘え傾向 82%",
         match: "相性がいいタイプ：包容力タイプ・優しいリード型",
-        desc: "あなたは強い刺激よりも、信頼感や安心感を重視するタイプ。ゆっくり距離が縮まる関係に惹かれやすいです。",
+        desc: "あなたは刺激の強さよりも、安心感や信頼感を重視するタイプです。急に距離を詰められるより、ゆっくり関係が深まっていく流れに惹かれやすく、相手の優しさや誠実さに弱い傾向があります。性癖診断としてはかなりピュア寄りですが、だからといって淡白なわけではありません。むしろ心を許した相手には甘えたい気持ちや密着したい気持ちが強く出やすいタイプ。安心できる相手との関係では、普段より大胆になる可能性もあります。",
         recommends: [
-          {
-            title: "甘々・恋人感強め作品",
-            text: "優しい雰囲気や安心感を重視したい人向け。",
-            url: "https://example.com"
-          },
-          {
-            title: "癒やし・密着感系",
-            text: "刺激よりも落ち着く関係性が好きな人におすすめ。",
-            url: "https://example.com"
-          }
+          ["甘々・恋人感強め系", "安心感や優しさを重視したい人向け。"],
+          ["癒やし・密着感系", "刺激よりも落ち着く関係性が好きな人におすすめ。"]
         ]
       },
       cool: {
         name: "余裕を崩さないクール観察型",
-        percent: "クール傾向 77%",
-        match: "相性がいいタイプ：積極型・感情表現豊かなタイプ",
-        desc: "あなたは感情に流されすぎず、相手や状況を冷静に見るタイプ。距離感を保ちながらも、内側には好奇心を秘めています。",
+        catch: "簡単には流されないけど、内側には好奇心を秘めているタイプ。",
+        percent: "クール傾向 78%",
+        match: "相性がいいタイプ：積極型・感情表現がわかりやすいタイプ",
+        desc: "あなたは恋愛や刺激的な関係でも、比較的冷静に状況を見るタイプです。勢いだけで流されるより、相手の雰囲気や距離感、自分の中の納得感を大事にします。一見すると淡白に見られることもありますが、実は内側に好奇心を持っているタイプ。自分のペースを乱されすぎるのは苦手でも、信頼できる相手や空気感の合う相手には少しずつ本音を見せていきます。焦らず距離を縮めてくれる相手と相性が良いです。",
         recommends: [
-          {
-            title: "大人っぽい駆け引き系",
-            text: "落ち着いた雰囲気や心理的な距離感が好きな人向け。",
-            url: "https://example.com"
-          },
-          {
-            title: "クール美女・知的系",
-            text: "派手さよりも雰囲気や空気感を重視する人におすすめ。",
-            url: "https://example.com"
-          }
+          ["大人っぽい駆け引き系", "落ち着いた心理戦や距離感が好きな人向け。"],
+          ["クール美女・知的系", "派手さより雰囲気や空気感を重視する人におすすめ。"]
         ]
       },
-      balance: {
-        name: "SもMもいけるバランス型",
-        percent: "バランス傾向 84%",
-        match: "相性がいいタイプ：相手に合わせられる柔軟タイプ",
-        desc: "あなたは相手や状況によって、リードも受け身も楽しめる柔軟なタイプ。固定された役割より、空気感や相性を大切にします。",
+      switch: {
+        name: "SもMもいけるスイッチ型",
+        catch: "相手や空気によって、攻めにも受けにも変わる万能タイプ。",
+        percent: "スイッチ傾向 87%",
+        match: "相性がいいタイプ：柔軟に合わせられるタイプ・刺激好きタイプ",
+        desc: "あなたは固定されたS/Mタイプというより、相手や雰囲気によって役割が変わるスイッチ型です。リードしたい時もあれば、相手に任せたい時もあり、その時の関係性や気分を大切にします。かなり柔軟で、相手の反応を見ながら自分の立ち位置を変えられるのが強み。恋愛でも『こうでなければいけない』というこだわりが少なく、相性が合う相手とは幅広い楽しみ方ができます。診断結果としてはかなりバランスが良く、好奇心も強めです。",
         recommends: [
-          {
-            title: "S/Mバランス系",
-            text: "攻めも受けも両方の雰囲気を楽しみたい人向け。",
-            url: "https://example.com"
-          },
-          {
-            title: "診断結果別おすすめまとめ",
-            text: "まだ好みが決まりきっていない人におすすめ。",
-            url: "https://example.com"
-          }
+          ["S/Mバランス系", "攻めも受けも両方の雰囲気を楽しみたい人向け。"],
+          ["ジャンル横断・おすすめまとめ系", "まだ好みが決まりきっていない人におすすめ。"]
+        ]
+      },
+      possessive: {
+        name: "独占欲強めの一途支配型",
+        catch: "好きになった相手を特別扱いしたい、深く求めたいタイプ。",
+        percent: "独占欲傾向 89%",
+        match: "相性がいいタイプ：求められたいM型・甘えん坊タイプ",
+        desc: "あなたは好きな相手に対して、かなり一途になりやすいタイプです。軽い関係よりも、自分だけを見てほしい、自分も相手を特別扱いしたいという気持ちが強め。独占欲はありますが、それは相手を大切にしたい気持ちの裏返しでもあります。恋愛では、曖昧な距離感や中途半端な態度に不安を感じやすく、はっきりとした愛情表現を求める傾向があります。相手に依存されたい、必要とされたい気持ちもあり、甘え上手な相手と相性が良いです。",
+        recommends: [
+          ["独占欲・溺愛系", "特別扱いされる、またはする関係性が好きな人向け。"],
+          ["一途・重め恋愛系", "軽さより深い愛情表現に惹かれる人におすすめ。"]
+        ]
+      },
+      careS: {
+        name: "包容力で包む優しいS型",
+        catch: "強く支配するより、甘やかしながらリードしたいタイプ。",
+        percent: "優しいS傾向 83%",
+        match: "相性がいいタイプ：甘えたいM型・安心感重視タイプ",
+        desc: "あなたは相手を強く押さえつけるタイプではなく、包容力や安心感で相手をリードする優しいS型です。相手に甘えられたり、頼られたりすることで魅力が引き出されます。恋愛では、相手の弱さや素直な反応を見ると守りたい気持ちが強くなりやすいです。支配というより『自分の手の中で安心してほしい』という感覚に近く、精神的な主導権を持つタイプ。甘えたい相手や、少し受け身な相手とかなり相性が良いです。",
+        recommends: [
+          ["包容力・甘やかし系", "優しくリードする雰囲気が好きな人向け。"],
+          ["年上・安心感系", "守られる、包まれる関係性が好きな人におすすめ。"]
+        ]
+      },
+      gapS: {
+        name: "普段優しい隠れSギャップ型",
+        catch: "普段は穏やか。でも好きな相手には少し意地悪したくなるタイプ。",
+        percent: "隠れS傾向 85%",
+        match: "相性がいいタイプ：照れやすいタイプ・反応が素直なM型",
+        desc: "あなたは普段は優しく穏やかに見られやすいですが、恋愛になると少しSっ気が出るギャップ型です。相手を困らせたいわけではなく、照れる反応や素直なリアクションを見るのが好きなタイプ。強引さよりも、軽い意地悪や言葉の駆け引きで距離を縮めるのが得意です。このタイプはSNSでも共感されやすく、『自分では普通だと思っていたけど実は隠れSだった』という人が多い傾向があります。相手の反応を大切にできるので、優しいSとして魅力が出やすいです。",
+        recommends: [
+          ["隠れS・ギャップ系", "普段優しいのに少し意地悪な雰囲気が好きな人向け。"],
+          ["照れ反応・からかい系", "相手のリアクションを楽しみたい人におすすめ。"]
+        ]
+      },
+      depend: {
+        name: "求められたい依存ロマン型",
+        catch: "必要とされるほど安心する、深い愛情確認タイプ。",
+        percent: "依存されたい・されたい傾向 86%",
+        match: "相性がいいタイプ：独占欲強めタイプ・包容力S型",
+        desc: "あなたは恋愛で『ちゃんと求められている』と感じることを大切にするタイプです。軽い好きよりも、深く必要とされる感覚に弱く、相手からの愛情表現が強いほど安心しやすい傾向があります。依存といってもネガティブな意味だけではなく、心の距離が近い関係を好むということ。相手にとって自分が特別な存在であると感じられると、かなり満たされます。曖昧な態度をされると不安になりやすい一方で、誠実に向き合ってくれる相手には深く尽くせるタイプです。",
+        recommends: [
+          ["依存・溺愛系", "必要とされる関係性に弱い人向け。"],
+          ["独占されたい・重め愛情系", "軽さより深い愛情表現を求める人におすすめ。"]
+        ]
+      },
+      yandere: {
+        name: "重愛に惹かれるヤンデレ耐性型",
+        catch: "普通より少し重い愛情に、なぜか安心してしまうタイプ。",
+        percent: "重愛・ヤンデレ耐性 84%",
+        match: "相性がいいタイプ：一途タイプ・愛情表現が強いタイプ",
+        desc: "あなたは一般的には少し重いとされる愛情表現にも、どこか惹かれやすいタイプです。強く求められること、特別視されること、他の人とは違う扱いをされることに安心感を覚えやすい傾向があります。ただし、現実の関係では安心感や尊重が大前提。診断としては、作品や妄想の中で『重い愛』『独占欲』『執着』のようなテーマに惹かれやすいタイプです。SNSでシェアされやすい結果でもあり、自分でも気づいていなかった好みが出やすいタイプです。",
+        recommends: [
+          ["ヤンデレ・重愛系", "一途すぎる愛情表現や独占感に惹かれる人向け。"],
+          ["執着・特別扱い系", "自分だけを見てほしい願望がある人におすすめ。"]
         ]
       }
+    };
+
+    const affiliateLinks = {
+      default: "https://example.com"
     };
 
     function enterSite() {
@@ -429,6 +651,7 @@
 
     function renderQuestions() {
       const wrap = document.getElementById("questions");
+      wrap.innerHTML = "";
 
       questions.forEach((q, index) => {
         const div = document.createElement("div");
@@ -451,14 +674,8 @@
     }
 
     function showResult() {
-      const scores = {
-        s: 0,
-        m: 0,
-        fantasy: 0,
-        pure: 0,
-        cool: 0,
-        balance: 0
-      };
+      const scores = {};
+      Object.keys(results).forEach(type => scores[type] = 0);
 
       questions.forEach((q, index) => {
         const checked = document.querySelector(`input[name="q${index}"]:checked`);
@@ -468,7 +685,7 @@
         }
       });
 
-      let topType = "balance";
+      let topType = "switch";
       let maxScore = 0;
 
       for (const type in scores) {
@@ -482,9 +699,9 @@
 
       const recommendHtml = result.recommends.map(item => `
         <div class="recommend-item">
-          <strong>${item.title}</strong>
-          <div>${item.text}</div>
-          <a class="affiliate-button" href="${item.url}" target="_blank" rel="nofollow sponsored noopener">
+          <strong>${item[0]}</strong>
+          <div>${item[1]}</div>
+          <a class="affiliate-button" href="${affiliateLinks.default}" target="_blank" rel="nofollow sponsored noopener">
             おすすめ作品を見る
           </a>
         </div>
@@ -494,10 +711,11 @@
 
       document.getElementById("result").innerHTML = `
         <div class="result-name">${result.name}</div>
-
+        <div class="catch">${result.catch}</div>
         <div class="percent">${result.percent}</div>
 
         <div class="match-box">
+          <strong>相性タイプ</strong><br>
           ${result.match}
         </div>
 
@@ -506,6 +724,12 @@
         <div class="recommend-box">
           <div class="recommend-title">あなたにおすすめの作品傾向</div>
           ${recommendHtml}
+        </div>
+
+        <div class="seo-box">
+          <strong>このタイプの特徴</strong><br>
+          この診断結果は、性癖診断・S診断・M診断・恋愛傾向チェックをもとにしたエンタメ診断です。
+          あなたの隠れた性癖タイプや、恋愛で惹かれやすい関係性を知るきっかけとして楽しんでください。
         </div>
 
         <a
@@ -522,11 +746,12 @@
 
         <p class="notice">
           ※おすすめ作品欄のリンクは、あとでFANZA・MGS・MyFansなどのアフィリエイトリンクに差し替えてください。<br>
-          ※広告リンクには rel="nofollow sponsored" を付けています。
+          ※広告リンクには rel="nofollow sponsored noopener" を付けています。
         </p>
       `;
 
       document.getElementById("result").style.display = "block";
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   </script>
 </body>
