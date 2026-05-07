@@ -12,11 +12,11 @@
   <meta property="og:title" content="性癖タイプ診断｜20問でわかる大人の恋愛・相性診断" />
   <meta property="og:description" content="あなたの隠れた性癖タイプ・恋愛傾向・相性タイプを無料で診断できます。" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://seiheki-shindan.vercel.app/" />
+  <meta property="og:url" content="https://seiheki-shindan.com/" />
 
   <meta name="google-site-verification" content="DmE801p5NYdzKhTxRrlEheEefmbzJifnl5dVYbLkWxI" />
 
-  <link rel="canonical" href="https://seiheki-shindan.vercel.app/" />
+  <link rel="canonical" href="https://seiheki-shindan.com/" />
 
   <style>
     * { box-sizing: border-box; }
@@ -52,7 +52,7 @@
     .age-box,
     .card,
     .result,
-    .seo-box {
+    .info-box {
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.16);
       border-radius: 24px;
@@ -186,14 +186,14 @@
       margin-top: 22px;
     }
 
-    .seo-box {
+    .info-box {
       margin-top: 40px;
       line-height: 1.8;
       color: #f4d4ff;
     }
 
-    .seo-box h2,
-    .seo-box h3 {
+    .info-box h2,
+    .info-box h3 {
       color: #fff;
     }
 
@@ -204,11 +204,29 @@
       margin-top: 18px;
     }
 
-    footer {
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
       margin-top: 35px;
+      font-size: 13px;
+    }
+
+    .footer-links a {
+      color: #ffd8ff;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 20px;
       text-align: center;
       color: #cfa8d6;
       font-size: 13px;
+    }
+
+    a {
+      color: #ffd8ff;
     }
 
     @media (max-width: 600px) {
@@ -218,7 +236,7 @@
 
       .card,
       .result,
-      .seo-box,
+      .info-box,
       .age-box {
         padding: 18px;
       }
@@ -251,7 +269,7 @@
 
       <div id="result"></div>
 
-      <section class="seo-box">
+      <section class="info-box" id="about">
         <h2>性癖タイプ診断とは？</h2>
         <p>
           性癖タイプ診断は、20個の質問からあなたの恋愛傾向・相性の良いタイプ・隠れた好みをチェックできる無料診断です。
@@ -269,13 +287,100 @@
           この診断は娯楽目的のコンテンツです。結果は医学的・心理学的な診断ではありません。
         </p>
       </section>
+
+      <section class="info-box" id="operator">
+        <h2>運営者情報</h2>
+        <p><strong>サイト名：</strong>性癖タイプ診断</p>
+        <p><strong>運営者：</strong>性癖タイプ診断運営事務局</p>
+        <p><strong>お問い合わせ：</strong><a href="mailto:shindanseiheki@gmail.com">shindanseiheki@gmail.com</a></p>
+        <p>
+          <strong>サイト説明：</strong>
+          当サイトはエンタメ目的の診断コンテンツを提供しています。
+        </p>
+        <p>
+          <strong>広告について：</strong>
+          当サイトはアフィリエイト広告を利用する場合があります。
+        </p>
+      </section>
+
+      <section class="info-box" id="contact">
+        <h2>お問い合わせ</h2>
+        <p>
+          当サイトに関するお問い合わせは、以下のメールアドレスまでお願いいたします。
+        </p>
+        <p>
+          <a href="mailto:shindanseiheki@gmail.com">shindanseiheki@gmail.com</a>
+        </p>
+      </section>
+
+      <section class="info-box" id="privacy">
+        <h2>プライバシーポリシー</h2>
+
+        <h3>個人情報の利用について</h3>
+        <p>
+          当サイトでは、お問い合わせ時にメールアドレス等の情報をご提供いただく場合があります。
+          取得した情報は、お問い合わせへの回答や必要な連絡のために利用し、それ以外の目的では利用しません。
+        </p>
+
+        <h3>アクセス解析について</h3>
+        <p>
+          当サイトでは、今後アクセス解析ツールを利用する場合があります。
+          アクセス解析ではCookieを使用する場合がありますが、個人を特定するものではありません。
+        </p>
+
+        <h3>広告について</h3>
+        <p>
+          当サイトでは、アフィリエイト広告を掲載する場合があります。
+          商品やサービスに関するお問い合わせは、各販売元・提供元へお願いいたします。
+        </p>
+
+        <h3>免責事項</h3>
+        <p>
+          当サイトのコンテンツは娯楽目的で提供しています。
+          掲載情報の正確性には注意を払っていますが、内容の完全性や安全性を保証するものではありません。
+        </p>
+      </section>
+
+      <section class="info-box" id="terms">
+        <h2>利用規約</h2>
+
+        <h3>当サイトの利用について</h3>
+        <p>
+          当サイトは、エンタメ目的の診断コンテンツを提供するサイトです。
+          診断結果はあくまで娯楽目的であり、医学的・心理学的な診断を行うものではありません。
+        </p>
+
+        <h3>禁止事項</h3>
+        <p>
+          当サイトのコンテンツの無断転載、改変、迷惑行為、不正アクセス等を禁止します。
+        </p>
+
+        <h3>外部リンクについて</h3>
+        <p>
+          当サイトには外部サイトへのリンクが含まれる場合があります。
+          外部サイトで発生したトラブルについて、当サイトは責任を負いません。
+        </p>
+
+        <h3>規約の変更</h3>
+        <p>
+          当サイトは、必要に応じて本規約を変更する場合があります。
+        </p>
+      </section>
     </main>
+
+    <nav class="footer-links">
+      <a href="#about">サイト説明</a>
+      <a href="#operator">運営者情報</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="#privacy">プライバシーポリシー</a>
+      <a href="#terms">利用規約</a>
+    </nav>
 
     <footer>© 性癖タイプ診断</footer>
   </div>
 
 <script>
-const SITE_URL = "https://seiheki-shindan.vercel.app/";
+const SITE_URL = "https://seiheki-shindan.com/";
 
 const questions = [
   { text: "相手にリードされるより、自分が主導権を握りたい？", type: "s" },
