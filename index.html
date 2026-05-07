@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>性癖タイプ診断｜あなたの隠れた性癖を分析</title>
+
+<meta
+  name="description"
+  content="S・M・言葉責め・依存型など、あなたの隠れた性癖タイプを無料診断。"
+/>
+  <meta
+    name="keywords"
+    content="性癖診断, 性癖タイプ診断, S診断, M診断, 恋愛診断, 心理テスト"
+  />
+
+  <meta property="og:title" content="性癖タイプ診断" />
+  <meta
+    property="og:description"
+    content="質問に答えるだけであなたの性癖タイプを無料診断。"
+  />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://seiheki-shinndan.vercel.app" />
+
+  <meta name="robots" content="index, follow" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+        "Yu Gothic", sans-serif;
+      background: linear-gradient(135deg, #170b24, #35113c, #100814);
+      color: white;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 32px 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      margin-top: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 24px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .notice {
+      color: #ffd3ea;
+      font-size: 14px;
+    }
+
+    .progress {
+      color: #ffb0d5;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .answers {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    button,
+    .share-button {
+      width: 100%;
+      border: none;
+      border-radius: 999px;
+      padding: 15px;
+      background: linear-gradient(135deg, #ff4fa3, #9c5cff);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    button:hover,
+    .share-button:hover {
+      opacity: 0.9;
+    }
+
+    .result-character {
+      font-size: 70px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .percent {
+      font-size: 24px;
+      color: #ffd166;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .match-box {
+      margin-top: 24px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .seo-text {
+      margin-top: 40px;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card" id="app"></div>
+
+    <div class="seo-text">
+      <h2>性癖タイプ診断とは？</h2>
+
+      <p>
+        性癖タイプ診断は、恋愛で惹かれやすい関係性や、
+        S・M傾向、甘えたい気持ち、リードしたい気持ちなどを
+        簡単にチェックできる無料診断です。
+      </p>
+
+      <p>
+        暇つぶしや友達との話題作りにも使える人気の心理テスト風診断サイトです。
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        text: "恋愛や距離感で一番ドキッとするのは？",
+        answers: [
+          ["優しくリードされる", "softM"],
+          ["自分が主導権を持つ", "softS"],
+          ["甘やかされる", "amae"],
+          ["秘密っぽい雰囲気", "secret"],
+        ],
+      },
+
+      {
+        text: "相手にされると弱いのは？",
+        answers: [
+          ["言葉で褒められる", "word"],
+          ["少し強めに引っ張られる", "deepM"],
+          ["ツンデレっぽい態度", "tsundere"],
+          ["まっすぐ好意を伝えられる", "romance"],
+        ],
+      },
+
+      {
+        text: "自分に近いのは？",
+        answers: [
+          ["尽くしたい", "softM"],
+          ["支配したい", "dominant"],
+          ["からかいたい", "softS"],
+          ["甘えたい", "amae"],
+        ],
+      },
+
+      {
+        text: "言葉責めについてどう思う？",
+        answers: [
+          ["されるのが好き", "word"],
+          ["するのが好き", "softS"],
+          ["少し興味ある", "secret"],
+          ["優しい言葉が好き", "romance"],
+        ],
+      },
+
+      {
+        text: "理想の関係性は？",
+        answers: [
+          ["相手に包まれる", "softM"],
+          ["自分が引っ張る", "dominant"],
+          ["お互い甘える", "amae"],
+          ["刺激が欲しい", "deepS"],
+        ],
+      },
+
+      {
+        text: "デートで好きなのは？",
+        answers: [
+          ["静かな2人時間", "romance"],
+          ["ドキドキする場所", "deepS"],
+          ["相手任せ", "softM"],
+          ["自分が決めたい", "dominant"],
+        ],
+      },
+
+      {
+        text: "嫉妬した時どうなる？",
+        answers: [
+          ["甘えたくなる", "amae"],
+          ["少し意地悪になる", "softS"],
+          ["内心かなり独占したくなる", "deepS"],
+          ["素直に気持ちを言う", "romance"],
+        ],
+      },
+
+      {
+        text: "惹かれる相手は？",
+        answers: [
+          ["包容力ある人", "softM"],
+          ["余裕ある人", "secret"],
+          ["強引な人", "deepM"],
+          ["一途な人", "romance"],
+        ],
+      },
+
+      {
+        text: "相手をドキッとさせるなら？",
+        answers: [
+          ["甘い言葉", "word"],
+          ["少し焦らす", "softS"],
+          ["急なギャップ", "tsundere"],
+          ["真っ直ぐ想いを伝える", "romance"],
+        ],
+      },
+
+      {
+        text: "好きな恋愛漫画の展開は？",
+        answers: [
+          ["溺愛系", "amae"],
+          ["主従っぽい関係", "deepS"],
+          ["ツンデレ展開", "tsundere"],
+          ["純愛", "romance"],
+        ],
+      },
+
+      {
+        text: "褒められると？",
+        answers: [
+          ["かなり嬉しい", "amae"],
+          ["もっと求めたくなる", "deepM"],
+          ["照れる", "tsundere"],
+          ["相手も褒め返す", "romance"],
+        ],
+      },
+
+      {
+        text: "夜の雰囲気で好きなのは？",
+        answers: [
+          ["落ち着いた空気", "softM"],
+          ["刺激的な空気", "deepS"],
+          ["秘密感", "secret"],
+          ["甘い空気", "romance"],
+        ],
+      },
+
+      {
+        text: "自分の本音に近いのは？",
+        answers: [
+          ["依存されたい", "dominant"],
+          ["依存したい", "softM"],
+          ["翻弄したい", "softS"],
+          ["特別扱いされたい", "amae"],
+        ],
+      },
+
+      {
+        text: "好きな駆け引きは？",
+        answers: [
+          ["少し焦らされる", "deepM"],
+          ["焦らしたい", "softS"],
+          ["駆け引き無し", "romance"],
+          ["秘密の関係感", "secret"],
+        ],
+      },
+
+      {
+        text: "一番近い欲求は？",
+        answers: [
+          ["安心したい", "amae"],
+          ["刺激が欲しい", "deepS"],
+          ["主導権を握りたい", "dominant"],
+          ["誰かに委ねたい", "softM"],
+        ],
+      },
+    ];
+
+    const results = {
+      softM: {
+        name: "甘やかされたい子猫Mタイプ",
+        percent: 82,
+        icon: "🐱",
+        desc: "優しくリードされると弱いタイプ。",
+        match: "包容力あるリード型",
+      },
+
+      deepM: {
+        name: "深層Mタイプ",
+        percent: 91,
+        icon: "🖤",
+        desc: "少し強めの刺激や支配感に惹かれやすいタイプ。",
+        match: "落ち着いた支配型",
+      },
+
+      softS: {
+        name: "小悪魔Sタイプ",
+        percent: 78,
+        icon: "😈",
+        desc: "相手をからかったり主導権を握るのが好き。",
+        match: "照れやすい受け身型",
+      },
+
+      deepS: {
+        name: "支配者Sタイプ",
+        percent: 88,
+        icon: "👑",
+        desc: "相手を夢中にさせたい欲が強い。",
+        match: "従順タイプ",
+      },
+
+      word: {
+        name: "言葉フェチタイプ",
+        percent: 85,
+        icon: "💬",
+        desc: "声や言葉の雰囲気に弱いタイプ。",
+        match: "言葉選びが上手いタイプ",
+      },
+
+      tsundere: {
+        name: "ツンデレ誘惑タイプ",
+        percent: 74,
+        icon: "🌶️",
+        desc: "素直になれないギャップ型。",
+        match: "包容力タイプ",
+      },
+
+      amae: {
+        name: "甘えん坊タイプ",
+        percent: 80,
+        icon: "🍯",
+        desc: "安心できる相手に甘えたいタイプ。",
+        match: "面倒見がいいタイプ",
+      },
+
+      dominant: {
+        name: "リードタイプ",
+        percent: 83,
+        icon: "🕯️",
+        desc: "自然と主導権を握るタイプ。",
+        match: "素直なタイプ",
+      },
+
+      secret: {
+        name: "背徳ロマンス型",
+        percent: 89,
+        icon: "🌙",
+        desc: "秘密っぽい空気感に惹かれるタイプ。",
+        match: "ミステリアス型",
+      },
+
+      romance: {
+        name: "純愛タイプ",
+        percent: 76,
+        icon: "💘",
+        desc: "最終的には誠実な愛に弱い。",
+        match: "愛情表現が多いタイプ",
+      },
+    };
+
+    let current = -1;
+
+    const scores = {
+      softM: 0,
+      deepM: 0,
+      softS: 0,
+      deepS: 0,
+      word: 0,
+      tsundere: 0,
+      amae: 0,
+      dominant: 0,
+      secret: 0,
+      romance: 0,
+    };
+
+    const app = document.getElementById("app");
+
+    function showAgeGate() {
+      app.innerHTML = `
+        <h1>性癖タイプ診断</h1>
+
+        <p>
+          質問に答えるだけであなたの隠れた性癖タイプを無料診断。
+        </p>
+
+        <p class="notice">
+          このサイトには恋愛・性癖に関する表現が含まれます。18歳以上のみ利用してください。
+        </p>
+
+        <button onclick="startQuiz()">
+          18歳以上なので診断する
+        </button>
+      `;
+    }
+
+    function startQuiz() {
+      current = 0;
+      showQuestion();
+    }
+
+    function showQuestion() {
+      const q = questions[current];
+
+      app.innerHTML = `
+        <div class="progress">
+          ${current + 1} / ${questions.length}
+        </div>
+
+        <h1>性癖タイプ診断</h1>
+
+        <h2>${q.text}</h2>
+
+        <div class="answers">
+          ${q.answers
+            .map(
+              (a) =>
+                `<button onclick="answer('${a[1]}')">${a[0]}</button>`
+            )
+            .join("")}
+        </div>
+      `;
+    }
+
+    function answer(type) {
+      scores[type]++;
+      current++;
+
+      if (current >= questions.length) {
+        showResult();
+      } else {
+        showQuestion();
+      }
+    }
+
+    function showResult() {
+      const top = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
+
+      const result = results[top];
+
+      const shareText = encodeURIComponent(
+        `私の性癖タイプは「${result.name}」でした！`
+      );
+
+      app.innerHTML = `
+        <div class="result-character">
+          ${result.icon}
+        </div>
+
+        <h1>${result.name}</h1>
+
+        <div class="percent">
+          性癖一致度 ${result.percent}%
+        </div>
+
+        <p>${result.desc}</p>
+
+        <div class="match-box">
+          相性がいいタイプ：${result.match}
+        </div>
+
+        <br>
+
+        <a
+          class="share-button"
+          href="https://twitter.com/intent/tweet?text=${shareText}&url=https://seiheki-shinndan.vercel.app"
+          target="_blank"
+        >
+          Xで共有する
+        </a>
+
+        <br><br>
+
+        <button onclick="location.reload()">
+          もう一度診断する
+        </button>
+      `;
+    }
+
+    showAgeGate();
+  </script>
+</body>
+</html>
