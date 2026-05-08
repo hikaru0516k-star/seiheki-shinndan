@@ -4,459 +4,516 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>性癖タイプ診断｜S・M・恋愛傾向を無料チェック</title>
-  <meta name="description" content="20問の質問であなたの性癖タイプ・S傾向・M傾向・恋愛傾向を無料診断。隠れS、隠れM、独占欲、言葉責め、依存傾向などを詳しく分析します。" />
-  <meta name="keywords" content="性癖診断,性癖タイプ診断,S診断,M診断,隠れS,隠れM,恋愛診断,SM診断,心理テスト,無料診断" />
+  <title>性癖タイプ診断｜20問でわかる大人の恋愛・相性診断</title>
+  <meta name="description" content="20個の質問であなたの性癖タイプ・恋愛傾向・相性タイプを無料診断。診断結果ごとにおすすめ動画ジャンル・漫画ジャンルも表示。" />
+  <meta name="keywords" content="性癖診断,性癖タイプ診断,恋愛診断,S診断,M診断,相性診断,大人向け診断,無料診断" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://seiheki-shinndan.vercel.app/" />
 
-  <meta property="og:title" content="性癖タイプ診断｜あなたの隠れた傾向をチェック" />
-  <meta property="og:description" content="20問であなたの性癖タイプ・S/M傾向・恋愛傾向を無料診断。" />
+  <meta property="og:title" content="性癖タイプ診断｜20問でわかる大人の恋愛・相性診断" />
+  <meta property="og:description" content="あなたの隠れた性癖タイプ・恋愛傾向・相性タイプを無料で診断できます。" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://seiheki-shinndan.vercel.app/" />
-  <meta property="og:image" content="https://seiheki-shinndan.vercel.app/og-image.png" />
+  <meta property="og:url" content="https://seiheki-shindan.vercel.app/" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="性癖タイプ診断" />
-  <meta name="twitter:description" content="あなたの隠れた性癖タイプを無料診断。" />
-  <meta name="twitter:image" content="https://seiheki-shinndan.vercel.app/og-image.png" />
+  <meta name="google-site-verification" content="DmE801p5NYdzKhTxRrlEheEefmbzJifnl5dVYbLkWxI" />
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%238b5cf6'/%3E%3Ctext x='50' y='63' font-size='46' text-anchor='middle' fill='white'%3ES%3C/text%3E%3C/svg%3E" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "性癖タイプ診断",
-    "url": "https://seiheki-shinndan.vercel.app/",
-    "description": "20問で性癖タイプ・S/M傾向・恋愛傾向を無料診断できるサイトです。"
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "性癖タイプ診断とは何ですか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "質問に答えることで、S傾向、M傾向、恋愛傾向、独占欲、言葉責めへの反応などをエンタメ形式で診断する無料診断です。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "診断は無料ですか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "はい。性癖タイプ診断は無料で利用できます。"
-        }
-      }
-    ]
-  }
-  </script>
+  <link rel="canonical" href="https://seiheki-shindan.vercel.app/" />
 
   <style>
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
-      background: radial-gradient(circle at top, #4b164f, #170b24 45%, #08040c);
-      color: white;
-      min-height: 100vh;
-      padding: 20px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      background: linear-gradient(135deg, #140014, #360036, #100010);
+      color: #fff;
     }
 
     .container {
       max-width: 900px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: 0 24px 70px rgba(0,0,0,0.45);
-      backdrop-filter: blur(10px);
+      margin: auto;
+      padding: 24px 16px 60px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 35px 0 25px;
     }
 
     h1 {
-      text-align: center;
-      font-size: 34px;
-      margin: 8px 0 10px;
-      line-height: 1.45;
-    }
-
-    h2 {
-      font-size: 23px;
-      margin-top: 30px;
-      color: #ffd1e3;
+      font-size: 38px;
+      margin-bottom: 12px;
     }
 
     .lead {
-      text-align: center;
-      line-height: 1.9;
-      opacity: 0.9;
-      margin-bottom: 24px;
+      color: #f4caff;
+      line-height: 1.8;
     }
 
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 22px;
-    }
-
-    .badge {
-      font-size: 12px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.12);
+    .age-box,
+    .card,
+    .result,
+    .seo-box {
+      background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     }
 
     .age-box {
       text-align: center;
-      padding: 28px 10px;
-    }
-
-    .seo-section, .faq-section {
-      margin-top: 26px;
-      padding: 20px;
-      border-radius: 20px;
-      background: rgba(0,0,0,0.18);
-      line-height: 1.9;
-      text-align: left;
+      margin-top: 40px;
     }
 
     .question {
-      margin-bottom: 20px;
-      padding: 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: 26px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
-    .question h3 {
-      margin-top: 0;
-      font-size: 17px;
-      line-height: 1.7;
+    .question h2 {
+      font-size: 18px;
+      margin-bottom: 14px;
     }
 
-    label {
-      display: block;
-      margin: 11px 0;
-      cursor: pointer;
-      line-height: 1.7;
-      padding: 9px 11px;
-      border-radius: 12px;
-      background: rgba(0,0,0,0.13);
+    .buttons {
+      display: grid;
+      gap: 10px;
     }
 
-    label:hover {
-      background: rgba(255,255,255,0.12);
-    }
-
-    input { margin-right: 8px; }
-
-    button, .share-button, .affiliate-button {
-      display: inline-block;
+    button,
+    .share,
+    .link-btn {
       border: none;
       border-radius: 999px;
-      padding: 14px 24px;
-      font-weight: bold;
-      cursor: pointer;
-      color: white;
-      text-decoration: none;
-      background: linear-gradient(135deg, #ff4d88, #8b5cf6);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.3);
-      margin-top: 12px;
+      padding: 14px 18px;
       font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: 0.2s;
     }
 
-    button:hover, .share-button:hover, .affiliate-button:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
+    .answer-btn {
+      background: #fff;
+      color: #320033;
+      font-weight: 700;
+    }
+
+    .answer-btn:hover {
+      background: #ffe0ff;
+      transform: translateY(-2px);
+    }
+
+    .answer-btn.selected {
+      background: #ff4fd8;
+      color: #fff;
+    }
+
+    .main-btn {
+      width: 100%;
+      background: #ff4fd8;
+      color: #fff;
+      font-weight: 800;
+      font-size: 17px;
+      margin-top: 20px;
+    }
+
+    .sub-btn {
+      background: #fff;
+      color: #320033;
+      font-weight: 700;
+      margin-top: 12px;
+      width: 100%;
     }
 
     .result {
-      display: none;
       text-align: center;
-      padding: 20px 4px;
+      margin-top: 30px;
     }
 
-    .result-name {
-      font-size: 31px;
-      margin-bottom: 10px;
-      color: #ffd1e3;
-      font-weight: bold;
-      line-height: 1.5;
-    }
-
-    .catch {
-      font-size: 17px;
-      opacity: 0.92;
-      line-height: 1.8;
-      margin-bottom: 18px;
+    .result h2 {
+      font-size: 32px;
+      color: #ffd8ff;
     }
 
     .percent {
-      font-size: 21px;
-      margin: 16px 0;
-      color: #ffe082;
-      font-weight: bold;
+      font-size: 58px;
+      font-weight: 900;
+      color: #ff4fd8;
+      margin: 18px 0;
     }
 
-    .desc, .match-box, .recommend-box, .seo-box {
-      line-height: 2;
-      text-align: left;
-      margin-top: 20px;
-      background: rgba(0,0,0,0.18);
-      padding: 18px;
+    .tag {
+      display: inline-block;
+      background: rgba(255,79,216,0.18);
+      color: #ffd8ff;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .match,
+    .recommend {
+      background: rgba(255,255,255,0.1);
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.12);
+      padding: 18px;
+      margin-top: 22px;
     }
 
-    .recommend-title {
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: #ffd1e3;
-      font-weight: bold;
+    .recommend-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
     }
 
-    .recommend-item {
-      margin: 14px 0;
-      padding: 14px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.08);
-      line-height: 1.8;
-    }
-
-    .recommend-item strong {
+    .link-btn {
       display: block;
-      margin-bottom: 6px;
-      color: #ffe0ef;
+      background: #fff;
+      color: #320033;
+      font-weight: 800;
     }
 
-    .center { text-align: center; }
+    .video { background: #ffefff; }
+    .manga { background: #f2e8ff; }
+
+    .share {
+      display: block;
+      background: #111;
+      color: #fff;
+      font-weight: 700;
+      margin-top: 22px;
+    }
+
+    .seo-box {
+      margin-top: 40px;
+      line-height: 1.8;
+      color: #f4d4ff;
+    }
+
+    .seo-box h2,
+    .seo-box h3 {
+      color: #fff;
+    }
 
     .notice {
-      margin-top: 20px;
-      font-size: 12px;
-      opacity: 0.72;
+      font-size: 13px;
+      color: #e8b8ef;
       line-height: 1.7;
+      margin-top: 18px;
     }
 
     footer {
-      margin-top: 30px;
-      font-size: 12px;
+      margin-top: 35px;
       text-align: center;
-      opacity: 0.65;
-      line-height: 1.8;
+      color: #cfa8d6;
+      font-size: 13px;
     }
 
     @media (max-width: 600px) {
-      body { padding: 12px; }
-      .container { padding: 20px; border-radius: 22px; }
-      h1 { font-size: 27px; }
-      .result-name { font-size: 25px; }
+      h1 { font-size: 30px; }
+      .result h2 { font-size: 24px; }
+      .percent { font-size: 46px; }
+
+      .card,
+      .result,
+      .seo-box,
+      .age-box {
+        padding: 18px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <main class="container">
-    <section id="ageGate" class="age-box">
-      <h1>性癖タイプ診断｜あなたの隠れたS/M・恋愛傾向を無料チェック</h1>
+  <div class="container">
 
-      <div class="badge-row">
-        <span class="badge">無料診断</span>
-        <span class="badge">20問</span>
-        <span class="badge">S診断</span>
-        <span class="badge">M診断</span>
-        <span class="badge">恋愛傾向</span>
-        <span class="badge">相性タイプ</span>
+    <section class="hero">
+      <h1>性癖タイプ診断</h1>
+      <p class="lead">
+        20個の質問に答えるだけで、あなたの隠れたタイプ・恋愛傾向・相性タイプがわかります。
+      </p>
+    </section>
+
+    <div id="ageCheck" class="age-box">
+      <h2>年齢確認</h2>
+      <p>この診断は大人向けの内容を含みます。18歳以上の方のみご利用ください。</p>
+      <button class="main-btn" onclick="startSite()">18歳以上なので診断をはじめる</button>
+    </div>
+
+    <main id="app" style="display:none;">
+      <section class="card">
+        <div id="questions"></div>
+        <button class="main-btn" onclick="showResult()">診断する</button>
+        <p class="notice">すべての質問に回答すると診断できます。</p>
+      </section>
+
+      <div id="result"></div>
+
+      <section class="seo-box">
+        <h2>性癖タイプ診断とは？</h2>
+        <p>
+          性癖タイプ診断は、20個の質問からあなたの恋愛傾向・相性の良いタイプ・隠れた好みをチェックできる無料診断です。
+          S気質、M気質、言葉責め、甘えたい傾向、支配欲、安心感重視など、全10種類の診断結果を用意しています。
+        </p>
+
+        <h3>診断結果ごとにおすすめジャンルも表示</h3>
+        <p>
+          診断結果に合わせて、おすすめの動画ジャンル・漫画ジャンルへのリンクを表示します。
+          アフィリエイトリンクを取得した後は、コード内のURLを自分のアフィリンクに差し替えるだけで使えます。
+        </p>
+
+        <h3>注意事項</h3>
+        <p>
+          この診断は娯楽目的のコンテンツです。結果は医学的・心理学的な診断ではありません。
+        </p>
+      </section>
+    </main>
+
+    <footer>© 性癖タイプ診断</footer>
+  </div>
+
+<script>
+const SITE_URL = "https://seiheki-shindan.vercel.app/";
+
+const questions = [
+  { text: "相手にリードされるより、自分が主導権を握りたい？", type: "s" },
+  { text: "相手の反応を見るのが好き？", type: "s" },
+  { text: "頼られたり、求められたりすると燃える？", type: "s" },
+  { text: "少し支配的な雰囲気に惹かれる？", type: "s" },
+
+  { text: "強めにリードされると安心する？", type: "m" },
+  { text: "少し意地悪されるとドキッとする？", type: "m" },
+  { text: "尽くす側にまわることが多い？", type: "m" },
+  { text: "相手に振り回される恋に弱い？", type: "m" },
+
+  { text: "言葉で褒められるとかなり弱い？", type: "praise" },
+  { text: "甘い言葉や雰囲気で気持ちが動きやすい？", type: "praise" },
+
+  { text: "言葉で責める・責められる空気に惹かれる？", type: "word" },
+  { text: "直接的な行動より、会話や空気感にドキドキする？", type: "word" },
+
+  { text: "秘密っぽい関係や背徳感に弱い？", type: "secret" },
+  { text: "非日常感やスリルのある展開に惹かれやすい？", type: "secret" },
+
+  { text: "自分を特別扱いしてくれる相手に弱い？", type: "queen" },
+  { text: "尽くされると一気に気持ちが高まる？", type: "queen" },
+
+  { text: "普段とのギャップがある人に惹かれやすい？", type: "gap" },
+  { text: "清楚そうな人の意外な一面に弱い？", type: "gap" },
+
+  { text: "刺激よりも安心感や信頼感を重視する？", type: "soft" },
+  { text: "ゆっくり距離が縮まる関係の方が好き？", type: "soft" }
+];
+
+const resultData = {
+  s: {
+    name: "支配欲強めのリードタイプ",
+    desc: "相手を引っ張ることに魅力を感じやすいタイプ。相手の反応を見ることで気持ちが高まりやすく、頼られるほど魅力が出ます。",
+    match: "素直に甘えてくれる受け身タイプ",
+    videoTitle: "おすすめ動画ジャンル：主導権・リード系",
+    mangaTitle: "おすすめ漫画ジャンル：Sキャラ・主従関係系",
+    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E4%B8%BB%E5%B0%8E%E6%A8%A9",
+    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=S%E3%82%AD%E3%83%A3%E3%83%A9"
+  },
+  m: {
+    name: "いじられ快感の受け身タイプ",
+    desc: "少し強めにリードされることで安心感やドキドキを感じやすいタイプ。信頼できる相手との関係で魅力が出やすいです。",
+    match: "包容力のあるリードタイプ",
+    videoTitle: "おすすめ動画ジャンル：受け身・甘やかされ系",
+    mangaTitle: "おすすめ漫画ジャンル：溺愛・いじられ系",
+    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E7%94%98%E3%82%84%E3%81%8B%E3%81%97",
+    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E6%BA%BA%E6%84%9B"
+  },
+  praise: {
+    name: "褒められたい承認欲求タイプ",
+    desc: "優しい言葉や肯定されることに弱いタイプ。褒められることで安心し、気持ちが高まりやすい傾向があります。",
+    match: "よく褒めてくれる包容力タイプ",
+    videoTitle: "おすすめ動画ジャンル：褒め・癒し系",
+    mangaTitle: "おすすめ漫画ジャンル：甘々・癒し系",
+    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E7%99%92%E3%81%97",
+    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E7%94%98%E3%80%85"
+  },
+  word: {
+    name: "言葉責めに弱い妄想タイプ",
+    desc: "会話や空気感、言葉のニュアンスに強く反応しやすいタイプ。想像力が豊かで、雰囲気作りを重視します。",
+    match: "言葉選びが上手い大人タイプ",
+    videoTitle: "おすすめ動画ジャンル：言葉責め・会話重視系",
+    mangaTitle: "おすすめ漫画ジャンル：心理描写・言葉攻め系",
+    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E8%A8%80%E8%91%89%E8%B2%AC%E3%82%81",
+    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E8%A8%80%E8%91%89%E8%B2%AC%E3%82%81"
+  },
+  secret: {
+    name: "背徳感に惹かれるスリルタイプ",
+    desc: "秘密っぽさや非日常感に惹かれやすいタイプ。刺激を求める一方で、安心できる相手とのバランスが大切です。",
+    match: "落ち着きのある安心タイプ",
+    videoTitle: "おすすめ動画ジャンル：背徳感・秘密系",
+    mangaTitle: "おすすめ漫画ジャンル：禁断・秘密の関係系",
+    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E8%83%8C%E5%BE%B3",
+    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E7%A7%98%E5%AF%86%E3%81%AE%E9%96%A2%E4%BF%82"
+  },
+  queen: {
+    name: "愛され女王様タイプ",
+    desc: "自分を大切に扱ってくれる相手に惹かれやすいタイプ。尽くされることで安心して魅力を出せます。",
+    match: "尽くすのが好きな献身タイプ",
+    videoTitle: "おすすめ動画ジャンル：尽くされ・女王様系",
+    mangaTitle: "おすすめ漫画ジャンル：愛され・姫扱い系",
+    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E5%A5%B3%E7%8E%8B%E6%A7%98",
+    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E6%84%9B%E3%81%95%E3%82%8C"
+  },
+  gap: {
+    name: "ギャップ萌え妄想タイプ",
+    desc: "普段との違いや意外な一面に強く惹かれるタイプ。見た目や雰囲気の変化に敏感で、想像力も豊かです。",
+    match: "二面性のあるミステリアスタイプ",
+    videoTitle: "おすすめ動画ジャンル：ギャップ・清楚系",
+    mangaTitle: "おすすめ漫画ジャンル：ギャップ萌え・清楚系",
+    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E6%B8%85%E6%A5%9A",
+    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E3%82%AE%E3%83%A3%E3%83%83%E3%83%97"
+  },
+  soft: {
+    name: "安心感重視のやさしめタイプ",
+    desc: "過激さよりも信頼感や優しさを重視するタイプ。ゆっくり距離が縮まる関係に向いています。",
+    match: "落ち着いて向き合ってくれる誠実タイプ",
+    videoTitle: "おすすめ動画ジャンル：癒し・やさしめ系",
+    mangaTitle: "おすすめ漫画ジャンル：純愛・癒し系",
+    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E7%99%92%E3%81%97",
+    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E7%B4%94%E6%84%9B"
+  },
+  balance: {
+    name: "バランス型オールラウンダー",
+    desc: "S気質・M気質・安心感・刺激のバランスが取れたタイプ。相手によって雰囲気を変えられる柔軟さがあります。",
+    match: "相手に合わせられる柔軟タイプ",
+    videoTitle: "おすすめ動画ジャンル：人気ランキング・総合系",
+    mangaTitle: "おすすめ漫画ジャンル：人気漫画・ランキング系",
+    videoUrl: "https://www.dmm.co.jp/digital/videoa/",
+    mangaUrl: "https://book.dmm.co.jp/"
+  },
+  fantasy: {
+    name: "妄想暴走ロマンスタイプ",
+    desc: "現実そのものより、シチュエーションや物語性に惹かれやすいタイプ。世界観や設定がハマると一気に入り込みます。",
+    match: "世界観を一緒に楽しめるタイプ",
+    videoTitle: "おすすめ動画ジャンル：シチュエーション系",
+    mangaTitle: "おすすめ漫画ジャンル：ストーリー重視・妄想系",
+    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E3%82%B7%E3%83%81%E3%83%A5%E3%82%A8%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3",
+    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC"
+  }
+};
+
+let answers = [];
+
+function startSite() {
+  document.getElementById("ageCheck").style.display = "none";
+  document.getElementById("app").style.display = "block";
+}
+
+function renderQuestions() {
+  const wrap = document.getElementById("questions");
+
+  questions.forEach((q, index) => {
+    const div = document.createElement("div");
+    div.className = "question";
+
+    div.innerHTML = `
+      <h2>Q${index + 1}. ${q.text}</h2>
+      <div class="buttons">
+        <button class="answer-btn" onclick="answer(${index}, 3, this)">とても当てはまる</button>
+        <button class="answer-btn" onclick="answer(${index}, 2, this)">少し当てはまる</button>
+        <button class="answer-btn" onclick="answer(${index}, 1, this)">あまり当てはまらない</button>
+        <button class="answer-btn" onclick="answer(${index}, 0, this)">当てはまらない</button>
+      </div>
+    `;
+
+    wrap.appendChild(div);
+  });
+}
+
+function answer(index, score, btn) {
+  answers[index] = score;
+
+  const parent = btn.parentElement;
+  const buttons = parent.querySelectorAll("button");
+  buttons.forEach(b => b.classList.remove("selected"));
+  btn.classList.add("selected");
+}
+
+function showResult() {
+  const answeredCount = answers.filter(v => v !== undefined).length;
+
+  if (answeredCount < questions.length) {
+    alert("すべての質問に答えてください");
+    return;
+  }
+
+  const scores = {};
+
+  questions.forEach((q, i) => {
+    scores[q.type] = (scores[q.type] || 0) + answers[i];
+  });
+
+  const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  const topType = sorted[0][0];
+  const topScore = sorted[0][1];
+  const secondScore = sorted[1][1];
+  const totalScore = answers.reduce((a, b) => a + b, 0);
+
+  let result;
+
+  if (topScore - secondScore <= 1 && totalScore >= 38) {
+    result = resultData.fantasy;
+  } else if (topScore - secondScore <= 1) {
+    result = resultData.balance;
+  } else {
+    result = resultData[topType];
+  }
+
+  const percent = Math.min(99, Math.max(55, Math.round((topScore / 12) * 100)));
+  const shareText = `私の診断結果は「${result.name}」でした！あなたも性癖タイプ診断をやってみて👇`;
+
+  document.getElementById("result").innerHTML = `
+    <section class="result">
+      <span class="tag">診断結果</span>
+      <h2>${result.name}</h2>
+      <div class="percent">${percent}%</div>
+      <p>${result.desc}</p>
+
+      <div class="match">
+        <h3>相性が良いタイプ</h3>
+        <p>${result.match}</p>
       </div>
 
-      <p class="lead">
-        質問に答えるだけで、あなたの隠れた性癖タイプ・S傾向・M傾向・恋愛で惹かれやすい関係性を診断します。<br>
-        この診断は18歳以上向けの内容を含みます。
-      </p>
-
-      <button onclick="enterSite()">18歳以上なので診断する</button>
-
-      <section class="seo-section">
-        <h2>この性癖タイプ診断でわかること</h2>
-        <p>
-          この無料診断では、あなたが恋愛でリードしたいタイプなのか、相手に委ねたいタイプなのか、
-          それとも相手や雰囲気によってSにもMにも変わるスイッチ型なのかをチェックできます。
-          隠れS、隠れM、言葉責め、独占欲、依存傾向、甘えたい気持ち、背徳感への惹かれやすさなど、
-          さまざまな恋愛傾向をエンタメ感覚で分析します。
-        </p>
-      </section>
-
-      <section class="faq-section">
-        <h2>よくある質問</h2>
-        <p><strong>Q. 診断は無料ですか？</strong><br>はい、無料で利用できます。</p>
-        <p><strong>Q. 本格的な診断ですか？</strong><br>エンタメ目的の心理診断です。医学的・専門的な診断ではありません。</p>
-        <p><strong>Q. 結果は共有できますか？</strong><br>診断後にXで結果を共有できます。</p>
-      </section>
-
-      <p class="notice">※18歳未満の方は利用しないでください。</p>
-    </section>
-
-    <section id="quiz" style="display:none;">
-      <h1>性癖タイプ診断</h1>
-      <p class="lead">全20問。直感で答えてください。</p>
-      <form id="quizForm">
-        <div id="questions"></div>
-        <div class="center">
-          <button type="button" onclick="showResult()">診断結果を見る</button>
+      <div class="recommend">
+        <h3>あなたにおすすめのジャンル</h3>
+        <div class="recommend-grid">
+          <a class="link-btn video" href="${result.videoUrl}" target="_blank" rel="nofollow sponsored noopener">
+            🎥 ${result.videoTitle}
+          </a>
+          <a class="link-btn manga" href="${result.mangaUrl}" target="_blank" rel="nofollow sponsored noopener">
+            📚 ${result.mangaTitle}
+          </a>
         </div>
-      </form>
-    </section>
-
-    <section id="result" class="result"></section>
-
-    <footer>
-      性癖診断・S診断・M診断・恋愛傾向チェックを無料で楽しめる診断サイトです。<br>
-      ※このサイトはエンタメ目的です。広告リンクを含む場合があります。
-    </footer>
-  </main>
-
-  <script>
-    const questions = [
-      { text:"恋愛では主導権を握りたい？", answers:[["かなり握りたい","dom",3],["少し握りたい","gapS",2],["相手に任せたい","softM",2],["相手による","switch",2]] },
-      { text:"強めに求められるとドキッとする？", answers:[["かなりする","softM",3],["少しする","depend",2],["自分が求めたい","dom",2],["落ち着いた関係がいい","pure",2]] },
-      { text:"言葉責めはどちらが近い？", answers:[["するのが好き","wordS",3],["されるのが好き","wordM",3],["どちらも気になる","switch",2],["雰囲気重視","fantasy",2]] },
-      { text:"甘えたい？甘えられたい？", answers:[["甘えたい","softM",2],["甘えられたい","careS",3],["両方ある","switch",2],["距離感は大事","cool",2]] },
-      { text:"秘密っぽい関係に惹かれる？", answers:[["かなり惹かれる","fantasy",3],["少し惹かれる","fantasy",2],["安心感が大事","pure",2],["相手による","switch",1]] },
-      { text:"独占欲はある？", answers:[["独占されたい","depend",3],["独占したい","possessive",3],["どちらもある","yandere",2],["自由でいたい","cool",2]] },
-      { text:"相手の反応を見るのは好き？", answers:[["かなり好き","dom",3],["照れる反応が好き","gapS",3],["反応する方が好き","softM",2],["自然体がいい","pure",2]] },
-      { text:"恋愛で惹かれるのは？", answers:[["刺激","fantasy",3],["安心感","pure",3],["主導権","dom",3],["強い愛情","yandere",3]] },
-      { text:"普段と恋愛中でギャップはある？", answers:[["かなりある","gapS",3],["甘えると変わる","softM",2],["冷静なまま","cool",2],["相手による","switch",2]] },
-      { text:"必要とされると嬉しい？", answers:[["かなり嬉しい","careS",3],["依存されても嬉しい","possessive",2],["自分が必要としたい","depend",2],["ほどほどがいい","pure",2]] },
-      { text:"強引さと優しさなら？", answers:[["強引さ","softM",3],["優しさ","pure",3],["優しいのに少し強い感じ","careS",3],["ミステリアスさ","fantasy",2]] },
-      { text:"相手の本音を引き出したい？", answers:[["かなり引き出したい","wordS",3],["反応を見たい","dom",2],["本音を見抜かれたい","wordM",3],["自然に話したい","pure",2]] },
-      { text:"重めの愛情はあり？", answers:[["かなりあり","yandere",3],["求められるならあり","depend",2],["自分が重くなるかも","possessive",2],["軽やかな方がいい","cool",2]] },
-      { text:"相手をからかうのは好き？", answers:[["かなり好き","gapS",3],["言葉で揺さぶりたい","wordS",3],["からかわれる方が好き","wordM",2],["得意ではない","pure",1]] },
-      { text:"理想の関係性は？", answers:[["リードがはっきり","dom",2],["甘やかし合える","pure",3],["刺激と安心の両方","switch",3],["独占感がある","possessive",3]] },
-      { text:"褒められると弱い？", answers:[["かなり弱い","softM",2],["自分が褒めたい","careS",2],["言葉で揺れる","wordM",3],["態度で示してほしい","cool",2]] },
-      { text:"非日常シチュに惹かれる？", answers:[["かなり惹かれる","fantasy",3],["少し惹かれる","fantasy",2],["日常の安心感が好き","pure",2],["相手次第","switch",2]] },
-      { text:"束縛したくなる？", answers:[["かなりある","possessive",3],["少しある","yandere",2],["束縛されたい","depend",2],["自由が一番","cool",3]] },
-      { text:"ペースを崩されるのは？", answers:[["ドキッとする","softM",3],["崩す側でいたい","dom",3],["相手によってはあり","switch",2],["好きじゃない","cool",2]] },
-      { text:"一番近いのは？", answers:[["上手にリードしたい","dom",3],["強く求められると弱い","softM",3],["秘密や妄想に惹かれる","fantasy",3],["相手次第で変わる","switch",3]] }
-    ];
-
-    const results = {
-      dom:{name:"支配欲を秘めたリード型",catch:"相手の反応を見ながら自然に主導権を握るタイプ。",percent:"S傾向 86%",match:"甘く支配されたいM気質型・言葉に弱い受け身型",desc:"あなたは恋愛や親密な関係で、自然と主導権を握りやすいタイプです。強引に進めたいというより、相手の反応や空気を読みながら距離を詰めるのが得意。相手が照れたり、あなたにペースを預けてくれる瞬間に魅力を感じやすいです。隠れS気質はありますが、冷たく支配するより、信頼関係の中でリードする余裕型です。",rec:["リード強め・主導権系","言葉責め・心理戦系"]},
-      softM:{name:"甘く支配されたいM気質型",catch:"強く求められるほど、安心して気持ちを預けたくなるタイプ。",percent:"M傾向 88%",match:"支配欲を秘めたリード型・包容力のあるS型",desc:"あなたは相手に強く求められたり、少しペースを握られたりすることで気持ちが高まりやすいタイプです。ただし雑に扱われたいわけではなく、安心感や信頼感がある相手にだけ委ねたい傾向があります。優しさの中に少し強引さがある関係に弱く、特別扱いされると心を開きやすいです。",rec:["甘めリード系","溺愛・独占されたい系"]},
-      wordS:{name:"言葉で揺さぶる知的S型",catch:"言葉と空気で相手の感情を動かしたいタイプ。",percent:"言葉責めS傾向 84%",match:"言葉に弱い受け身型・反応が素直なタイプ",desc:"あなたは力で押すよりも、言葉や空気感で相手の感情を動かすことに惹かれやすいタイプです。会話の駆け引きや少し意地悪な一言、余裕を感じさせる態度に魅力が出ます。心理的な主導権を握るのがうまく、相手の反応を見ることで関係性を深めていきます。",rec:["言葉責め系","知的S系"]},
-      wordM:{name:"言葉に弱い受け身ロマン型",catch:"自分を見抜かれる感覚に弱いタイプ。",percent:"言葉責めされたい傾向 85%",match:"知的S型・余裕のあるリード型",desc:"あなたは言葉によって感情が動きやすいタイプです。ただ刺激的な言葉が好きというより、自分の本音を見抜かれたり、気持ちを言語化されたりすることに弱い傾向があります。相手の一言で急に意識してしまうこともあり、精神的にリードしてくれる相手と相性が良いです。",rec:["言葉責めされたい系","心理描写系"]},
-      fantasy:{name:"妄想深めの背徳ロマン型",catch:"少し秘密めいた空気に惹かれるタイプ。",percent:"妄想・背徳傾向 90%",match:"ミステリアス型・刺激好きタイプ",desc:"あなたは現実的な関係だけでなく、ストーリー性や非日常感、秘密っぽい雰囲気に惹かれやすいタイプです。ただの刺激よりも、そこに至るまでの流れや心理描写にドキドキしやすいです。作品を見る時も設定や関係性に入り込みやすい傾向があります。",rec:["背徳感系","秘密の関係系"]},
-      pure:{name:"安心感重視のピュア密着型",catch:"信頼・優しさ・距離の近さを大事にするタイプ。",percent:"安心・甘え傾向 82%",match:"包容力タイプ・優しいリード型",desc:"あなたは刺激の強さよりも、安心感や信頼感を重視するタイプです。急に距離を詰められるより、ゆっくり関係が深まっていく流れに惹かれやすいです。心を許した相手には甘えたい気持ちや密着したい気持ちが強く出やすいタイプです。",rec:["甘々系","癒やし・密着感系"]},
-      cool:{name:"余裕を崩さないクール観察型",catch:"簡単には流されないけど、内側には好奇心があるタイプ。",percent:"クール傾向 78%",match:"積極型・感情表現がわかりやすいタイプ",desc:"あなたは恋愛でも比較的冷静に状況を見るタイプです。勢いだけで流されるより、相手の雰囲気や距離感、自分の納得感を大切にします。一見淡白に見られることもありますが、内側には好奇心を秘めています。焦らず距離を縮めてくれる相手と相性が良いです。",rec:["大人の駆け引き系","知的・クール系"]},
-      switch:{name:"SもMもいけるスイッチ型",catch:"相手や空気によって攻めにも受けにも変わる万能タイプ。",percent:"スイッチ傾向 87%",match:"柔軟に合わせられるタイプ・刺激好きタイプ",desc:"あなたは固定されたS/Mタイプというより、相手や雰囲気によって役割が変わるスイッチ型です。リードしたい時もあれば、相手に任せたい時もあります。柔軟で好奇心が強く、相性が合う相手とは幅広い楽しみ方ができます。",rec:["S/Mバランス系","ジャンル横断系"]},
-      possessive:{name:"独占欲強めの一途支配型",catch:"好きな相手を特別扱いしたい、深く求めたいタイプ。",percent:"独占欲傾向 89%",match:"求められたいM型・甘えん坊タイプ",desc:"あなたは好きな相手に対して一途になりやすいタイプです。軽い関係よりも、自分だけを見てほしい、自分も相手を特別扱いしたいという気持ちが強め。独占欲はありますが、相手を大切にしたい気持ちの裏返しでもあります。",rec:["独占欲・溺愛系","一途・重め恋愛系"]},
-      careS:{name:"包容力で包む優しいS型",catch:"甘やかしながらリードしたいタイプ。",percent:"優しいS傾向 83%",match:"甘えたいM型・安心感重視タイプ",desc:"あなたは相手を強く押さえつけるタイプではなく、包容力や安心感でリードする優しいS型です。甘えられたり頼られたりすることで魅力が引き出されます。精神的な主導権を持ちながら、相手に安心してもらいたいタイプです。",rec:["包容力・甘やかし系","年上・安心感系"]},
-      gapS:{name:"普段優しい隠れSギャップ型",catch:"普段は穏やか。でも好きな相手には少し意地悪したくなるタイプ。",percent:"隠れS傾向 85%",match:"照れやすいタイプ・反応が素直なM型",desc:"あなたは普段は優しく穏やかに見られやすいですが、恋愛になると少しSっ気が出るギャップ型です。強引さよりも、軽い意地悪や言葉の駆け引きで距離を縮めるのが得意。相手の反応を大切にできる優しいSタイプです。",rec:["隠れS・ギャップ系","照れ反応系"]},
-      depend:{name:"求められたい依存ロマン型",catch:"必要とされるほど安心する深い愛情確認タイプ。",percent:"依存・愛情確認傾向 86%",match:"独占欲強めタイプ・包容力S型",desc:"あなたは恋愛で『ちゃんと求められている』と感じることを大切にするタイプです。軽い好きよりも、深く必要とされる感覚に弱く、相手からの愛情表現が強いほど安心しやすいです。誠実に向き合ってくれる相手には深く尽くせるタイプです。",rec:["依存・溺愛系","独占されたい系"]}
-    };
-
-    const affiliateLink = "https://example.com";
-
-    function enterSite() {
-      document.getElementById("ageGate").style.display = "none";
-      document.getElementById("quiz").style.display = "block";
-      renderQuestions();
-    }
-
-    function renderQuestions() {
-      const wrap = document.getElementById("questions");
-      wrap.innerHTML = "";
-      questions.forEach((q, index) => {
-        const div = document.createElement("div");
-        div.className = "question";
-        let html = `<h3>Q${index + 1}. ${q.text}</h3>`;
-        q.answers.forEach((a, i) => {
-          html += `<label><input type="radio" name="q${index}" value="${a[1]}:${a[2]}" ${i===0?"checked":""}>${a[0]}</label>`;
-        });
-        div.innerHTML = html;
-        wrap.appendChild(div);
-      });
-    }
-
-    function showResult() {
-      const scores = {};
-      Object.keys(results).forEach(type => scores[type] = 0);
-
-      questions.forEach((q, index) => {
-        const checked = document.querySelector(`input[name="q${index}"]:checked`);
-        if (checked) {
-          const [type, point] = checked.value.split(":");
-          scores[type] += Number(point);
-        }
-      });
-
-      let topType = "switch";
-      let maxScore = 0;
-      for (const type in scores) {
-        if (scores[type] > maxScore) {
-          maxScore = scores[type];
-          topType = type;
-        }
-      }
-
-      const r = results[topType];
-
-      const recommendHtml = r.rec.map(item => `
-        <div class="recommend-item">
-          <strong>${item}</strong>
-          <p>あなたの診断結果と相性が良い作品傾向です。好みに合うジャンルを探すきっかけにしてください。</p>
-          <a class="affiliate-button" href="${affiliateLink}" target="_blank" rel="nofollow sponsored noopener">おすすめ作品を見る</a>
-        </div>
-      `).join("");
-
-      document.getElementById("quiz").style.display = "none";
-      document.getElementById("result").innerHTML = `
-        <h1 class="result-name">${r.name}</h1>
-        <div class="catch">${r.catch}</div>
-        <div class="percent">${r.percent}</div>
-
-        <div class="match-box">
-          <strong>相性タイプ</strong><br>${r.match}
-        </div>
-
-        <div class="desc">${r.desc}</div>
-
-        <div class="recommend-box">
-          <div class="recommend-title">あなたにおすすめの作品傾向</div>
-          ${recommendHtml}
-        </div>
-
-        <div class="seo-box">
-          <strong>${r.name}の特徴</strong><br>
-          この結果は、性癖診断・S診断・M診断・恋愛傾向チェックをもとにしたエンタメ診断です。
-          あなたの隠れた性癖タイプや、恋愛で惹かれやすい関係性を知るきっかけとして楽しんでください。
-        </div>
-
-        <a class="share-button" href="https://twitter.com/intent/tweet?text=私の性癖タイプは「${encodeURIComponent(r.name)}」でした！%0A性癖タイプ診断はこちら%0Ahttps://seiheki-shinndan.vercel.app" target="_blank" rel="noopener">
-          Xで結果を共有する
-        </a>
-
-        <br><br>
-        <button onclick="location.reload()">もう一度診断する</button>
-
         <p class="notice">
-          ※おすすめ作品のリンクはあとでDMM/FANZAなどのアフィリエイトリンクに差し替えてください。<br>
-          ※広告リンクには rel="nofollow sponsored noopener" を付けています。
+          ※現在は検索リンクです。FANZAアフィリエイトリンクを取得したら、このURLを差し替えれば収益化用リンクになります。
         </p>
-      `;
-      document.getElementById("result").style.display = "block";
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  </script>
+      </div>
+
+      <a
+        class="share"
+        href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(SITE_URL)}"
+        target="_blank"
+        rel="noopener"
+      >
+        Xで結果を共有する
+      </a>
+
+      <button class="sub-btn" onclick="location.reload()">もう一度診断する</button>
+    </section>
+  `;
+
+  document.getElementById("result").scrollIntoView({ behavior: "smooth" });
+}
+
+renderQuestions();
+</script>
 </body>
 </html>
