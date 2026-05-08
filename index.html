@@ -4,53 +4,49 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>性癖タイプ診断｜20問でわかる大人の恋愛・相性診断</title>
-  <meta name="description" content="20個の質問であなたの性癖タイプ・恋愛傾向・相性タイプを無料診断。診断結果ごとにおすすめ動画ジャンル・漫画ジャンルも表示。" />
-  <meta name="keywords" content="性癖診断,性癖タイプ診断,恋愛診断,S診断,M診断,相性診断,大人向け診断,無料診断" />
+  <title>性癖タイプ診断｜相性・人気作品・新作作品もわかる無料診断</title>
+  <meta name="description" content="20問であなたの性癖タイプ・恋愛傾向・相性が良い人を無料診断。タイプ別に人気動画・新作動画・人気漫画・新作漫画も紹介。" />
+  <meta name="keywords" content="性癖診断,性癖タイプ診断,恋愛診断,相性診断,S診断,M診断,人妻,素人,漫画,動画,無料診断" />
   <meta name="robots" content="index, follow" />
 
-  <meta property="og:title" content="性癖タイプ診断｜20問でわかる大人の恋愛・相性診断" />
-  <meta property="og:description" content="あなたの隠れた性癖タイプ・恋愛傾向・相性タイプを無料で診断できます。" />
+  <meta property="og:title" content="性癖タイプ診断" />
+  <meta property="og:description" content="あなたの性癖タイプ・相性の良い人・おすすめジャンルを無料診断。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://seiheki-shindan.com/" />
-<meta property="og:image" content="https://seiheki-shindan.com/ogp.png" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://seiheki-shindan.com/ogp.png" />
-  <meta name="google-site-verification" content="V0N1DshQlW_pCxtKG2owtVSWKM_XTxW419MDl3dZ1H4" />
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NT4WLMFX3L"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta property="og:image" content="https://seiheki-shindan.com/ogp.png" />
 
-  gtag('config', 'G-NT4WLMFX3L');
-</script>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://seiheki-shindan.com/ogp.png" />
+
   <link rel="canonical" href="https://seiheki-shindan.com/" />
+<link rel="icon" type="image/png" href="/icon.png" />
+<link rel="apple-touch-icon" href="/icon.png" />
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-      background: linear-gradient(135deg, #140014, #360036, #100010);
+      background: linear-gradient(135deg, #130014, #340034, #100010);
       color: #fff;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 980px;
       margin: auto;
       padding: 24px 16px 60px;
     }
 
     .hero {
       text-align: center;
-      padding: 35px 0 25px;
+      padding: 36px 0 26px;
     }
 
     h1 {
-      font-size: 38px;
+      font-size: 40px;
       margin-bottom: 12px;
     }
 
@@ -165,6 +161,7 @@
     }
 
     .match,
+    .genre-box,
     .recommend {
       background: rgba(255,255,255,0.1);
       border-radius: 18px;
@@ -172,21 +169,94 @@
       margin-top: 22px;
     }
 
-    .recommend-grid {
-      display: grid;
-      gap: 12px;
+    .match-name {
+      font-size: 22px;
+      font-weight: 900;
+      color: #ffd8ff;
+      margin: 8px 0;
+    }
+
+    .genre-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
       margin-top: 14px;
+    }
+
+    .genre-item {
+      background: rgba(255,79,216,0.22);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .product-section {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .product-section h3 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+
+    .product-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      background: #250025;
+    }
+
+    .product-content {
+      padding: 14px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      color: #fff;
+      background: #ff4fd8;
+    }
+
+    .product-title {
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.5;
+      margin: 0 0 12px;
+      color: #fff;
     }
 
     .link-btn {
       display: block;
       background: #fff;
       color: #320033;
-      font-weight: 800;
+      font-weight: 900;
     }
-
-    .video { background: #ffefff; }
-    .manga { background: #f2e8ff; }
 
     .share {
       display: block;
@@ -240,15 +310,27 @@
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 30px; }
-      .result h2 { font-size: 24px; }
-      .percent { font-size: 46px; }
+      h1 {
+        font-size: 30px;
+      }
+
+      .result h2 {
+        font-size: 24px;
+      }
+
+      .percent {
+        font-size: 46px;
+      }
 
       .card,
       .result,
       .info-box,
       .age-box {
         padding: 18px;
+      }
+
+      .product-card img {
+        height: 230px;
       }
     }
   </style>
@@ -260,7 +342,7 @@
     <section class="hero">
       <h1>性癖タイプ診断</h1>
       <p class="lead">
-        20個の質問に答えるだけで、あなたの隠れたタイプ・恋愛傾向・相性タイプがわかります。
+        20個の質問に答えるだけで、あなたの性癖タイプ・相性の良い人・おすすめジャンルがわかります。
       </p>
     </section>
 
@@ -283,13 +365,13 @@
         <h2>性癖タイプ診断とは？</h2>
         <p>
           性癖タイプ診断は、20個の質問からあなたの恋愛傾向・相性の良いタイプ・隠れた好みをチェックできる無料診断です。
-          S気質、M気質、言葉責め、甘えたい傾向、支配欲、安心感重視など、全10種類の診断結果を用意しています。
+          診断結果ごとに、固定ジャンル・人気動画・新作動画・人気漫画・新作漫画を表示します。
         </p>
 
-        <h3>診断結果ごとにおすすめジャンルも表示</h3>
+        <h3>診断結果ごとにおすすめジャンルを表示</h3>
         <p>
-          診断結果に合わせて、おすすめの動画ジャンル・漫画ジャンルへのリンクを表示します。
-          アフィリエイトリンクを取得した後は、コード内のURLを自分のアフィリンクに差し替えるだけで使えます。
+          支配型、受け身甘え型、背徳スリル型、ギャップ覚醒型、妄想ロマン型、独占依存型など、
+          結果に合わせて相性の良い人やおすすめジャンルを紹介します。
         </p>
 
         <h3>注意事項</h3>
@@ -303,77 +385,29 @@
         <p><strong>サイト名：</strong>性癖タイプ診断</p>
         <p><strong>運営者：</strong>性癖タイプ診断運営事務局</p>
         <p><strong>お問い合わせ：</strong><a href="mailto:shindanseiheki@gmail.com">shindanseiheki@gmail.com</a></p>
-        <p>
-          <strong>サイト説明：</strong>
-          当サイトはエンタメ目的の診断コンテンツを提供しています。
-        </p>
-        <p>
-          <strong>広告について：</strong>
-          当サイトはアフィリエイト広告を利用する場合があります。
-        </p>
-      </section>
-
-      <section class="info-box" id="contact">
-        <h2>お問い合わせ</h2>
-        <p>
-          当サイトに関するお問い合わせは、以下のメールアドレスまでお願いいたします。
-        </p>
-        <p>
-          <a href="mailto:shindanseiheki@gmail.com">shindanseiheki@gmail.com</a>
-        </p>
+        <p><strong>広告について：</strong>当サイトはアフィリエイト広告を利用する場合があります。</p>
       </section>
 
       <section class="info-box" id="privacy">
         <h2>プライバシーポリシー</h2>
-
-        <h3>個人情報の利用について</h3>
         <p>
           当サイトでは、お問い合わせ時にメールアドレス等の情報をご提供いただく場合があります。
-          取得した情報は、お問い合わせへの回答や必要な連絡のために利用し、それ以外の目的では利用しません。
+          取得した情報は、お問い合わせへの回答や必要な連絡のために利用します。
         </p>
-
-        <h3>アクセス解析について</h3>
         <p>
-          当サイトでは、今後アクセス解析ツールを利用する場合があります。
-          アクセス解析ではCookieを使用する場合がありますが、個人を特定するものではありません。
-        </p>
-
-        <h3>広告について</h3>
-        <p>
-          当サイトでは、アフィリエイト広告を掲載する場合があります。
-          商品やサービスに関するお問い合わせは、各販売元・提供元へお願いいたします。
-        </p>
-
-        <h3>免責事項</h3>
-        <p>
-          当サイトのコンテンツは娯楽目的で提供しています。
-          掲載情報の正確性には注意を払っていますが、内容の完全性や安全性を保証するものではありません。
+          当サイトでは、アクセス解析ツールやアフィリエイト広告を利用する場合があります。
+          Cookieを使用する場合がありますが、個人を特定するものではありません。
         </p>
       </section>
 
       <section class="info-box" id="terms">
         <h2>利用規約</h2>
-
-        <h3>当サイトの利用について</h3>
         <p>
-          当サイトは、エンタメ目的の診断コンテンツを提供するサイトです。
-          診断結果はあくまで娯楽目的であり、医学的・心理学的な診断を行うものではありません。
+          当サイトはエンタメ目的の診断コンテンツです。
+          診断結果は娯楽目的であり、医学的・心理学的な診断ではありません。
         </p>
-
-        <h3>禁止事項</h3>
         <p>
-          当サイトのコンテンツの無断転載、改変、迷惑行為、不正アクセス等を禁止します。
-        </p>
-
-        <h3>外部リンクについて</h3>
-        <p>
-          当サイトには外部サイトへのリンクが含まれる場合があります。
-          外部サイトで発生したトラブルについて、当サイトは責任を負いません。
-        </p>
-
-        <h3>規約の変更</h3>
-        <p>
-          当サイトは、必要に応じて本規約を変更する場合があります。
+          当サイト内の外部リンク先で発生したトラブルについて、当サイトは責任を負いません。
         </p>
       </section>
     </main>
@@ -381,7 +415,6 @@
     <nav class="footer-links">
       <a href="#about">サイト説明</a>
       <a href="#operator">運営者情報</a>
-      <a href="#contact">お問い合わせ</a>
       <a href="#privacy">プライバシーポリシー</a>
       <a href="#terms">利用規約</a>
     </nav>
@@ -393,125 +426,257 @@
 const SITE_URL = "https://seiheki-shindan.com/";
 
 const questions = [
-  { text: "相手にリードされるより、自分が主導権を握りたい？", type: "s" },
-  { text: "相手の反応を見るのが好き？", type: "s" },
-  { text: "頼られたり、求められたりすると燃える？", type: "s" },
-  { text: "少し支配的な雰囲気に惹かれる？", type: "s" },
+  { text: "相手をリードしたいと思う？", type: "s" },
+  { text: "主導権を握る方が好き？", type: "s" },
+  { text: "相手の反応を見ると気持ちが高まる？", type: "s" },
 
   { text: "強めにリードされると安心する？", type: "m" },
   { text: "少し意地悪されるとドキッとする？", type: "m" },
-  { text: "尽くす側にまわることが多い？", type: "m" },
-  { text: "相手に振り回される恋に弱い？", type: "m" },
+  { text: "甘えたり、委ねたりする方が好き？", type: "m" },
 
-  { text: "言葉で褒められるとかなり弱い？", type: "praise" },
-  { text: "甘い言葉や雰囲気で気持ちが動きやすい？", type: "praise" },
+  { text: "言葉責めされると弱い？", type: "word" },
+  { text: "会話や空気感でドキドキしやすい？", type: "word" },
 
-  { text: "言葉で責める・責められる空気に惹かれる？", type: "word" },
-  { text: "直接的な行動より、会話や空気感にドキドキする？", type: "word" },
+  { text: "秘密っぽい関係に惹かれる？", type: "secret" },
+  { text: "背徳感や非日常感に弱い？", type: "secret" },
+  { text: "人妻系や大人の関係性に惹かれる？", type: "secret" },
 
-  { text: "秘密っぽい関係や背徳感に弱い？", type: "secret" },
-  { text: "非日常感やスリルのある展開に惹かれやすい？", type: "secret" },
+  { text: "尽くされると気持ちが高まる？", type: "queen" },
+  { text: "特別扱いされると弱い？", type: "queen" },
 
-  { text: "自分を特別扱いしてくれる相手に弱い？", type: "queen" },
-  { text: "尽くされると一気に気持ちが高まる？", type: "queen" },
+  { text: "清楚そうな人のギャップに弱い？", type: "gap" },
+  { text: "普段との違いや裏の顔に惹かれる？", type: "gap" },
 
-  { text: "普段とのギャップがある人に惹かれやすい？", type: "gap" },
-  { text: "清楚そうな人の意外な一面に弱い？", type: "gap" },
+  { text: "安心感や優しさを重視する？", type: "soft" },
+  { text: "ゆっくり距離が縮まる関係が好き？", type: "soft" },
 
-  { text: "刺激よりも安心感や信頼感を重視する？", type: "soft" },
-  { text: "ゆっくり距離が縮まる関係の方が好き？", type: "soft" }
+  { text: "シチュエーションや物語性に弱い？", type: "fantasy" },
+  { text: "素人感や日常っぽい雰囲気に惹かれる？", type: "fantasy" },
+
+  { text: "独占欲や依存される関係に惹かれる？", type: "yandere" }
 ];
+
+const dummyImage = "https://via.placeholder.com/400x600/360036/ffffff?text=No+Image";
 
 const resultData = {
   s: {
-    name: "支配欲強めのリードタイプ",
-    desc: "相手を引っ張ることに魅力を感じやすいタイプ。相手の反応を見ることで気持ちが高まりやすく、頼られるほど魅力が出ます。",
-    match: "素直に甘えてくれる受け身タイプ",
-    videoTitle: "おすすめ動画ジャンル：主導権・リード系",
-    mangaTitle: "おすすめ漫画ジャンル：Sキャラ・主従関係系",
-    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E4%B8%BB%E5%B0%8E%E6%A8%A9",
-    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=S%E3%82%AD%E3%83%A3%E3%83%A9"
+    name: "支配型リーダー",
+    desc: "相手を引っ張ることで魅力が出るタイプ。頼られたり、反応を見たりすることで気持ちが高まりやすい傾向があります。",
+    match: "甘え上手な依存タイプ",
+    matchDesc: "頼られるほど燃えるあなたには、素直に甘えてくれる人が最高相性。主導権を任せてくれる相手と関係が深まりやすいです。",
+    genres: ["S系", "主導権", "女王様", "支配系"],
+    popularVideos: [
+      { title: "S系・主導権ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "今人気" },
+      { title: "支配系ジャンルの売上上位動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "売上1位" }
+    ],
+    newVideos: [
+      { title: "S系ジャンルの新作動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作" },
+      { title: "主導権ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定" }
+    ],
+    popularManga: [
+      { title: "Sキャラ・主従関係の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+    ],
+    newManga: [
+      { title: "女王様系ジャンルの新着漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新着漫画" }
+    ]
   },
+
   m: {
-    name: "いじられ快感の受け身タイプ",
-    desc: "少し強めにリードされることで安心感やドキドキを感じやすいタイプ。信頼できる相手との関係で魅力が出やすいです。",
-    match: "包容力のあるリードタイプ",
-    videoTitle: "おすすめ動画ジャンル：受け身・甘やかされ系",
-    mangaTitle: "おすすめ漫画ジャンル：溺愛・いじられ系",
-    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E7%94%98%E3%82%84%E3%81%8B%E3%81%97",
-    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E6%BA%BA%E6%84%9B"
+    name: "受け身甘えタイプ",
+    desc: "強めにリードされたり、甘やかされたりすることで安心感を得やすいタイプ。信頼できる相手に委ねるほど魅力が出ます。",
+    match: "包容力あるリードタイプ",
+    matchDesc: "優しく引っ張ってくれる人と相性抜群。あなたを安心させながらペースを作ってくれる相手が合います。",
+    genres: ["甘やかし", "溺愛", "素人彼女感", "優しい系"],
+    popularVideos: [
+      { title: "甘やかし系ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "今人気" },
+      { title: "ドM人気急上昇ジャンル動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "ドM人気急上昇" }
+    ],
+    newVideos: [
+      { title: "受け身・甘え系ジャンルの新作動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作" },
+      { title: "素人彼女感ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定" }
+    ],
+    popularManga: [
+      { title: "溺愛・甘やかし系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+    ],
+    newManga: [
+      { title: "優しい系ジャンルの新着漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新着漫画" }
+    ]
   },
-  praise: {
-    name: "褒められたい承認欲求タイプ",
-    desc: "優しい言葉や肯定されることに弱いタイプ。褒められることで安心し、気持ちが高まりやすい傾向があります。",
-    match: "よく褒めてくれる包容力タイプ",
-    videoTitle: "おすすめ動画ジャンル：褒め・癒し系",
-    mangaTitle: "おすすめ漫画ジャンル：甘々・癒し系",
-    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E7%99%92%E3%81%97",
-    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E7%94%98%E3%80%85"
-  },
+
   word: {
-    name: "言葉責めに弱い妄想タイプ",
-    desc: "会話や空気感、言葉のニュアンスに強く反応しやすいタイプ。想像力が豊かで、雰囲気作りを重視します。",
-    match: "言葉選びが上手い大人タイプ",
-    videoTitle: "おすすめ動画ジャンル：言葉責め・会話重視系",
-    mangaTitle: "おすすめ漫画ジャンル：心理描写・言葉攻め系",
-    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E8%A8%80%E8%91%89%E8%B2%AC%E3%82%81",
-    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E8%A8%80%E8%91%89%E8%B2%AC%E3%82%81"
+    name: "言葉責め妄想タイプ",
+    desc: "行動そのものよりも、言葉・会話・雰囲気に強く反応しやすいタイプ。想像力が豊かで、空気感を重視します。",
+    match: "会話上手な大人タイプ",
+    matchDesc: "言葉選びがうまく、雰囲気を作れる相手と好相性。褒めたり責めたりのバランスが上手い人に惹かれやすいです。",
+    genres: ["言葉責め", "会話重視", "心理描写", "妄想系"],
+    popularVideos: [
+      { title: "言葉責めジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "今人気" },
+      { title: "会話重視ジャンルの売上上位動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "売上1位" }
+    ],
+    newVideos: [
+      { title: "言葉責めジャンルの新作動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作" },
+      { title: "妄想系ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定" }
+    ],
+    popularManga: [
+      { title: "心理描写・言葉責め系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+    ],
+    newManga: [
+      { title: "妄想系ジャンルの新着漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新着漫画" }
+    ]
   },
+
   secret: {
-    name: "背徳感に惹かれるスリルタイプ",
-    desc: "秘密っぽさや非日常感に惹かれやすいタイプ。刺激を求める一方で、安心できる相手とのバランスが大切です。",
-    match: "落ち着きのある安心タイプ",
-    videoTitle: "おすすめ動画ジャンル：背徳感・秘密系",
-    mangaTitle: "おすすめ漫画ジャンル：禁断・秘密の関係系",
-    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E8%83%8C%E5%BE%B3",
-    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E7%A7%98%E5%AF%86%E3%81%AE%E9%96%A2%E4%BF%82"
+    name: "背徳スリルタイプ",
+    desc: "秘密っぽさや非日常感に惹かれやすいタイプ。大人っぽい関係性や、少し危うい雰囲気に弱い傾向があります。",
+    match: "冷静な安心タイプ",
+    matchDesc: "刺激を受け止めつつ、最後は安心感をくれる人と相性が良いです。落ち着きのある相手ほど長続きしやすいです。",
+    genres: ["人妻", "秘密関係", "不倫風", "背徳感"],
+    popularVideos: [
+      { title: "人妻系ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人妻人気" },
+      { title: "背徳感ジャンルの売上上位動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "売上1位" }
+    ],
+    newVideos: [
+      { title: "人妻系ジャンルの新作動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作" },
+      { title: "秘密関係ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定" }
+    ],
+    popularManga: [
+      { title: "人妻・秘密関係の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+    ],
+    newManga: [
+      { title: "背徳感ジャンルの新着漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新着漫画" }
+    ]
   },
+
   queen: {
-    name: "愛され女王様タイプ",
-    desc: "自分を大切に扱ってくれる相手に惹かれやすいタイプ。尽くされることで安心して魅力を出せます。",
-    match: "尽くすのが好きな献身タイプ",
-    videoTitle: "おすすめ動画ジャンル：尽くされ・女王様系",
-    mangaTitle: "おすすめ漫画ジャンル：愛され・姫扱い系",
-    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E5%A5%B3%E7%8E%8B%E6%A7%98",
-    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E6%84%9B%E3%81%95%E3%82%8C"
+    name: "愛され女王タイプ",
+    desc: "尽くされることや特別扱いされることで魅力が出るタイプ。大切に扱われるほど気持ちが高まりやすいです。",
+    match: "献身的な尽くしタイプ",
+    matchDesc: "あなたを最優先にしてくれる人と好相性。細かい気遣いや愛情表現ができる相手に惹かれやすいです。",
+    genres: ["尽くされ", "女王様", "愛され", "姫扱い"],
+    popularVideos: [
+      { title: "尽くされ系ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "今人気" },
+      { title: "女王様系ジャンルの売上上位動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "売上1位" }
+    ],
+    newVideos: [
+      { title: "愛され系ジャンルの新作動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作" },
+      { title: "姫扱いジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定" }
+    ],
+    popularManga: [
+      { title: "愛され・姫扱い系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+    ],
+    newManga: [
+      { title: "尽くされ系ジャンルの新着漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新着漫画" }
+    ]
   },
+
   gap: {
-    name: "ギャップ萌え妄想タイプ",
-    desc: "普段との違いや意外な一面に強く惹かれるタイプ。見た目や雰囲気の変化に敏感で、想像力も豊かです。",
-    match: "二面性のあるミステリアスタイプ",
-    videoTitle: "おすすめ動画ジャンル：ギャップ・清楚系",
-    mangaTitle: "おすすめ漫画ジャンル：ギャップ萌え・清楚系",
-    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E6%B8%85%E6%A5%9A",
-    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E3%82%AE%E3%83%A3%E3%83%83%E3%83%97"
+    name: "ギャップ覚醒タイプ",
+    desc: "普段との違いや意外な一面に強く惹かれるタイプ。清楚さ、地味さ、裏の顔などのギャップに弱い傾向があります。",
+    match: "二面性ミステリアスタイプ",
+    matchDesc: "普段は落ち着いているのに、ふとした瞬間に別の顔を見せる相手と相性が良いです。",
+    genres: ["清楚崩れ", "地味系", "ギャップ", "裏の顔"],
+    popularVideos: [
+      { title: "清楚崩れジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "今人気" },
+      { title: "地味系・ギャップ系の売上上位動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "売上1位" }
+    ],
+    newVideos: [
+      { title: "ギャップ系ジャンルの新作動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作" },
+      { title: "裏の顔ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定" }
+    ],
+    popularManga: [
+      { title: "ギャップ萌え系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+    ],
+    newManga: [
+      { title: "清楚系ジャンルの新着漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新着漫画" }
+    ]
   },
+
   soft: {
-    name: "安心感重視のやさしめタイプ",
-    desc: "過激さよりも信頼感や優しさを重視するタイプ。ゆっくり距離が縮まる関係に向いています。",
-    match: "落ち着いて向き合ってくれる誠実タイプ",
-    videoTitle: "おすすめ動画ジャンル：癒し・やさしめ系",
-    mangaTitle: "おすすめ漫画ジャンル：純愛・癒し系",
-    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E7%99%92%E3%81%97",
-    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E7%B4%94%E6%84%9B"
+    name: "安心感重視タイプ",
+    desc: "刺激よりも優しさや信頼感を重視するタイプ。ゆっくり距離が縮まる関係で魅力が出やすいです。",
+    match: "誠実な癒しタイプ",
+    matchDesc: "落ち着いて向き合ってくれる人と相性抜群。安心感をくれる相手と長く深い関係になりやすいです。",
+    genres: ["癒し", "優しい系", "純愛", "甘々"],
+    popularVideos: [
+      { title: "癒し系ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "今人気" },
+      { title: "優しい系ジャンルの売上上位動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "売上1位" }
+    ],
+    newVideos: [
+      { title: "癒し系ジャンルの新作動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作" },
+      { title: "甘々ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定" }
+    ],
+    popularManga: [
+      { title: "純愛・癒し系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+    ],
+    newManga: [
+      { title: "甘々系ジャンルの新着漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新着漫画" }
+    ]
   },
+
+  fantasy: {
+    name: "妄想ロマンスタイプ",
+    desc: "シチュエーションや物語性に惹かれやすいタイプ。素人感や日常感など、リアルな雰囲気に入り込みやすいです。",
+    match: "世界観共有タイプ",
+    matchDesc: "一緒に妄想やシチュエーションを楽しめる人と相性が良いです。価値観を共有できる相手ほどハマりやすいです。",
+    genres: ["素人", "シチュエーション", "学園", "日常系"],
+    popularVideos: [
+      { title: "素人系ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "素人急上昇" },
+      { title: "シチュエーション系の売上上位動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "売上1位" }
+    ],
+    newVideos: [
+      { title: "素人系ジャンルの新作動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作" },
+      { title: "日常系ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定" }
+    ],
+    popularManga: [
+      { title: "シチュエーション系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+    ],
+    newManga: [
+      { title: "日常系ジャンルの新着漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新着漫画" }
+    ]
+  },
+
+  yandere: {
+    name: "独占依存タイプ",
+    desc: "深く強い関係性や、一途に求められる関係に惹かれやすいタイプ。独占欲や依存感に反応しやすい傾向があります。",
+    match: "一途な重め恋愛タイプ",
+    matchDesc: "あなたを強く求めてくれる人と相性が良いです。軽い関係よりも、深く向き合える相手に惹かれやすいです。",
+    genres: ["ヤンデレ", "依存", "独占欲", "重め恋愛"],
+    popularVideos: [
+      { title: "独占欲ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "今人気" },
+      { title: "依存系ジャンルの売上上位動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "売上1位" }
+    ],
+    newVideos: [
+      { title: "ヤンデレ系ジャンルの新作動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作" },
+      { title: "重め恋愛ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定" }
+    ],
+    popularManga: [
+      { title: "ヤンデレ・依存系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+    ],
+    newManga: [
+      { title: "独占欲ジャンルの新着漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新着漫画" }
+    ]
+  },
+
   balance: {
     name: "バランス型オールラウンダー",
-    desc: "S気質・M気質・安心感・刺激のバランスが取れたタイプ。相手によって雰囲気を変えられる柔軟さがあります。",
+    desc: "刺激・安心感・妄想・相性のバランスが取れたタイプ。相手によって雰囲気を変えられる柔軟さがあります。",
     match: "相手に合わせられる柔軟タイプ",
-    videoTitle: "おすすめ動画ジャンル：人気ランキング・総合系",
-    mangaTitle: "おすすめ漫画ジャンル：人気漫画・ランキング系",
-    videoUrl: "https://www.dmm.co.jp/digital/videoa/",
-    mangaUrl: "https://book.dmm.co.jp/"
-  },
-  fantasy: {
-    name: "妄想暴走ロマンスタイプ",
-    desc: "現実そのものより、シチュエーションや物語性に惹かれやすいタイプ。世界観や設定がハマると一気に入り込みます。",
-    match: "世界観を一緒に楽しめるタイプ",
-    videoTitle: "おすすめ動画ジャンル：シチュエーション系",
-    mangaTitle: "おすすめ漫画ジャンル：ストーリー重視・妄想系",
-    videoUrl: "https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr=%E3%82%B7%E3%83%81%E3%83%A5%E3%82%A8%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3",
-    mangaUrl: "https://book.dmm.co.jp/search/?searchstr=%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC"
+    matchDesc: "お互いに空気を読み合える相手と相性が良いです。固定された関係より、自然体で楽しめる関係に向いています。",
+    genres: ["人気ランキング", "総合", "新作", "急上昇"],
+    popularVideos: [
+      { title: "総合人気ランキング動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "今人気" },
+      { title: "売上上位の人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "売上1位" }
+    ],
+    newVideos: [
+      { title: "総合ジャンルの新作動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作" },
+      { title: "期間限定おすすめ動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定" }
+    ],
+    popularManga: [
+      { title: "人気ランキング上位漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+    ],
+    newManga: [
+      { title: "新着おすすめ漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新着漫画" }
+    ]
   }
 };
 
@@ -546,10 +711,42 @@ function renderQuestions() {
 function answer(index, score, btn) {
   answers[index] = score;
 
-  const parent = btn.parentElement;
-  const buttons = parent.querySelectorAll("button");
+  const buttons = btn.parentElement.querySelectorAll("button");
   buttons.forEach(b => b.classList.remove("selected"));
   btn.classList.add("selected");
+}
+
+function createGenres(genres) {
+  return `
+    <div class="genre-box">
+      <h3>あなたにおすすめの固定ジャンル</h3>
+      <div class="genre-list">
+        ${genres.map(genre => `<span class="genre-item">${genre}</span>`).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function createProducts(title, items) {
+  return `
+    <div class="product-section">
+      <h3>${title}</h3>
+      <div class="product-grid">
+        ${items.map(item => `
+          <div class="product-card">
+            <img src="${item.image}" alt="${item.title}">
+            <div class="product-content">
+              <span class="badge">${item.badge}</span>
+              <p class="product-title">${item.title}</p>
+              <a class="link-btn" href="${item.url}" target="_blank" rel="nofollow sponsored noopener">
+                ${item.badge}を見る
+              </a>
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `;
 }
 
 function showResult() {
@@ -569,21 +766,23 @@ function showResult() {
   const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
   const topType = sorted[0][0];
   const topScore = sorted[0][1];
-  const secondScore = sorted[1][1];
+  const secondScore = sorted[1] ? sorted[1][1] : 0;
   const totalScore = answers.reduce((a, b) => a + b, 0);
 
   let result;
 
-  if (topScore - secondScore <= 1 && totalScore >= 38) {
-    result = resultData.fantasy;
+  if (topScore - secondScore <= 1 && totalScore >= 35) {
+    result = resultData.balance;
   } else if (topScore - secondScore <= 1) {
     result = resultData.balance;
   } else {
     result = resultData[topType];
   }
 
-  const percent = Math.min(99, Math.max(55, Math.round((topScore / 12) * 100)));
-  const shareText = `私の診断結果は「${result.name}」でした！あなたも性癖タイプ診断をやってみて👇`;
+  const maxScoreForType = questions.filter(q => q.type === topType).length * 3;
+  const percent = Math.min(99, Math.max(60, Math.round((topScore / maxScoreForType) * 100)));
+
+  const shareText = `私の診断結果は「${result.name}」でした！相性が良いタイプは「${result.match}」`;
 
   document.getElementById("result").innerHTML = `
     <section class="result">
@@ -593,24 +792,24 @@ function showResult() {
       <p>${result.desc}</p>
 
       <div class="match">
-        <h3>相性が良いタイプ</h3>
-        <p>${result.match}</p>
+        <h3>相性が良い人</h3>
+        <div class="match-name">${result.match}</div>
+        <p>${result.matchDesc}</p>
       </div>
 
+      ${createGenres(result.genres)}
+
       <div class="recommend">
-        <h3>あなたにおすすめのジャンル</h3>
-        <div class="recommend-grid">
-          <a class="link-btn video" href="${result.videoUrl}" target="_blank" rel="nofollow sponsored noopener">
-            🎥 ${result.videoTitle}
-          </a>
-          <a class="link-btn manga" href="${result.mangaUrl}" target="_blank" rel="nofollow sponsored noopener">
-            📚 ${result.mangaTitle}
-          </a>
-        </div>
+        <h3>あなた専用のおすすめ作品</h3>
         <p class="notice">
-          ※現在は検索リンクです。FANZAアフィリエイトリンクを取得したら、このURLを差し替えれば収益化用リンクになります。
+          ※下の作品URLを自分のアフィリエイトリンクに差し替えると収益化用リンクとして使えます。
         </p>
       </div>
+
+      ${createProducts("人気動画", result.popularVideos)}
+      ${createProducts("新作動画", result.newVideos)}
+      ${createProducts("人気漫画", result.popularManga)}
+      ${createProducts("新作漫画", result.newManga)}
 
       <a
         class="share"
