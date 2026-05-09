@@ -648,7 +648,716 @@ const resultData = {
     newVideos: [
       { title: "ヤンデレ系ジャンルの新作動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作" },
       { title: "重め恋愛ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定" }
-    ],
+    ],<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>性癖タイプ診断｜相性・人気作品もわかる無料診断</title>
+  <meta name="description" content="20問であなたの性癖タイプ・恋愛傾向・相性が良い人を無料診断。タイプ別に人気動画・人気漫画も紹介。" />
+  <meta name="keywords" content="性癖診断,性癖タイプ診断,恋愛診断,相性診断,S診断,M診断,人妻,素人,漫画,動画,無料診断" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="性癖タイプ診断" />
+  <meta property="og:description" content="あなたの性癖タイプ・相性の良い人・おすすめジャンルを無料診断。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://seiheki-shindan.com/" />
+  <meta property="og:image" content="https://seiheki-shindan.com/ogp.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://seiheki-shindan.com/ogp.png" />
+
+  <link rel="canonical" href="https://seiheki-shindan.com/" />
+  <link rel="icon" type="image/png" href="/icon.png" />
+  <link rel="apple-touch-icon" href="/icon.png" />
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      background: linear-gradient(135deg, #130014, #340034, #100010);
+      color: #fff;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: auto;
+      padding: 24px 16px 60px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 36px 0 26px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .lead {
+      color: #f4caff;
+      line-height: 1.8;
+    }
+
+    .age-box,
+    .card,
+    .result,
+    .info-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .age-box {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .question {
+      margin-bottom: 26px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .question h2 {
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+
+    .buttons {
+      display: grid;
+      gap: 10px;
+    }
+
+    button,
+    .share,
+    .link-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 18px;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    .answer-btn {
+      background: #fff;
+      color: #320033;
+      font-weight: 700;
+    }
+
+    .answer-btn:hover {
+      background: #ffe0ff;
+      transform: translateY(-2px);
+    }
+
+    .answer-btn.selected {
+      background: #ff4fd8;
+      color: #fff;
+    }
+
+    .main-btn {
+      width: 100%;
+      background: #ff4fd8;
+      color: #fff;
+      font-weight: 800;
+      font-size: 17px;
+      margin-top: 20px;
+    }
+
+    .sub-btn {
+      background: #fff;
+      color: #320033;
+      font-weight: 700;
+      margin-top: 12px;
+      width: 100%;
+    }
+
+    .result {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .result h2 {
+      font-size: 32px;
+      color: #ffd8ff;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(255,79,216,0.18);
+      color: #ffd8ff;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .match,
+    .genre-box,
+    .recommend {
+      background: rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 22px;
+    }
+
+    .match-name {
+      font-size: 22px;
+      font-weight: 900;
+      color: #ffd8ff;
+      margin: 8px 0;
+    }
+
+    .genre-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .genre-item {
+      background: rgba(255,79,216,0.22);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .product-section {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .product-section h3 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .product-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      background: #250025;
+    }
+
+    .product-content {
+      padding: 14px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      color: #fff;
+      background: #ff4fd8;
+    }
+
+    .product-title {
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.5;
+      margin: 0 0 12px;
+      color: #fff;
+    }
+
+    .link-btn {
+      display: block;
+      background: #fff;
+      color: #320033;
+      font-weight: 900;
+    }
+
+    .share {
+      display: block;
+      background: #111;
+      color: #fff;
+      font-weight: 700;
+      margin-top: 22px;
+    }
+
+    .info-box {
+      margin-top: 40px;
+      line-height: 1.8;
+      color: #f4d4ff;
+    }
+
+    .info-box h2,
+    .info-box h3 {
+      color: #fff;
+    }
+
+    .notice {
+      font-size: 13px;
+      color: #e8b8ef;
+      line-height: 1.7;
+      margin-top: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 35px;
+      font-size: 13px;
+    }
+
+    .footer-links a {
+      color: #ffd8ff;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      color: #cfa8d6;
+      font-size: 13px;
+    }
+
+    a { color: #ffd8ff; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 30px; }
+
+      .result h2 { font-size: 24px; }
+
+      .card,
+      .result,
+      .info-box,
+      .age-box {
+        padding: 18px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .product-card img {
+        height: 180px;
+      }
+
+      .product-content {
+        padding: 10px;
+      }
+
+      .product-title {
+        font-size: 13px;
+      }
+
+      .link-btn {
+        font-size: 13px;
+        padding: 12px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <section class="hero">
+      <h1>性癖タイプ診断</h1>
+      <p class="lead">
+        20個の質問に答えるだけで、あなたの性癖タイプ・相性の良い人・おすすめジャンルがわかります。
+      </p>
+    </section>
+
+    <div id="ageCheck" class="age-box">
+      <h2>年齢確認</h2>
+      <p>この診断は大人向けの内容を含みます。18歳以上の方のみご利用ください。</p>
+      <button class="main-btn" onclick="startSite()">18歳以上なので診断をはじめる</button>
+    </div>
+
+    <main id="app" style="display:none;">
+      <section class="card">
+        <div id="questions"></div>
+        <button class="main-btn" onclick="showResult()">診断する</button>
+        <p class="notice">すべての質問に回答すると診断できます。</p>
+      </section>
+
+      <div id="result"></div>
+
+      <section class="info-box" id="about">
+        <h2>性癖タイプ診断とは？</h2>
+        <p>
+          性癖タイプ診断は、20個の質問からあなたの恋愛傾向・相性の良いタイプ・隠れた好みをチェックできる無料診断です。
+          診断結果ごとに、固定ジャンル・人気動画・人気漫画を表示します。
+        </p>
+
+        <h3>診断結果ごとにおすすめジャンルを表示</h3>
+        <p>
+          支配型、受け身甘え型、背徳スリル型、ギャップ覚醒型、妄想ロマン型、独占依存型など、
+          結果に合わせて相性の良い人やおすすめジャンルを紹介します。
+        </p>
+
+        <h3>注意事項</h3>
+        <p>
+          この診断は娯楽目的のコンテンツです。結果は医学的・心理学的な診断ではありません。
+        </p>
+      </section>
+
+      <section class="info-box" id="operator">
+        <h2>運営者情報</h2>
+        <p><strong>サイト名：</strong>性癖タイプ診断</p>
+        <p><strong>運営者：</strong>性癖タイプ診断運営事務局</p>
+        <p><strong>お問い合わせ：</strong><a href="mailto:shindanseiheki@gmail.com">shindanseiheki@gmail.com</a></p>
+        <p><strong>広告について：</strong>当サイトはアフィリエイト広告を利用する場合があります。</p>
+      </section>
+
+      <section class="info-box" id="privacy">
+        <h2>プライバシーポリシー</h2>
+        <p>
+          当サイトでは、お問い合わせ時にメールアドレス等の情報をご提供いただく場合があります。
+          取得した情報は、お問い合わせへの回答や必要な連絡のために利用します。
+        </p>
+        <p>
+          当サイトでは、アクセス解析ツールやアフィリエイト広告を利用する場合があります。
+          Cookieを使用する場合がありますが、個人を特定するものではありません。
+        </p>
+      </section>
+
+      <section class="info-box" id="terms">
+        <h2>利用規約</h2>
+        <p>
+          当サイトはエンタメ目的の診断コンテンツです。
+          診断結果は娯楽目的であり、医学的・心理学的な診断ではありません。
+        </p>
+        <p>
+          当サイト内の外部リンク先で発生したトラブルについて、当サイトは責任を負いません。
+        </p>
+      </section>
+    </main>
+
+    <nav class="footer-links">
+      <a href="#about">サイト説明</a>
+      <a href="#operator">運営者情報</a>
+      <a href="#privacy">プライバシーポリシー</a>
+      <a href="#terms">利用規約</a>
+    </nav>
+
+    <footer>© 性癖タイプ診断</footer>
+  </div>
+
+<script>
+const SITE_URL = "https://seiheki-shindan.com/";
+
+const questions = [
+  { text: "相手をリードしたいと思う？", type: "s" },
+  { text: "主導権を握る方が好き？", type: "s" },
+  { text: "相手の反応を見ると気持ちが高まる？", type: "s" },
+
+  { text: "強めにリードされると安心する？", type: "m" },
+  { text: "少し意地悪されるとドキッとする？", type: "m" },
+  { text: "甘えたり、委ねたりする方が好き？", type: "m" },
+
+  { text: "言葉責めされると弱い？", type: "word" },
+  { text: "会話や空気感でドキドキしやすい？", type: "word" },
+
+  { text: "秘密っぽい関係に惹かれる？", type: "secret" },
+  { text: "背徳感や非日常感に弱い？", type: "secret" },
+  { text: "人妻系や大人の関係性に惹かれる？", type: "secret" },
+
+  { text: "尽くされると気持ちが高まる？", type: "queen" },
+  { text: "特別扱いされると弱い？", type: "queen" },
+
+  { text: "清楚そうな人のギャップに弱い？", type: "gap" },
+  { text: "普段との違いや裏の顔に惹かれる？", type: "gap" },
+
+  { text: "安心感や優しさを重視する？", type: "soft" },
+  { text: "ゆっくり距離が縮まる関係が好き？", type: "soft" },
+
+  { text: "シチュエーションや物語性に弱い？", type: "fantasy" },
+  { text: "素人感や日常っぽい雰囲気に惹かれる？", type: "fantasy" },
+
+  { text: "独占欲や依存される関係に惹かれる？", type: "yandere" }
+];
+
+const dummyImage = "https://via.placeholder.com/400x600/360036/ffffff?text=No+Image";
+
+const resultData = {
+  s: {
+    name: "支配型リーダー",
+    desc: "相手を引っ張ることで魅力が出るタイプ。頼られたり、反応を見たりすることで気持ちが高まりやすい傾向があります。",
+    match: "甘え上手な依存タイプ",
+    matchDesc: "頼られるほど燃えるあなたには、素直に甘えてくれる人が最高相性。主導権を任せてくれる相手と関係が深まりやすいです。",
+    genres: ["S系", "主導権", "女王様", "支配系"],
+    popularVideo: { title: "S系・主導権ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
+    popularManga: { title: "Sキャラ・主従関係の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+  },
+
+  m: {
+    name: "受け身甘えタイプ",
+    desc: "強めにリードされたり、甘やかされたりすることで安心感を得やすいタイプ。信頼できる相手に委ねるほど魅力が出ます。",
+    match: "包容力あるリードタイプ",
+    matchDesc: "優しく引っ張ってくれる人と相性抜群。あなたを安心させながらペースを作ってくれる相手が合います。",
+    genres: ["甘やかし", "溺愛", "素人彼女感", "優しい系"],
+    popularVideo: { title: "甘やかし系ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
+    popularManga: { title: "溺愛・甘やかし系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+  },
+
+  word: {
+    name: "言葉責め妄想タイプ",
+    desc: "行動そのものよりも、言葉・会話・雰囲気に強く反応しやすいタイプ。想像力が豊かで、空気感を重視します。",
+    match: "会話上手な大人タイプ",
+    matchDesc: "言葉選びがうまく、雰囲気を作れる相手と好相性。褒めたり責めたりのバランスが上手い人に惹かれやすいです。",
+    genres: ["言葉責め", "会話重視", "心理描写", "妄想系"],
+    popularVideo: { title: "言葉責めジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
+    popularManga: { title: "心理描写・言葉責め系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+  },
+
+  secret: {
+    name: "背徳スリルタイプ",
+    desc: "秘密っぽさや非日常感に惹かれやすいタイプ。大人っぽい関係性や、少し危うい雰囲気に弱い傾向があります。",
+    match: "冷静な安心タイプ",
+    matchDesc: "刺激を受け止めつつ、最後は安心感をくれる人と相性が良いです。落ち着きのある相手ほど長続きしやすいです。",
+    genres: ["人妻", "秘密関係", "不倫風", "背徳感"],
+    popularVideo: { title: "人妻系ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
+    popularManga: { title: "人妻・秘密関係の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+  },
+
+  queen: {
+    name: "愛され女王タイプ",
+    desc: "尽くされることや特別扱いされることで魅力が出るタイプ。大切に扱われるほど気持ちが高まりやすいです。",
+    match: "献身的な尽くしタイプ",
+    matchDesc: "あなたを最優先にしてくれる人と好相性。細かい気遣いや愛情表現ができる相手に惹かれやすいです。",
+    genres: ["尽くされ", "女王様", "愛され", "姫扱い"],
+    popularVideo: { title: "尽くされ系ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
+    popularManga: { title: "愛され・姫扱い系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+  },
+
+  gap: {
+    name: "ギャップ覚醒タイプ",
+    desc: "普段との違いや意外な一面に強く惹かれるタイプ。清楚さ、地味さ、裏の顔などのギャップに弱い傾向があります。",
+    match: "二面性ミステリアスタイプ",
+    matchDesc: "普段は落ち着いているのに、ふとした瞬間に別の顔を見せる相手と相性が良いです。",
+    genres: ["清楚崩れ", "地味系", "ギャップ", "裏の顔"],
+    popularVideo: { title: "清楚崩れ・ギャップ系の人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
+    popularManga: { title: "ギャップ萌え系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+  },
+
+  soft: {
+    name: "安心感重視タイプ",
+    desc: "刺激よりも優しさや信頼感を重視するタイプ。ゆっくり距離が縮まる関係で魅力が出やすいです。",
+    match: "誠実な癒しタイプ",
+    matchDesc: "落ち着いて向き合ってくれる人と相性抜群。安心感をくれる相手と長く深い関係になりやすいです。",
+    genres: ["癒し", "優しい系", "純愛", "甘々"],
+    popularVideo: { title: "癒し系ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
+    popularManga: { title: "純愛・癒し系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+  },
+
+  fantasy: {
+    name: "妄想ロマンスタイプ",
+    desc: "シチュエーションや物語性に惹かれやすいタイプ。素人感や日常感など、リアルな雰囲気に入り込みやすいです。",
+    match: "世界観共有タイプ",
+    matchDesc: "一緒に妄想やシチュエーションを楽しめる人と相性が良いです。価値観を共有できる相手ほどハマりやすいです。",
+    genres: ["素人", "シチュエーション", "学園", "日常系"],
+    popularVideo: { title: "素人系・シチュエーション系の人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
+    popularManga: { title: "シチュエーション系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+  },
+
+  yandere: {
+    name: "独占依存タイプ",
+    desc: "深く強い関係性や、一途に求められる関係に惹かれやすいタイプ。独占欲や依存感に反応しやすい傾向があります。",
+    match: "一途な重め恋愛タイプ",
+    matchDesc: "あなたを強く求めてくれる人と相性が良いです。軽い関係よりも、深く向き合える相手に惹かれやすいです。",
+    genres: ["ヤンデレ", "依存", "独占欲", "重め恋愛"],
+    popularVideo: { title: "独占欲・依存系ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
+    popularManga: { title: "ヤンデレ・依存系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+  },
+
+  balance: {
+    name: "バランス型オールラウンダー",
+    desc: "刺激・安心感・妄想・相性のバランスが取れたタイプ。相手によって雰囲気を変えられる柔軟さがあります。",
+    match: "相手に合わせられる柔軟タイプ",
+    matchDesc: "お互いに空気を読み合える相手と相性が良いです。固定された関係より、自然体で楽しめる関係に向いています。",
+    genres: ["人気ランキング", "総合", "定番", "急上昇"],
+    popularVideo: { title: "総合人気ランキング動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
+    popularManga: { title: "人気ランキング上位漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
+  }
+};
+
+let answers = [];
+
+function startSite() {
+  document.getElementById("ageCheck").style.display = "none";
+  document.getElementById("app").style.display = "block";
+}
+
+function renderQuestions() {
+  const wrap = document.getElementById("questions");
+
+  questions.forEach((q, index) => {
+    const div = document.createElement("div");
+    div.className = "question";
+
+    div.innerHTML = `
+      <h2>Q${index + 1}. ${q.text}</h2>
+      <div class="buttons">
+        <button class="answer-btn" onclick="answer(${index}, 3, this)">とても当てはまる</button>
+        <button class="answer-btn" onclick="answer(${index}, 2, this)">少し当てはまる</button>
+        <button class="answer-btn" onclick="answer(${index}, 1, this)">あまり当てはまらない</button>
+        <button class="answer-btn" onclick="answer(${index}, 0, this)">当てはまらない</button>
+      </div>
+    `;
+
+    wrap.appendChild(div);
+  });
+}
+
+function answer(index, score, btn) {
+  answers[index] = score;
+
+  const buttons = btn.parentElement.querySelectorAll("button");
+  buttons.forEach(b => b.classList.remove("selected"));
+  btn.classList.add("selected");
+}
+
+function createGenres(genres) {
+  return `
+    <div class="genre-box">
+      <h3>あなたにおすすめの固定ジャンル</h3>
+      <div class="genre-list">
+        ${genres.map(genre => `<span class="genre-item">${genre}</span>`).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function createPopularProducts(result) {
+  const items = [
+    { ...result.popularVideo, buttonText: "人気動画を見る" },
+    { ...result.popularManga, buttonText: "人気漫画を見る" }
+  ];
+
+  return `
+    <div class="product-section">
+      <h3>あなたにおすすめの人気作品</h3>
+      <div class="product-grid">
+        ${items.map(item => `
+          <div class="product-card">
+            <img src="${item.image}" alt="${item.title}">
+            <div class="product-content">
+              <span class="badge">${item.badge}</span>
+              <p class="product-title">${item.title}</p>
+              <a class="link-btn" href="${item.url}" target="_blank" rel="nofollow sponsored noopener">
+                ${item.buttonText}
+              </a>
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function showResult() {
+  const answeredCount = answers.filter(v => v !== undefined).length;
+
+  if (answeredCount < questions.length) {
+    alert("すべての質問に答えてください");
+    return;
+  }
+
+  const scores = {};
+
+  questions.forEach((q, i) => {
+    scores[q.type] = (scores[q.type] || 0) + answers[i];
+  });
+
+  const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  const topType = sorted[0][0];
+  const topScore = sorted[0][1];
+  const secondScore = sorted[1] ? sorted[1][1] : 0;
+  const totalScore = answers.reduce((a, b) => a + b, 0);
+
+  let result;
+
+  if (topScore - secondScore <= 1 && totalScore >= 35) {
+    result = resultData.balance;
+  } else if (topScore - secondScore <= 1) {
+    result = resultData.balance;
+  } else {
+    result = resultData[topType];
+  }
+
+  const shareText = `私の診断結果は「${result.name}」でした！相性が良いタイプは「${result.match}」`;
+
+  document.getElementById("result").innerHTML = `
+    <section class="result">
+      <span class="tag">診断結果</span>
+      <h2>${result.name}</h2>
+      <p>${result.desc}</p>
+
+      <div class="match">
+        <h3>相性が良い人</h3>
+        <div class="match-name">${result.match}</div>
+        <p>${result.matchDesc}</p>
+      </div>
+
+      ${createGenres(result.genres)}
+
+      <div class="recommend">
+        <h3>あなた専用のおすすめ作品</h3>
+        <p class="notice">
+          ※下の作品URLを自分のアフィリエイトリンクに差し替えると収益化用リンクとして使えます。
+        </p>
+      </div>
+
+      ${createPopularProducts(result)}
+
+      <a
+        class="share"
+        href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(SITE_URL)}"
+        target="_blank"
+        rel="noopener"
+      >
+        Xで結果を共有する
+      </a>
+
+      <button class="sub-btn" onclick="location.reload()">もう一度診断する</button>
+    </section>
+  `;
+
+  document.getElementById("result").scrollIntoView({ behavior: "smooth" });
+}
+
+renderQuestions();
+</script>
+</body>
+</html>
     popularManga: [
       { title: "ヤンデレ・依存系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" }
     ],
