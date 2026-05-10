@@ -1,3 +1,6 @@
+ごめん。これを**index.html全選択で丸ごと貼り替え**して。元コードは残して、変更箇所だけ反映してる。 
+
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -5,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>性癖タイプ診断｜相性・人気作品もわかる無料診断</title>
-  <meta name="description" content="20問であなたの性癖タイプ・恋愛傾向・相性が良い人を無料診断。タイプ別に人気動画・人気漫画・期間限定動画・新作漫画も紹介。" />
+  <meta name="description" content="30問であなたの性癖タイプ・恋愛傾向・相性が良い人を無料診断。タイプ別に人気動画・人気漫画・期間限定動画・新作漫画も紹介。" />
   <meta name="keywords" content="性癖診断,性癖タイプ診断,恋愛診断,相性診断,S診断,M診断,人妻,素人,漫画,動画,無料診断" />
   <meta name="robots" content="index, follow" />
 
@@ -131,9 +134,26 @@
       width: 100%;
     }
 
+    #result {
+      min-height: 100vh;
+    }
+
     .result {
       text-align: center;
       margin-top: 30px;
+      animation: fadeResult 0.5s ease;
+    }
+
+    @keyframes fadeResult {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .result h2 {
@@ -341,7 +361,7 @@
     <section class="hero">
       <h1>性癖タイプ診断</h1>
       <p class="lead">
-        20個の質問に答えるだけで、あなたの性癖タイプ・相性の良い人・おすすめジャンルがわかります。
+        30個の質問に答えるだけで、あなたの性癖タイプ・相性の良い人・おすすめジャンルがわかります。
       </p>
     </section>
 
@@ -363,7 +383,7 @@
       <section class="info-box" id="about">
         <h2>性癖タイプ診断とは？</h2>
         <p>
-          性癖タイプ診断は、20個の質問からあなたの恋愛傾向・相性の良いタイプ・隠れた好みをチェックできる無料診断です。
+          性癖タイプ診断は、30個の質問からあなたの恋愛傾向・相性の良いタイプ・隠れた好みをチェックできる無料診断です。
           診断結果ごとに、固定ジャンル・人気動画・人気漫画・期間限定動画・新作漫画を表示します。
         </p>
 
@@ -425,157 +445,165 @@
 const SITE_URL = "https://seiheki-shindan.com/";
 
 const questions = [
-  { text: "相手をリードしたいと思う？", type: "s" },
-  { text: "主導権を握る方が好き？", type: "s" },
-  { text: "相手の反応を見ると気持ちが高まる？", type: "s" },
-
-  { text: "強めにリードされると安心する？", type: "m" },
-  { text: "少し意地悪されるとドキッとする？", type: "m" },
-  { text: "甘えたり、委ねたりする方が好き？", type: "m" },
-
-  { text: "言葉責めされると弱い？", type: "word" },
-  { text: "会話や空気感でドキドキしやすい？", type: "word" },
-
-  { text: "秘密っぽい関係に惹かれる？", type: "secret" },
-  { text: "背徳感や非日常感に弱い？", type: "secret" },
-  { text: "人妻系や大人の関係性に惹かれる？", type: "secret" },
-
-  { text: "尽くされると気持ちが高まる？", type: "queen" },
-  { text: "特別扱いされると弱い？", type: "queen" },
-
-  { text: "清楚そうな人のギャップに弱い？", type: "gap" },
-  { text: "普段との違いや裏の顔に惹かれる？", type: "gap" },
-
-  { text: "安心感や優しさを重視する？", type: "soft" },
-  { text: "ゆっくり距離が縮まる関係が好き？", type: "soft" },
-
-  { text: "シチュエーションや物語性に弱い？", type: "fantasy" },
-  { text: "素人感や日常っぽい雰囲気に惹かれる？", type: "fantasy" },
-
-  { text: "独占欲や依存される関係に惹かれる？", type: "yandere" }
+  { text: "自分はどちらかと言えば“S側”だと思う", type: "nurarihyon" },
+  { text: "自分はどちらかと言えば“M側”だと思う", type: "kijo" },
+  { text: "“余裕がなくなっていく声”に弱い", type: "jorogumo" },
+  { text: "相手が我慢している感じを見ると興奮する", type: "kyubi" },
+  { text: "“もっと欲しそう”な反応を見ると満たされる", type: "nurarihyon" },
+  { text: "行為中に主導権を握っていたいタイプだ", type: "kyubi" },
+  { text: "行為中は相手に流されたいタイプだ", type: "yuki" },
+  { text: "“命令される空気”が入ると一気にスイッチが入る", type: "yuki" },
+  { text: "“嫌なのに逆らえない感じ”に妙な興奮を覚える", type: "kijo" },
+  { text: "行為中に距離が近すぎるくらいが好き", type: "umibozu" },
+  { text: "“ダメ…”と言いながら離れない感じに弱い", type: "gashadokuro" },
+  { text: "相手が自分を求めて理性を失う瞬間が好き", type: "jorogumo" },
+  { text: "行為中は静かな空気より荒れる空気の方が好き", type: "shinenoni" },
+  { text: "“このまま止まらなくなりそう”な空気がかなり好き", type: "nekomata" },
+  { text: "相手の反応をわざと試したくなることがある", type: "nurarihyon" },
+  { text: "“自分だけに見せる反応”を見ると優越感を覚える", type: "inugami" },
+  { text: "行為後に急に甘えてくる感じに弱い", type: "umibozu" },
+  { text: "相手が自分に依存していく感じに興奮する", type: "kyubi" },
+  { text: "“本当は嫌じゃない”空気を感じるとドキッとする", type: "kijo" },
+  { text: "相手の余裕をなくしたいと思うことがある", type: "jorogumo" },
+  { text: "行為中に“もうダメ…”みたいな空気になると興奮する", type: "gashadokuro" },
+  { text: "“二人だけの秘密”感が強いほど燃える", type: "kitsunebi" },
+  { text: "“まだダメ”と言いながら反応を見るのが好き", type: "nurarihyon" },
+  { text: "“我慢できなくなる瞬間”を待つのが好き", type: "jorogumo" },
+  { text: "“離してほしくなさそう”な反応に弱い", type: "inugami" },
+  { text: "行為中に相手を困らせたくなることがある", type: "kyubi" },
+  { text: "“自分だけ特別”だと感じると一気にハマる", type: "bakegitsune" },
+  { text: "“もうやめて…”みたいな空気ほどドキドキする", type: "yuki" },
+  { text: "深夜になると欲望が強くなる", type: "nekomata" },
+  { text: "“自分なしじゃ無理そう”になると満たされる", type: "kyubi" }
 ];
 
 const dummyImage = "https://via.placeholder.com/400x600/360036/ffffff?text=No+Image";
 
+function productSet(label) {
+  return {
+    popularVideo: { title: `${label}ジャンルの人気動画`, image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
+    popularManga: { title: `${label}ジャンルの人気漫画`, image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" },
+    limitedVideo: { title: `${label}ジャンルの期間限定動画`, image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定動画" },
+    newManga: { title: `${label}ジャンルの新作漫画`, image: dummyImage, url: "YOUR_AFFILINK", badge: "新作漫画" }
+  };
+}
+
 const resultData = {
-  s: {
-    name: "支配型リーダー",
-    desc: "相手を引っ張ることで魅力が出るタイプ。頼られたり、反応を見たりすることで気持ちが高まりやすい傾向があります。",
-    match: "甘え上手な依存タイプ",
-    matchDesc: "頼られるほど燃えるあなたには、素直に甘えてくれる人が最高相性。主導権を任せてくれる相手と関係が深まりやすいです。",
-    genres: ["S系", "主導権", "女王様", "支配系"],
-    popularVideo: { title: "S系・主導権ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
-    popularManga: { title: "Sキャラ・主従関係の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" },
-    limitedVideo: { title: "S系・主導権ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定動画" },
-    newManga: { title: "Sキャラ・主従関係の新作漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作漫画" }
+  nurarihyon: {
+    name: "調教ぬらりひょん",
+    desc: "相手を翻弄しながら反応を見ることに快感を覚えるタイプ。焦らしたり、主導権を握ったりすることで魅力が出ます。",
+    match: "服従雪女",
+    matchDesc: "支配されたい空気を持つ相手と好相性。あなたのペースに自然と乗ってくれる相手ほど関係が深まりやすいです。",
+    genres: ["調教", "焦らし", "支配", "主導権"],
+    ...productSet("調教・焦らし")
   },
 
-  m: {
-    name: "受け身甘えタイプ",
-    desc: "強めにリードされたり、甘やかされたりすることで安心感を得やすいタイプ。信頼できる相手に委ねるほど魅力が出ます。",
-    match: "包容力あるリードタイプ",
-    matchDesc: "優しく引っ張ってくれる人と相性抜群。あなたを安心させながらペースを作ってくれる相手が合います。",
-    genres: ["甘やかし", "溺愛", "素人彼女感", "優しい系"],
-    popularVideo: { title: "甘やかし系ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
-    popularManga: { title: "溺愛・甘やかし系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" },
-    limitedVideo: { title: "受け身・甘え系ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定動画" },
-    newManga: { title: "優しい系ジャンルの新作漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作漫画" }
+  kyubi: {
+    name: "支配九尾",
+    desc: "主導権を握り、相手を自分色に染めたい支配型。求められるほど支配欲と独占欲が強くなります。",
+    match: "被虐鬼女",
+    matchDesc: "強く求められる関係に惹かれる相手と相性抜群。あなたの支配性を受け止めてくれる相手が合います。",
+    genres: ["支配", "独占", "超S", "主導権"],
+    ...productSet("支配・独占")
   },
 
-  word: {
-    name: "言葉責め妄想タイプ",
-    desc: "行動そのものよりも、言葉・会話・雰囲気に強く反応しやすいタイプ。想像力が豊かで、空気感を重視します。",
-    match: "会話上手な大人タイプ",
-    matchDesc: "言葉選びがうまく、雰囲気を作れる相手と好相性。褒めたり責めたりのバランスが上手い人に惹かれやすいです。",
-    genres: ["言葉責め", "会話重視", "心理描写", "妄想系"],
-    popularVideo: { title: "言葉責めジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
-    popularManga: { title: "心理描写・言葉責め系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" },
-    limitedVideo: { title: "言葉責めジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定動画" },
-    newManga: { title: "妄想系ジャンルの新作漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作漫画" }
+  jorogumo: {
+    name: "理性崩し絡新婦",
+    desc: "相手の理性が崩れていく瞬間に強く惹かれるタイプ。余裕がなくなる声や反応に弱い傾向があります。",
+    match: "深夜黒猫又",
+    matchDesc: "危うい空気や夜の雰囲気を共有できる相手と好相性。お互いに本能を刺激し合いやすいです。",
+    genres: ["理性崩壊", "堕落", "誘惑", "危険"],
+    ...productSet("理性崩壊・誘惑")
   },
 
-  secret: {
-    name: "背徳スリルタイプ",
-    desc: "秘密っぽさや非日常感に惹かれやすいタイプ。大人っぽい関係性や、少し危うい雰囲気に弱い傾向があります。",
-    match: "冷静な安心タイプ",
-    matchDesc: "刺激を受け止めつつ、最後は安心感をくれる人と相性が良いです。落ち着きのある相手ほど長続きしやすいです。",
-    genres: ["人妻", "秘密関係", "不倫風", "背徳感"],
-    popularVideo: { title: "人妻系ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
-    popularManga: { title: "人妻・秘密関係の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" },
-    limitedVideo: { title: "人妻系ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定動画" },
-    newManga: { title: "背徳感ジャンルの新作漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作漫画" }
+  inugami: {
+    name: "束縛犬神",
+    desc: "強い独占欲と執着を抱える一途なタイプ。自分だけに向けられる反応に強く満たされます。",
+    match: "共犯化け狐",
+    matchDesc: "二人だけの特別感を大切にする相手と相性抜群。秘密を共有するほど深くハマりやすいです。",
+    genres: ["独占", "執着", "依存", "束縛"],
+    ...productSet("独占・束縛")
   },
 
-  queen: {
-    name: "愛され女王タイプ",
-    desc: "尽くされることや特別扱いされることで魅力が出るタイプ。大切に扱われるほど気持ちが高まりやすいです。",
-    match: "献身的な尽くしタイプ",
-    matchDesc: "あなたを最優先にしてくれる人と好相性。細かい気遣いや愛情表現ができる相手に惹かれやすいです。",
-    genres: ["尽くされ", "女王様", "愛され", "姫扱い"],
-    popularVideo: { title: "尽くされ系ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
-    popularManga: { title: "愛され・姫扱い系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" },
-    limitedVideo: { title: "愛され系ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定動画" },
-    newManga: { title: "尽くされ系ジャンルの新作漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作漫画" }
+  yuki: {
+    name: "服従雪女",
+    desc: "支配される空気や命令される状況に弱いタイプ。冷静に見えて、内側では深く流されやすい傾向があります。",
+    match: "支配九尾",
+    matchDesc: "主導権を握ってくれる相手と好相性。強めに引っ張ってくれる相手ほど安心して委ねやすいです。",
+    genres: ["服従", "M気質", "背徳", "被支配"],
+    ...productSet("服従・M気質")
   },
 
-  gap: {
-    name: "ギャップ覚醒タイプ",
-    desc: "普段との違いや意外な一面に強く惹かれるタイプ。清楚さ、地味さ、裏の顔などのギャップに弱い傾向があります。",
-    match: "二面性ミステリアスタイプ",
-    matchDesc: "普段は落ち着いているのに、ふとした瞬間に別の顔を見せる相手と相性が良いです。",
-    genres: ["清楚崩れ", "地味系", "ギャップ", "裏の顔"],
-    popularVideo: { title: "清楚崩れ・ギャップ系の人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
-    popularManga: { title: "ギャップ萌え系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" },
-    limitedVideo: { title: "ギャップ系ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定動画" },
-    newManga: { title: "清楚系ジャンルの新作漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作漫画" }
+  kijo: {
+    name: "被虐鬼女",
+    desc: "危うさや被支配感に惹かれる背徳タイプ。少し乱されるような空気にドキッとしやすいです。",
+    match: "支配九尾",
+    matchDesc: "強く求めてくれる相手と相性抜群。あなたの背徳感を刺激してくれる相手に惹かれやすいです。",
+    genres: ["被支配", "背徳", "快楽", "M気質"],
+    ...productSet("被支配・背徳")
   },
 
-  soft: {
-    name: "安心感重視タイプ",
-    desc: "刺激よりも優しさや信頼感を重視するタイプ。ゆっくり距離が縮まる関係で魅力が出やすいです。",
-    match: "誠実な癒しタイプ",
-    matchDesc: "落ち着いて向き合ってくれる人と相性抜群。安心感をくれる相手と長く深い関係になりやすいです。",
-    genres: ["癒し", "優しい系", "純愛", "甘々"],
-    popularVideo: { title: "癒し系ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
-    popularManga: { title: "純愛・癒し系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" },
-    limitedVideo: { title: "癒し系ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定動画" },
-    newManga: { title: "甘々系ジャンルの新作漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作漫画" }
+  gashadokuro: {
+    name: "堕落餓者髑髏",
+    desc: "止まれない空気や堕ちていく感覚に弱いタイプ。禁断感が強いほど気持ちが高まりやすいです。",
+    match: "理性崩し絡新婦",
+    matchDesc: "危険な雰囲気を共有できる相手と相性抜群。理性より本能で惹かれ合いやすいです。",
+    genres: ["堕落", "禁断", "深夜", "背徳"],
+    ...productSet("堕落・禁断")
   },
 
-  fantasy: {
-    name: "妄想ロマンスタイプ",
-    desc: "シチュエーションや物語性に惹かれやすいタイプ。素人感や日常感など、リアルな雰囲気に入り込みやすいです。",
-    match: "世界観共有タイプ",
-    matchDesc: "一緒に妄想やシチュエーションを楽しめる人と相性が良いです。価値観を共有できる相手ほどハマりやすいです。",
-    genres: ["素人", "シチュエーション", "学園", "日常系"],
-    popularVideo: { title: "素人系・シチュエーション系の人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
-    popularManga: { title: "シチュエーション系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" },
-    limitedVideo: { title: "素人系ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定動画" },
-    newManga: { title: "日常系ジャンルの新作漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作漫画" }
+  nekomata: {
+    name: "深夜黒猫又",
+    desc: "夜の空気や危険な雰囲気に惹かれるタイプ。深夜になるほど欲望が強くなりやすいです。",
+    match: "密会狐火",
+    matchDesc: "秘密っぽい空気を楽しめる相手と好相性。二人だけの夜に燃えやすい関係です。",
+    genres: ["深夜", "危険", "妖艶", "夜型"],
+    ...productSet("深夜・妖艶")
   },
 
-  yandere: {
-    name: "独占依存タイプ",
-    desc: "深く強い関係性や、一途に求められる関係に惹かれやすいタイプ。独占欲や依存感に反応しやすい傾向があります。",
-    match: "一途な重め恋愛タイプ",
-    matchDesc: "あなたを強く求めてくれる人と相性が良いです。軽い関係よりも、深く向き合える相手に惹かれやすいです。",
-    genres: ["ヤンデレ", "依存", "独占欲", "重め恋愛"],
-    popularVideo: { title: "独占欲・依存系ジャンルの人気動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
-    popularManga: { title: "ヤンデレ・依存系の人気漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" },
-    limitedVideo: { title: "ヤンデレ系ジャンルの期間限定動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定動画" },
-    newManga: { title: "独占欲ジャンルの新作漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作漫画" }
+  kitsunebi: {
+    name: "密会狐火",
+    desc: "秘密共有や二人だけの関係に燃えるタイプ。隠された関係性や密会感に強く惹かれます。",
+    match: "深夜黒猫又",
+    matchDesc: "夜の空気や非日常感を共有できる相手と好相性。秘密があるほど距離が縮まりやすいです。",
+    genres: ["密会", "秘密", "共犯", "背徳"],
+    ...productSet("密会・秘密")
+  },
+
+  bakegitsune: {
+    name: "共犯化け狐",
+    desc: "特別扱いと二人だけの空気に依存しやすいタイプ。自分だけ特別だと感じると一気にハマります。",
+    match: "束縛犬神",
+    matchDesc: "独占欲が強い相手と好相性。お互いに特別感を求めるほど深い関係になりやすいです。",
+    genres: ["共犯", "特別感", "依存", "秘密"],
+    ...productSet("共犯・特別感")
+  },
+
+  shinenoni: {
+    name: "深淵鬼",
+    desc: "激しい空気や危険な感情に惹かれる激情型。静かな関係よりも、本能が揺さぶられる関係に弱いです。",
+    match: "理性崩し絡新婦",
+    matchDesc: "本能を刺激し合える相手と好相性。激しい感情を共有できるほど燃えやすいです。",
+    genres: ["激情", "危険", "本能", "荒れる空気"],
+    ...productSet("激情・危険")
+  },
+
+  umibozu: {
+    name: "密着海坊主",
+    desc: "常に触れていたい甘え依存タイプ。距離が近いほど安心し、相手の甘えにも弱い傾向があります。",
+    match: "束縛犬神",
+    matchDesc: "重めの愛情表現を受け止めてくれる相手と好相性。近い距離感を求める関係に向いています。",
+    genres: ["密着", "甘え", "共依存", "接触"],
+    ...productSet("密着・共依存")
   },
 
   balance: {
-    name: "バランス型オールラウンダー",
-    desc: "刺激・安心感・妄想・相性のバランスが取れたタイプ。相手によって雰囲気を変えられる柔軟さがあります。",
-    match: "相手に合わせられる柔軟タイプ",
-    matchDesc: "お互いに空気を読み合える相手と相性が良いです。固定された関係より、自然体で楽しめる関係に向いています。",
-    genres: ["人気ランキング", "総合", "定番", "急上昇"],
-    popularVideo: { title: "総合人気ランキング動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
-    popularManga: { title: "人気ランキング上位漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" },
-    limitedVideo: { title: "期間限定おすすめ動画", image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定動画" },
-    newManga: { title: "新作おすすめ漫画", image: dummyImage, url: "YOUR_AFFILINK", badge: "新作漫画" }
+    name: "百鬼夜行",
+    desc: "複数の性質を持つバランス型。支配・依存・密会・背徳など、相手や空気によって違う顔が出ます。",
+    match: "共犯化け狐",
+    matchDesc: "空気を読み合える柔軟な相手と好相性。固定された関係より、状況で変化する関係に向いています。",
+    genres: ["混合型", "総合", "変幻自在", "百鬼夜行"],
+    ...productSet("総合おすすめ")
   }
 };
 
@@ -685,7 +713,9 @@ function showResult() {
     result = resultData[topType];
   }
 
-  const shareText = `私の診断結果は「${result.name}」でした！相性が良いタイプは「${result.match}」`;
+  const shareText = `私の診断結果は「${result.name}」でした！相性が良い妖怪は「${result.match}」`;
+
+  document.querySelector(".card").style.display = "none";
 
   document.getElementById("result").innerHTML = `
     <section class="result">
@@ -694,7 +724,7 @@ function showResult() {
       <p>${result.desc}</p>
 
       <div class="match">
-        <h3>相性が良い人</h3>
+        <h3>相性が良い妖怪</h3>
         <div class="match-name">${result.match}</div>
         <p>${result.matchDesc}</p>
       </div>
@@ -723,10 +753,11 @@ function showResult() {
     </section>
   `;
 
-  document.getElementById("result").scrollIntoView({ behavior: "smooth" });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 renderQuestions();
 </script>
 </body>
 </html>
+```
