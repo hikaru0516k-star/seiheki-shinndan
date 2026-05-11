@@ -517,10 +517,10 @@ const questions = [
 function productSet(label, emoji, keywords) {
   return {
     main: {
-      title: `${label}におすすめの総合ジャンル`,
+      title: `${label}の性癖ジャンルを見る`,
       emoji,
-      url: affiliateUrl(keywords.main),
-      badge: "おすすめ"
+      url: affiliateUrl(keywords.seiheki),
+      badge: "おすすめジャンル"
     },
     popularVideo: {
       title: `${label}タイプに刺さる人気動画`,
@@ -560,7 +560,7 @@ const resultData = {
     genres: ["焦らし", "駆け引き", "翻弄", "小悪魔"],
     stats: { 支配欲: 70, 依存度: 45, 独占欲: 55, 背徳値: 60, 理性崩壊値: 65 },
     ...productSet("焦らしネコ", "🐱", {
-      main: "焦らし",
+      seiheki: "焦らし 小悪魔",
       video: "焦らし 人気 動画",
       manga: "焦らし 漫画",
       limited: "焦らし 期間限定 動画",
@@ -578,7 +578,7 @@ const resultData = {
     genres: ["溺愛", "尽くし", "安心依存", "甘やかし"],
     stats: { 支配欲: 45, 依存度: 80, 独占欲: 65, 背徳値: 35, 理性崩壊値: 45 },
     ...productSet("甘やかしイヌ", "🐶", {
-      main: "溺愛",
+      seiheki: "溺愛 甘やかし 尽くし",
       video: "溺愛 甘やかし 人気 動画",
       manga: "溺愛 漫画",
       limited: "甘やかし 期間限定 動画",
@@ -596,7 +596,7 @@ const resultData = {
     genres: ["理性崩壊", "快楽堕ち", "誘惑", "本能"],
     stats: { 支配欲: 65, 依存度: 55, 独占欲: 60, 背徳値: 75, 理性崩壊値: 95 },
     ...productSet("快楽ヘビ", "🐍", {
-      main: "快楽",
+      seiheki: "理性崩壊 快楽 誘惑",
       video: "理性崩壊 人気 動画",
       manga: "快楽 漫画",
       limited: "誘惑 期間限定 動画",
@@ -614,7 +614,7 @@ const resultData = {
     genres: ["支配", "主導権", "征服欲", "超S"],
     stats: { 支配欲: 95, 依存度: 45, 独占欲: 80, 背徳値: 60, 理性崩壊値: 70 },
     ...productSet("支配ライオン", "🦁", {
-      main: "支配",
+      seiheki: "支配 主導権 征服",
       video: "支配 人気 動画",
       manga: "支配 漫画",
       limited: "主導権 期間限定 動画",
@@ -632,7 +632,7 @@ const resultData = {
     genres: ["本能", "衝動", "肉食", "激しさ"],
     stats: { 支配欲: 75, 依存度: 50, 独占欲: 65, 背徳値: 70, 理性崩壊値: 90 },
     ...productSet("本能トラ", "🐯", {
-      main: "本能",
+      seiheki: "本能 肉食 激しさ",
       video: "本能 人気 動画",
       manga: "肉食 漫画",
       limited: "衝動 期間限定 動画",
@@ -650,7 +650,7 @@ const resultData = {
     genres: ["甘え", "密着", "依存", "受け身"],
     stats: { 支配欲: 30, 依存度: 90, 独占欲: 70, 背徳値: 55, 理性崩壊値: 60 },
     ...productSet("寂しがりウサギ", "🐰", {
-      main: "甘え",
+      seiheki: "甘え 依存 密着",
       video: "甘え 人気 動画",
       manga: "依存 漫画",
       limited: "密着 期間限定 動画",
@@ -668,7 +668,7 @@ const resultData = {
     genres: ["ギャップ", "裏性癖", "秘密", "二面性"],
     stats: { 支配欲: 55, 依存度: 65, 独占欲: 70, 背徳値: 85, 理性崩壊値: 75 },
     ...productSet("隠れ変態カメレオン", "🦎", {
-      main: "ギャップ",
+      seiheki: "ギャップ 秘密 裏性癖",
       video: "ギャップ 人気 動画",
       manga: "秘密 漫画",
       limited: "裏性癖 期間限定 動画",
@@ -686,7 +686,7 @@ const resultData = {
     genres: ["深夜依存", "感情沼", "メンヘラ気質", "秘密"],
     stats: { 支配欲: 50, 依存度: 95, 独占欲: 85, 背徳値: 75, 理性崩壊値: 80 },
     ...productSet("沼らせフクロウ", "🦉", {
-      main: "深夜",
+      seiheki: "メンヘラ 深夜依存 感情沼",
       video: "深夜 人気 動画",
       manga: "依存 漫画",
       limited: "感情 期間限定 動画",
@@ -704,7 +704,7 @@ const resultData = {
     genres: ["からかい", "挑発", "焦らし", "小悪魔"],
     stats: { 支配欲: 70, 依存度: 50, 独占欲: 55, 背徳値: 65, 理性崩壊値: 70 },
     ...productSet("小悪魔リス", "🐿️", {
-      main: "小悪魔",
+      seiheki: "小悪魔 焦らし 挑発",
       video: "小悪魔 人気 動画",
       manga: "焦らし 漫画",
       limited: "挑発 期間限定 動画",
@@ -722,7 +722,7 @@ const resultData = {
     genres: ["独占欲", "執着", "共依存", "狂愛"],
     stats: { 支配欲: 80, 依存度: 90, 独占欲: 98, 背徳値: 70, 理性崩壊値: 75 },
     ...productSet("狂愛オオカミ", "🐺", {
-      main: "独占",
+      seiheki: "独占 執着 共依存",
       video: "独占 人気 動画",
       manga: "共依存 漫画",
       limited: "執着 期間限定 動画",
@@ -740,7 +740,7 @@ const resultData = {
     genres: ["背徳", "禁断感", "危険", "スリル"],
     stats: { 支配欲: 65, 依存度: 60, 独占欲: 75, 背徳値: 98, 理性崩壊値: 85 },
     ...productSet("背徳ハイエナ", "🐾", {
-      main: "背徳",
+      seiheki: "背徳 禁断 危険",
       video: "背徳 人気 動画",
       manga: "禁断 漫画",
       limited: "危険 期間限定 動画",
@@ -758,7 +758,7 @@ const resultData = {
     genres: ["ギャップ発情", "抑圧解放", "反動", "覚醒"],
     stats: { 支配欲: 45, 依存度: 65, 独占欲: 60, 背徳値: 70, 理性崩壊値: 88 },
     ...productSet("発情ペンギン", "🐧", {
-      main: "ギャップ",
+      seiheki: "ギャップ発情 抑圧解放",
       video: "ギャップ 人気 動画",
       manga: "発情 漫画",
       limited: "抑圧 期間限定 動画",
@@ -776,7 +776,7 @@ const resultData = {
     genres: ["密着", "スキンシップ", "安心依存", "ぬくもり"],
     stats: { 支配欲: 35, 依存度: 88, 独占欲: 70, 背徳値: 35, 理性崩壊値: 50 },
     ...productSet("密着コアラ", "🐨", {
-      main: "密着",
+      seiheki: "密着 スキンシップ 安心依存",
       video: "密着 人気 動画",
       manga: "スキンシップ 漫画",
       limited: "安心 期間限定 動画",
@@ -794,7 +794,7 @@ const resultData = {
     genres: ["優越感", "略奪愛", "支配欲", "勝利感"],
     stats: { 支配欲: 90, 依存度: 45, 独占欲: 85, 背徳値: 95, 理性崩壊値: 75 },
     ...productSet("寝取りゴリラ", "🦍", {
-      main: "優越感",
+      seiheki: "寝取り 優越感 略奪愛",
       video: "優越感 人気 動画",
       manga: "略奪愛 漫画",
       limited: "背徳 期間限定 動画",
@@ -812,7 +812,7 @@ const resultData = {
     genres: ["恋人依存", "いちゃいちゃ", "寂しがり", "共依存"],
     stats: { 支配欲: 40, 依存度: 98, 独占欲: 80, 背徳値: 50, 理性崩壊値: 65 },
     ...productSet("依存カワウソ", "🦦", {
-      main: "恋人依存",
+      seiheki: "恋人依存 いちゃいちゃ 寂しがり",
       video: "恋人依存 人気 動画",
       manga: "いちゃいちゃ 漫画",
       limited: "共依存 期間限定 動画",
@@ -830,7 +830,7 @@ const resultData = {
     genres: ["反応開拓", "心理支配", "理性崩壊", "調教"],
     stats: { 支配欲: 92, 依存度: 55, 独占欲: 70, 背徳値: 75, 理性崩壊値: 95 },
     ...productSet("開発オオワシ", "🦅", {
-      main: "調教",
+      seiheki: "調教 心理支配 理性崩壊",
       video: "調教 人気 動画",
       manga: "心理支配 漫画",
       limited: "理性崩壊 期間限定 動画",
@@ -978,7 +978,7 @@ function showResult() {
       <div class="recommend">
         <h3>あなた専用のおすすめ作品</h3>
         <p class="notice">
-          下の5つの訴求リンクには、アフィリエイトID「${AFFILIATE_ID}」を入れています。
+          おすすめジャンル・人気動画・人気漫画・期間限定動画・新作漫画の5箇所に、アフィリエイトID「${AFFILIATE_ID}」を入れています。
         </p>
       </div>
 
