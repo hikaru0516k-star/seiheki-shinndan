@@ -9,20 +9,19 @@
   <meta name="keywords" content="性癖診断,性癖タイプ診断,恋愛診断,相性診断,S診断,M診断,動物診断,無料診断" />
   <meta name="robots" content="index, follow" />
 
- <!-- OGP -->
-<meta property="og:title" content="性癖タイプ診断〜アニマルver〜" />
-<meta property="og:description" content="あなたの隠れた性癖を動物タイプで診断。" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://seiheki-shindan.com/" />
-<meta property="og:image" content="https://seiheki-shindan.com/ogp-animal.png" />
-<meta property="og:site_name" content="性癖タイプ診断〜アニマルver〜" />
+  <!-- OGP -->
+  <meta property="og:title" content="性癖タイプ診断〜アニマルver〜" />
+  <meta property="og:description" content="あなたの隠れた性癖を動物タイプで診断。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://seiheki-shindan.com/" />
+  <meta property="og:image" content="https://seiheki-shindan.com/ogp-animal.png" />
+  <meta property="og:site_name" content="性癖タイプ診断〜アニマルver〜" />
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="性癖タイプ診断〜アニマルver〜" />
-<meta name="twitter:description" content="あなたの隠れた性癖を動物タイプで診断。" />
-<meta name="twitter:image" content="https://seiheki-shindan.com/ogp-animal.png" />
-
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="性癖タイプ診断〜アニマルver〜" />
+  <meta name="twitter:description" content="あなたの隠れた性癖を動物タイプで診断。" />
+  <meta name="twitter:image" content="https://seiheki-shindan.com/ogp-animal.png" />
 
   <link rel="canonical" href="https://seiheki-shindan.com/" />
   <link rel="icon" type="image/png" href="/icon.png" />
@@ -174,6 +173,15 @@
     .result h2 {
       font-size: 32px;
       color: #ffd8ff;
+    }
+
+    .result-character-image {
+      width: 100%;
+      max-width: 340px;
+      border-radius: 28px;
+      margin: 0 auto 22px;
+      display: block;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
     }
 
     .animal-icon {
@@ -390,6 +398,11 @@
     @media (max-width: 600px) {
       h1 { font-size: 30px; }
       .result h2 { font-size: 24px; }
+
+      .result-character-image {
+        max-width: 300px;
+        border-radius: 24px;
+      }
 
       .card,
       .result,
@@ -626,6 +639,7 @@ function productSet(label, keywords) {
 const resultData = {
   neko: {
     name: "焦らしネコ",
+    image: "/results/jirashi-neko.png",
     animal: "🐱",
     genre: "駆け引き・翻弄・じらし",
     desc: "相手の反応を見ながら、少しずつ距離を詰める駆け引きタイプ。すぐに答えを出すより、焦らして反応を見るほど気持ちが高まりやすいです。",
@@ -644,6 +658,7 @@ const resultData = {
 
   inu: {
     name: "甘やかしイヌ",
+    image: "/results/amayakashi-inu.png",
     animal: "🐶",
     genre: "溺愛・尽くし・安心依存",
     desc: "好きな相手を甘やかしたり、尽くしたりすることで満たされるタイプ。安心感のある関係ほど深くハマりやすいです。",
@@ -662,6 +677,7 @@ const resultData = {
 
   hebi: {
     name: "快楽ヘビ",
+    image: "/results/kairaku-hebi.png",
     animal: "🐍",
     genre: "理性崩壊・快楽堕ち・誘惑",
     desc: "理性がほどけていく瞬間や、欲望に流される空気に強く惹かれるタイプ。誘惑・快楽・理性崩壊の相性がかなり高めです。",
@@ -680,6 +696,7 @@ const resultData = {
 
   lion: {
     name: "支配ライオン",
+    image: "/results/shihai-lion.png",
     animal: "🦁",
     genre: "主導権・支配・征服欲",
     desc: "主導権を握り、相手を自分のペースに巻き込むことで魅力が出るタイプ。求められるほど支配欲と征服欲が強くなります。",
@@ -698,6 +715,7 @@ const resultData = {
 
   tora: {
     name: "本能トラ",
+    image: "/results/honnou-tora.png",
     animal: "🐯",
     genre: "衝動・肉食・激しさ",
     desc: "静かな関係より、感情や欲望がぶつかるような激しい空気に惹かれるタイプ。衝動・本能・勢いで燃えやすいです。",
@@ -716,6 +734,7 @@ const resultData = {
 
   usagi: {
     name: "寂しがりウサギ",
+    image: "/results/sabishigari-usagi.png",
     animal: "🐰",
     genre: "密着・甘え・依存",
     desc: "強く求められたり、近い距離で包まれたりするほど安心するタイプ。甘えたい気持ちと依存心が出やすい傾向があります。",
@@ -734,6 +753,7 @@ const resultData = {
 
   chameleon: {
     name: "隠れ変態カメレオン",
+    image: "/results/hentai-chameleon.png",
     animal: "🦎",
     genre: "ギャップ・裏性癖・秘密",
     desc: "普段の顔と内側の欲望にギャップがあるタイプ。秘密にしている一面を見抜かれたり、二人だけで解放したりする関係に弱いです。",
@@ -752,6 +772,7 @@ const resultData = {
 
   fukurou: {
     name: "沼らせフクロウ",
+    image: "/results/numarase-fukurou.png",
     animal: "🦉",
     genre: "深夜依存・感情沼・メンヘラ気質",
     desc: "深夜の空気や感情の揺れに弱いタイプ。軽い関係より、抜け出せないくらい感情が絡む関係にハマりやすいです。",
@@ -770,6 +791,7 @@ const resultData = {
 
   risu: {
     name: "小悪魔リス",
+    image: "/results/koakuma-risu.png",
     animal: "🐿️",
     genre: "からかい・挑発・焦らし",
     desc: "相手の反応をからかいながら楽しむ小悪魔タイプ。軽く挑発したり、焦らしたりすることで魅力が出ます。",
@@ -788,6 +810,7 @@ const resultData = {
 
   ookami: {
     name: "狂愛オオカミ",
+    image: "/results/kyouai-okami.png",
     animal: "🐺",
     genre: "独占欲・執着・共依存",
     desc: "好きになった相手を深く独占したくなる狂愛タイプ。自分だけを求められるほど、感情が強く燃え上がります。",
@@ -806,6 +829,7 @@ const resultData = {
 
   hyena: {
     name: "背徳ハイエナ",
+    image: "/results/haitoku-hyena.png",
     animal: "🐾",
     genre: "禁断感・背徳・危険性愛",
     desc: "普通の関係より、少し危うい空気や禁断感に惹かれる背徳タイプ。ダメだと分かっているほど燃えやすい傾向があります。",
@@ -824,6 +848,7 @@ const resultData = {
 
   penguin: {
     name: "発情ペンギン",
+    image: "/results/hatsujou-penguin.png",
     animal: "🐧",
     genre: "ギャップ発情・抑圧解放",
     desc: "普段は落ち着いて見えるのに、スイッチが入ると一気に解放されるギャップ型。抑えていた欲望が出る瞬間に魅力があります。",
@@ -842,6 +867,7 @@ const resultData = {
 
   koala: {
     name: "密着コアラ",
+    image: "/results/micchaku-koala.png",
     animal: "🐨",
     genre: "スキンシップ・安心依存",
     desc: "距離が近いほど安心する密着タイプ。触れている時間や、離れない空気に強く満たされやすいです。",
@@ -860,6 +886,7 @@ const resultData = {
 
   gorilla: {
     name: "寝取りゴリラ",
+    image: "/results/netori-gorilla.png",
     animal: "🦍",
     genre: "優越感・略奪愛・支配欲",
     desc: "優越感や勝ち取る感覚に強く惹かれるタイプ。自分が選ばれた、奪った、支配したという感覚で満たされやすいです。",
@@ -878,6 +905,7 @@ const resultData = {
 
   kawauso: {
     name: "依存カワウソ",
+    image: "/results/izon-kawauso.png",
     animal: "🦦",
     genre: "恋人依存・いちゃいちゃ・寂しがり",
     desc: "好きな人とずっと繋がっていたい恋人依存タイプ。いちゃいちゃした空気や、特別扱いされる関係に弱いです。",
@@ -896,6 +924,7 @@ const resultData = {
 
   owashi: {
     name: "開発オオワシ",
+    image: "/results/kaihatsu-oowashi.png",
     animal: "🦅",
     genre: "反応開拓・心理支配・理性崩壊",
     desc: "相手の反応を観察しながら、新しい一面を引き出すことに惹かれるタイプ。心理的に主導権を握り、理性を崩していくのが得意です。",
@@ -1095,7 +1124,13 @@ function showResult() {
   document.getElementById("result").innerHTML = `
     <section class="result">
       <span class="tag">診断結果</span>
-      <div class="animal-icon">${result.animal}</div>
+
+      <img
+        class="result-character-image"
+        src="${result.image}"
+        alt="${result.name}"
+      />
+
       <h2>${result.name}</h2>
       <p><strong>${result.genre}</strong></p>
       <p>${result.desc}</p>
