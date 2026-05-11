@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>性癖タイプ診断｜相性・おすすめジャンルもわかる無料診断</title>
-  <meta name="description" content="30問であなたの性癖タイプ・恋愛傾向・相性が良いタイプを無料診断。焦らしネコ、甘やかしイヌ、快楽ヘビなど16タイプで診断。" />
+  <meta name="description" content="40問であなたの性癖タイプ・恋愛傾向・相性が良いタイプを無料診断。焦らしネコ、甘やかしイヌ、快楽ヘビなど16タイプで診断。" />
   <meta name="keywords" content="性癖診断,性癖タイプ診断,恋愛診断,相性診断,S診断,M診断,動物診断,無料診断" />
   <meta name="robots" content="index, follow" />
 
@@ -67,6 +67,13 @@
     .age-box {
       text-align: center;
       margin-top: 40px;
+    }
+
+    .progress {
+      text-align: center;
+      color: #ffd8ff;
+      font-weight: 800;
+      margin-bottom: 18px;
     }
 
     .question {
@@ -132,6 +139,17 @@
       width: 100%;
     }
 
+    .page-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .page-buttons.single {
+      grid-template-columns: 1fr;
+    }
+
     #result {
       min-height: 100vh;
     }
@@ -169,7 +187,6 @@
 
     .match,
     .genre-box,
-    .recommend,
     .status-box {
       background: rgba(255,255,255,0.1);
       border-radius: 18px;
@@ -257,12 +274,21 @@
       box-shadow: 0 12px 35px rgba(0,0,0,0.25);
     }
 
+    .product-card.featured {
+      grid-column: 1 / -1;
+    }
+
     .product-image {
       height: 150px;
       display: grid;
       place-items: center;
       font-size: 46px;
       background: linear-gradient(135deg, rgba(255,79,216,0.25), rgba(255,255,255,0.08));
+    }
+
+    .product-card.featured .product-image {
+      height: 190px;
+      font-size: 58px;
     }
 
     .product-content {
@@ -360,7 +386,12 @@
         gap: 12px;
       }
 
-      .product-image {
+      .product-card.featured {
+        grid-column: auto;
+      }
+
+      .product-image,
+      .product-card.featured .product-image {
         height: 130px;
         font-size: 38px;
       }
@@ -381,6 +412,10 @@
       .status-row {
         grid-template-columns: 92px 1fr 36px;
       }
+
+      .page-buttons {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -391,7 +426,7 @@
     <section class="hero">
       <h1>性癖タイプ診断</h1>
       <p class="lead">
-        30個の質問に答えるだけで、あなたの性癖タイプ・相性の良いタイプ・おすすめジャンルがわかります。
+        40個の質問に答えるだけで、あなたの性癖タイプ・相性の良いタイプ・おすすめジャンルがわかります。
       </p>
     </section>
 
@@ -403,9 +438,10 @@
 
     <main id="app" style="display:none;">
       <section class="card">
+        <div id="progress" class="progress"></div>
         <div id="questions"></div>
-        <button class="main-btn" onclick="showResult()">診断する</button>
-        <p class="notice">すべての質問に回答すると診断できます。</p>
+        <div id="navButtons"></div>
+        <p class="notice">各ページ10問ずつ表示されます。すべて回答すると診断できます。</p>
       </section>
 
       <div id="result"></div>
@@ -413,7 +449,7 @@
       <section class="info-box" id="about">
         <h2>性癖タイプ診断とは？</h2>
         <p>
-          性癖タイプ診断は、30個の質問からあなたの恋愛傾向・隠れた好み・相性の良いタイプをチェックできる無料診断です。
+          性癖タイプ診断は、40個の質問からあなたの恋愛傾向・隠れた好み・相性の良いタイプをチェックできる無料診断です。
           診断結果は、焦らしネコ、甘やかしイヌ、快楽ヘビ、支配ライオンなど全16タイプで表示されます。
         </p>
 
@@ -474,6 +510,8 @@
 <script>
 const SITE_URL = "https://seiheki-shindan.com/";
 const AFFILIATE_ID = "hikaru0516-011";
+const QUESTIONS_PER_PAGE = 10;
+let currentPage = 0;
 
 function affiliateUrl(keyword) {
   const encodedKeyword = encodeURIComponent(keyword);
@@ -492,6 +530,7 @@ const questions = [
   { text: "“命令される空気”が入ると一気にスイッチが入る", scores: { usagi: 5, penguin: 4, hebi: 3, koala: 2 } },
   { text: "“嫌なのに逆らえない感じ”に妙な興奮を覚える", scores: { hyena: 5, usagi: 4, penguin: 3, hebi: 2 } },
   { text: "行為中に距離が近すぎるくらいが好き", scores: { koala: 5, kawauso: 4, inu: 3, usagi: 2 } },
+
   { text: "“ダメ…”と言いながら離れない感じに弱い", scores: { hyena: 5, usagi: 4, kawauso: 3, penguin: 2 } },
   { text: "相手が自分を求めて理性を失う瞬間が好き", scores: { hebi: 5, tora: 4, owashi: 3, lion: 2 } },
   { text: "行為中は静かな空気より荒れる空気の方が好き", scores: { tora: 5, hyena: 4, lion: 3, gorilla: 2 } },
@@ -502,6 +541,7 @@ const questions = [
   { text: "相手が自分に依存していく感じに興奮する", scores: { ookami: 5, lion: 4, kawauso: 3, fukurou: 2 } },
   { text: "“本当は嫌じゃない”空気を感じるとドキッとする", scores: { hyena: 5, penguin: 4, hebi: 3, chameleon: 2 } },
   { text: "相手の余裕をなくしたいと思うことがある", scores: { owashi: 5, hebi: 4, lion: 3, risu: 2 } },
+
   { text: "行為中に“もうダメ…”みたいな空気になると興奮する", scores: { hebi: 5, hyena: 4, owashi: 3, tora: 2 } },
   { text: "“二人だけの秘密”感が強いほど燃える", scores: { fukurou: 5, chameleon: 4, ookami: 3, hyena: 2 } },
   { text: "“まだダメ”と言いながら反応を見るのが好き", scores: { risu: 5, neko: 4, owashi: 3, lion: 2 } },
@@ -511,7 +551,18 @@ const questions = [
   { text: "“自分だけ特別”だと感じると一気にハマる", scores: { ookami: 5, kawauso: 4, inu: 3, fukurou: 2 } },
   { text: "“もうやめて…”みたいな空気ほどドキドキする", scores: { hyena: 5, usagi: 4, penguin: 3, hebi: 2 } },
   { text: "深夜になると欲望が強くなる", scores: { fukurou: 5, tora: 4, penguin: 3, hebi: 2 } },
-  { text: "“自分なしじゃ無理そう”になると満たされる", scores: { ookami: 5, kawauso: 4, lion: 3, fukurou: 2 } }
+  { text: "“自分なしじゃ無理そう”になると満たされる", scores: { ookami: 5, kawauso: 4, lion: 3, fukurou: 2 } },
+
+  { text: "人に見られているような緊張感があるとドキドキする", scores: { hyena: 5, gorilla: 4, chameleon: 3, penguin: 2 } },
+  { text: "自由を奪われるようなシチュエーションに弱い", scores: { usagi: 5, penguin: 4, hyena: 3, koala: 2 } },
+  { text: "普段は隠している一面を見抜かれると一気にスイッチが入る", scores: { chameleon: 5, fukurou: 4, penguin: 3, hebi: 2 } },
+  { text: "優しく甘やかされるより、少し強引に引っ張られる方が弱い", scores: { usagi: 5, penguin: 4, lion: 3, hebi: 2 } },
+  { text: "相手を褒めながら少しずつ夢中にさせるのが好き", scores: { inu: 5, neko: 4, risu: 3, owashi: 2 } },
+  { text: "恋人にはできるだけ自分だけを見ていてほしい", scores: { ookami: 5, kawauso: 4, fukurou: 3, inu: 2 } },
+  { text: "理性ではダメだと思うほど、逆に気になってしまう", scores: { hyena: 5, hebi: 4, chameleon: 3, fukurou: 2 } },
+  { text: "距離が近いだけで安心して、ずっとくっついていたくなる", scores: { koala: 5, kawauso: 4, usagi: 3, inu: 2 } },
+  { text: "相手の新しい反応を引き出せるとかなり満たされる", scores: { owashi: 5, risu: 4, lion: 3, hebi: 2 } },
+  { text: "静かに愛されるより、感情が揺れるくらい深く求められたい", scores: { fukurou: 5, ookami: 4, kawauso: 3, tora: 2 } }
 ];
 
 function productSet(label, emoji, keywords) {
@@ -520,7 +571,7 @@ function productSet(label, emoji, keywords) {
       title: `${label}の性癖ジャンルを見る`,
       emoji,
       url: affiliateUrl(keywords.seiheki),
-      badge: "おすすめジャンル"
+      badge: "診断結果おすすめ"
     },
     popularVideo: {
       title: `${label}タイプに刺さる人気動画`,
@@ -559,15 +610,8 @@ const resultData = {
     matchDesc: "普段は抑えているのに、スイッチが入ると一気に変わる相手と好相性。あなたの焦らしが相手のギャップを引き出します。",
     genres: ["焦らし", "駆け引き", "翻弄", "小悪魔"],
     stats: { 支配欲: 70, 依存度: 45, 独占欲: 55, 背徳値: 60, 理性崩壊値: 65 },
-    ...productSet("焦らしネコ", "🐱", {
-      seiheki: "焦らし 小悪魔",
-      video: "焦らし 人気 動画",
-      manga: "焦らし 漫画",
-      limited: "焦らし 期間限定 動画",
-      newManga: "焦らし 新作 漫画"
-    })
+    ...productSet("焦らしネコ", "🐱", { seiheki: "焦らし 小悪魔", video: "焦らし 人気 動画", manga: "焦らし 漫画", limited: "焦らし 期間限定 動画", newManga: "焦らし 新作 漫画" })
   },
-
   inu: {
     name: "甘やかしイヌ",
     animal: "🐶",
@@ -577,15 +621,8 @@ const resultData = {
     matchDesc: "甘えたい気持ちが強い相手と相性抜群。あなたの包み込むような愛情が、相手の依存心を心地よく満たします。",
     genres: ["溺愛", "尽くし", "安心依存", "甘やかし"],
     stats: { 支配欲: 45, 依存度: 80, 独占欲: 65, 背徳値: 35, 理性崩壊値: 45 },
-    ...productSet("甘やかしイヌ", "🐶", {
-      seiheki: "溺愛 甘やかし 尽くし",
-      video: "溺愛 甘やかし 人気 動画",
-      manga: "溺愛 漫画",
-      limited: "甘やかし 期間限定 動画",
-      newManga: "溺愛 新作 漫画"
-    })
+    ...productSet("甘やかしイヌ", "🐶", { seiheki: "溺愛 甘やかし 尽くし", video: "溺愛 甘やかし 人気 動画", manga: "溺愛 漫画", limited: "甘やかし 期間限定 動画", newManga: "溺愛 新作 漫画" })
   },
-
   hebi: {
     name: "快楽ヘビ",
     animal: "🐍",
@@ -595,15 +632,8 @@ const resultData = {
     matchDesc: "衝動的で本能のままに動く相手と好相性。お互いにブレーキが外れやすく、刺激の強い関係になりやすいです。",
     genres: ["理性崩壊", "快楽堕ち", "誘惑", "本能"],
     stats: { 支配欲: 65, 依存度: 55, 独占欲: 60, 背徳値: 75, 理性崩壊値: 95 },
-    ...productSet("快楽ヘビ", "🐍", {
-      seiheki: "理性崩壊 快楽 誘惑",
-      video: "理性崩壊 人気 動画",
-      manga: "快楽 漫画",
-      limited: "誘惑 期間限定 動画",
-      newManga: "理性崩壊 新作 漫画"
-    })
+    ...productSet("快楽ヘビ", "🐍", { seiheki: "理性崩壊 快楽 誘惑", video: "理性崩壊 人気 動画", manga: "快楽 漫画", limited: "誘惑 期間限定 動画", newManga: "理性崩壊 新作 漫画" })
   },
-
   lion: {
     name: "支配ライオン",
     animal: "🦁",
@@ -613,15 +643,8 @@ const resultData = {
     matchDesc: "引っ張ってくれる相手を求めるタイプと好相性。あなたの強さが、相手に安心感と高揚感を与えます。",
     genres: ["支配", "主導権", "征服欲", "超S"],
     stats: { 支配欲: 95, 依存度: 45, 独占欲: 80, 背徳値: 60, 理性崩壊値: 70 },
-    ...productSet("支配ライオン", "🦁", {
-      seiheki: "支配 主導権 征服",
-      video: "支配 人気 動画",
-      manga: "支配 漫画",
-      limited: "主導権 期間限定 動画",
-      newManga: "支配 新作 漫画"
-    })
+    ...productSet("支配ライオン", "🦁", { seiheki: "支配 主導権 征服", video: "支配 人気 動画", manga: "支配 漫画", limited: "主導権 期間限定 動画", newManga: "支配 新作 漫画" })
   },
-
   tora: {
     name: "本能トラ",
     animal: "🐯",
@@ -631,15 +654,8 @@ const resultData = {
     matchDesc: "理性が崩れる空気を楽しめる相手と好相性。あなたの本能的な勢いが、相手の欲望を引き出します。",
     genres: ["本能", "衝動", "肉食", "激しさ"],
     stats: { 支配欲: 75, 依存度: 50, 独占欲: 65, 背徳値: 70, 理性崩壊値: 90 },
-    ...productSet("本能トラ", "🐯", {
-      seiheki: "本能 肉食 激しさ",
-      video: "本能 人気 動画",
-      manga: "肉食 漫画",
-      limited: "衝動 期間限定 動画",
-      newManga: "本能 新作 漫画"
-    })
+    ...productSet("本能トラ", "🐯", { seiheki: "本能 肉食 激しさ", video: "本能 人気 動画", manga: "肉食 漫画", limited: "衝動 期間限定 動画", newManga: "本能 新作 漫画" })
   },
-
   usagi: {
     name: "寂しがりウサギ",
     animal: "🐰",
@@ -649,15 +665,8 @@ const resultData = {
     matchDesc: "強く引っ張ってくれる相手と相性抜群。あなたの甘えたい気持ちを、相手の支配性が受け止めてくれます。",
     genres: ["甘え", "密着", "依存", "受け身"],
     stats: { 支配欲: 30, 依存度: 90, 独占欲: 70, 背徳値: 55, 理性崩壊値: 60 },
-    ...productSet("寂しがりウサギ", "🐰", {
-      seiheki: "甘え 依存 密着",
-      video: "甘え 人気 動画",
-      manga: "依存 漫画",
-      limited: "密着 期間限定 動画",
-      newManga: "甘え 新作 漫画"
-    })
+    ...productSet("寂しがりウサギ", "🐰", { seiheki: "甘え 依存 密着", video: "甘え 人気 動画", manga: "依存 漫画", limited: "密着 期間限定 動画", newManga: "甘え 新作 漫画" })
   },
-
   chameleon: {
     name: "隠れ変態カメレオン",
     animal: "🦎",
@@ -667,15 +676,8 @@ const resultData = {
     matchDesc: "深い時間に本音を引き出してくる相手と好相性。隠していた一面を自然に出しやすい関係です。",
     genres: ["ギャップ", "裏性癖", "秘密", "二面性"],
     stats: { 支配欲: 55, 依存度: 65, 独占欲: 70, 背徳値: 85, 理性崩壊値: 75 },
-    ...productSet("隠れ変態カメレオン", "🦎", {
-      seiheki: "ギャップ 秘密 裏性癖",
-      video: "ギャップ 人気 動画",
-      manga: "秘密 漫画",
-      limited: "裏性癖 期間限定 動画",
-      newManga: "ギャップ 新作 漫画"
-    })
+    ...productSet("隠れ変態カメレオン", "🦎", { seiheki: "ギャップ 秘密 裏性癖", video: "ギャップ 人気 動画", manga: "秘密 漫画", limited: "裏性癖 期間限定 動画", newManga: "ギャップ 新作 漫画" })
   },
-
   fukurou: {
     name: "沼らせフクロウ",
     animal: "🦉",
@@ -685,15 +687,8 @@ const resultData = {
     matchDesc: "本音を隠している相手と好相性。あなたの深い感情が、相手の裏側にある欲望を引き出します。",
     genres: ["深夜依存", "感情沼", "メンヘラ気質", "秘密"],
     stats: { 支配欲: 50, 依存度: 95, 独占欲: 85, 背徳値: 75, 理性崩壊値: 80 },
-    ...productSet("沼らせフクロウ", "🦉", {
-      seiheki: "メンヘラ 深夜依存 感情沼",
-      video: "深夜 人気 動画",
-      manga: "依存 漫画",
-      limited: "感情 期間限定 動画",
-      newManga: "沼 新作 漫画"
-    })
+    ...productSet("沼らせフクロウ", "🦉", { seiheki: "メンヘラ 深夜依存 感情沼", video: "深夜 人気 動画", manga: "依存 漫画", limited: "感情 期間限定 動画", newManga: "沼 新作 漫画" })
   },
-
   risu: {
     name: "小悪魔リス",
     animal: "🐿️",
@@ -703,15 +698,8 @@ const resultData = {
     matchDesc: "誘惑に弱く、反応が出やすい相手と好相性。あなたのからかいが相手の理性をゆっくり崩します。",
     genres: ["からかい", "挑発", "焦らし", "小悪魔"],
     stats: { 支配欲: 70, 依存度: 50, 独占欲: 55, 背徳値: 65, 理性崩壊値: 70 },
-    ...productSet("小悪魔リス", "🐿️", {
-      seiheki: "小悪魔 焦らし 挑発",
-      video: "小悪魔 人気 動画",
-      manga: "焦らし 漫画",
-      limited: "挑発 期間限定 動画",
-      newManga: "小悪魔 新作 漫画"
-    })
+    ...productSet("小悪魔リス", "🐿️", { seiheki: "小悪魔 焦らし 挑発", video: "小悪魔 人気 動画", manga: "焦らし 漫画", limited: "挑発 期間限定 動画", newManga: "小悪魔 新作 漫画" })
   },
-
   ookami: {
     name: "狂愛オオカミ",
     animal: "🐺",
@@ -721,15 +709,8 @@ const resultData = {
     matchDesc: "恋人に深く依存しやすい相手と相性抜群。お互いに必要とされることで関係が濃くなります。",
     genres: ["独占欲", "執着", "共依存", "狂愛"],
     stats: { 支配欲: 80, 依存度: 90, 独占欲: 98, 背徳値: 70, 理性崩壊値: 75 },
-    ...productSet("狂愛オオカミ", "🐺", {
-      seiheki: "独占 執着 共依存",
-      video: "独占 人気 動画",
-      manga: "共依存 漫画",
-      limited: "執着 期間限定 動画",
-      newManga: "独占 新作 漫画"
-    })
+    ...productSet("狂愛オオカミ", "🐺", { seiheki: "独占 執着 共依存", video: "独占 人気 動画", manga: "共依存 漫画", limited: "執着 期間限定 動画", newManga: "独占 新作 漫画" })
   },
-
   hyena: {
     name: "背徳ハイエナ",
     animal: "🐾",
@@ -739,15 +720,8 @@ const resultData = {
     matchDesc: "優越感やスリルを求める相手と好相性。危険な空気を共有するほど距離が縮まりやすいです。",
     genres: ["背徳", "禁断感", "危険", "スリル"],
     stats: { 支配欲: 65, 依存度: 60, 独占欲: 75, 背徳値: 98, 理性崩壊値: 85 },
-    ...productSet("背徳ハイエナ", "🐾", {
-      seiheki: "背徳 禁断 危険",
-      video: "背徳 人気 動画",
-      manga: "禁断 漫画",
-      limited: "危険 期間限定 動画",
-      newManga: "背徳 新作 漫画"
-    })
+    ...productSet("背徳ハイエナ", "🐾", { seiheki: "背徳 禁断 危険", video: "背徳 人気 動画", manga: "禁断 漫画", limited: "危険 期間限定 動画", newManga: "背徳 新作 漫画" })
   },
-
   penguin: {
     name: "発情ペンギン",
     animal: "🐧",
@@ -757,15 +731,8 @@ const resultData = {
     matchDesc: "じらしながら反応を引き出してくれる相手と好相性。あなたのギャップが一番おいしく出ます。",
     genres: ["ギャップ発情", "抑圧解放", "反動", "覚醒"],
     stats: { 支配欲: 45, 依存度: 65, 独占欲: 60, 背徳値: 70, 理性崩壊値: 88 },
-    ...productSet("発情ペンギン", "🐧", {
-      seiheki: "ギャップ発情 抑圧解放",
-      video: "ギャップ 人気 動画",
-      manga: "発情 漫画",
-      limited: "抑圧 期間限定 動画",
-      newManga: "覚醒 新作 漫画"
-    })
+    ...productSet("発情ペンギン", "🐧", { seiheki: "ギャップ発情 抑圧解放", video: "ギャップ 人気 動画", manga: "発情 漫画", limited: "抑圧 期間限定 動画", newManga: "覚醒 新作 漫画" })
   },
-
   koala: {
     name: "密着コアラ",
     animal: "🐨",
@@ -775,15 +742,8 @@ const resultData = {
     matchDesc: "優しく甘やかしてくれる相手と相性抜群。安心感のある関係ほど、あなたの魅力が出ます。",
     genres: ["密着", "スキンシップ", "安心依存", "ぬくもり"],
     stats: { 支配欲: 35, 依存度: 88, 独占欲: 70, 背徳値: 35, 理性崩壊値: 50 },
-    ...productSet("密着コアラ", "🐨", {
-      seiheki: "密着 スキンシップ 安心依存",
-      video: "密着 人気 動画",
-      manga: "スキンシップ 漫画",
-      limited: "安心 期間限定 動画",
-      newManga: "密着 新作 漫画"
-    })
+    ...productSet("密着コアラ", "🐨", { seiheki: "密着 スキンシップ 安心依存", video: "密着 人気 動画", manga: "スキンシップ 漫画", limited: "安心 期間限定 動画", newManga: "密着 新作 漫画" })
   },
-
   gorilla: {
     name: "寝取りゴリラ",
     animal: "🦍",
@@ -793,15 +753,8 @@ const resultData = {
     matchDesc: "背徳感や危険な空気を楽しめる相手と好相性。二人でスリルを共有するほど燃えやすいです。",
     genres: ["優越感", "略奪愛", "支配欲", "勝利感"],
     stats: { 支配欲: 90, 依存度: 45, 独占欲: 85, 背徳値: 95, 理性崩壊値: 75 },
-    ...productSet("寝取りゴリラ", "🦍", {
-      seiheki: "寝取り 優越感 略奪愛",
-      video: "優越感 人気 動画",
-      manga: "略奪愛 漫画",
-      limited: "背徳 期間限定 動画",
-      newManga: "優越感 新作 漫画"
-    })
+    ...productSet("寝取りゴリラ", "🦍", { seiheki: "寝取り 優越感 略奪愛", video: "優越感 人気 動画", manga: "略奪愛 漫画", limited: "背徳 期間限定 動画", newManga: "優越感 新作 漫画" })
   },
-
   kawauso: {
     name: "依存カワウソ",
     animal: "🦦",
@@ -811,15 +764,8 @@ const resultData = {
     matchDesc: "強く独占してくれる相手と相性抜群。求められるほど安心し、深く依存しやすい関係です。",
     genres: ["恋人依存", "いちゃいちゃ", "寂しがり", "共依存"],
     stats: { 支配欲: 40, 依存度: 98, 独占欲: 80, 背徳値: 50, 理性崩壊値: 65 },
-    ...productSet("依存カワウソ", "🦦", {
-      seiheki: "恋人依存 いちゃいちゃ 寂しがり",
-      video: "恋人依存 人気 動画",
-      manga: "いちゃいちゃ 漫画",
-      limited: "共依存 期間限定 動画",
-      newManga: "依存 新作 漫画"
-    })
+    ...productSet("依存カワウソ", "🦦", { seiheki: "恋人依存 いちゃいちゃ 寂しがり", video: "恋人依存 人気 動画", manga: "いちゃいちゃ 漫画", limited: "共依存 期間限定 動画", newManga: "依存 新作 漫画" })
   },
-
   owashi: {
     name: "開発オオワシ",
     animal: "🦅",
@@ -829,13 +775,7 @@ const resultData = {
     matchDesc: "反応が出やすく、誘惑に流されやすい相手と好相性。あなたの観察力と主導権が、相手の隠れた欲望を引き出します。",
     genres: ["反応開拓", "心理支配", "理性崩壊", "調教"],
     stats: { 支配欲: 92, 依存度: 55, 独占欲: 70, 背徳値: 75, 理性崩壊値: 95 },
-    ...productSet("開発オオワシ", "🦅", {
-      seiheki: "調教 心理支配 理性崩壊",
-      video: "調教 人気 動画",
-      manga: "心理支配 漫画",
-      limited: "理性崩壊 期間限定 動画",
-      newManga: "調教 新作 漫画"
-    })
+    ...productSet("開発オオワシ", "🦅", { seiheki: "調教 心理支配 理性崩壊", video: "調教 人気 動画", manga: "心理支配 漫画", limited: "理性崩壊 期間限定 動画", newManga: "調教 新作 漫画" })
   }
 };
 
@@ -844,28 +784,60 @@ let answers = [];
 function startSite() {
   document.getElementById("ageCheck").style.display = "none";
   document.getElementById("app").style.display = "block";
+  renderQuestions();
 }
 
 function renderQuestions() {
   const wrap = document.getElementById("questions");
+  const nav = document.getElementById("navButtons");
+  const progress = document.getElementById("progress");
+
+  const totalPages = Math.ceil(questions.length / QUESTIONS_PER_PAGE);
+  const start = currentPage * QUESTIONS_PER_PAGE;
+  const end = Math.min(start + QUESTIONS_PER_PAGE, questions.length);
+  const pageQuestions = questions.slice(start, end);
+
+  progress.textContent = `質問 ${start + 1}〜${end} / ${questions.length}`;
+
   wrap.innerHTML = "";
 
-  questions.forEach((q, index) => {
+  pageQuestions.forEach((q, pageIndex) => {
+    const index = start + pageIndex;
     const div = document.createElement("div");
     div.className = "question";
 
     div.innerHTML = `
       <h2>Q${index + 1}. ${q.text}</h2>
       <div class="buttons">
-        <button class="answer-btn" onclick="answer(${index}, 3, this)">とても当てはまる</button>
-        <button class="answer-btn" onclick="answer(${index}, 2, this)">少し当てはまる</button>
-        <button class="answer-btn" onclick="answer(${index}, 1, this)">あまり当てはまらない</button>
-        <button class="answer-btn" onclick="answer(${index}, 0, this)">当てはまらない</button>
+        <button class="answer-btn ${answers[index] === 3 ? "selected" : ""}" onclick="answer(${index}, 3, this)">とても当てはまる</button>
+        <button class="answer-btn ${answers[index] === 2 ? "selected" : ""}" onclick="answer(${index}, 2, this)">少し当てはまる</button>
+        <button class="answer-btn ${answers[index] === 1 ? "selected" : ""}" onclick="answer(${index}, 1, this)">あまり当てはまらない</button>
+        <button class="answer-btn ${answers[index] === 0 ? "selected" : ""}" onclick="answer(${index}, 0, this)">当てはまらない</button>
       </div>
     `;
 
     wrap.appendChild(div);
   });
+
+  const isFirst = currentPage === 0;
+  const isLast = currentPage === totalPages - 1;
+
+  if (isFirst) {
+    nav.className = "page-buttons single";
+    nav.innerHTML = `<button class="main-btn" onclick="nextPage()">次の10問へ</button>`;
+  } else if (isLast) {
+    nav.className = "page-buttons";
+    nav.innerHTML = `
+      <button class="sub-btn" onclick="prevPage()">前の10問へ戻る</button>
+      <button class="main-btn" onclick="showResult()">診断する</button>
+    `;
+  } else {
+    nav.className = "page-buttons";
+    nav.innerHTML = `
+      <button class="sub-btn" onclick="prevPage()">前の10問へ戻る</button>
+      <button class="main-btn" onclick="nextPage()">次の10問へ</button>
+    `;
+  }
 }
 
 function answer(index, score, btn) {
@@ -874,6 +846,34 @@ function answer(index, score, btn) {
   const buttons = btn.parentElement.querySelectorAll("button");
   buttons.forEach(b => b.classList.remove("selected"));
   btn.classList.add("selected");
+}
+
+function isCurrentPageAnswered() {
+  const start = currentPage * QUESTIONS_PER_PAGE;
+  const end = Math.min(start + QUESTIONS_PER_PAGE, questions.length);
+
+  for (let i = start; i < end; i++) {
+    if (answers[i] === undefined) return false;
+  }
+
+  return true;
+}
+
+function nextPage() {
+  if (!isCurrentPageAnswered()) {
+    alert("このページの質問にすべて答えてください");
+    return;
+  }
+
+  currentPage++;
+  renderQuestions();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function prevPage() {
+  currentPage--;
+  renderQuestions();
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function createGenres(genres) {
@@ -906,11 +906,11 @@ function createStats(stats) {
 
 function createPopularProducts(result) {
   const items = [
-    { ...result.main, buttonText: "おすすめジャンルを見る" },
-    { ...result.popularVideo, buttonText: "人気動画を見る" },
-    { ...result.popularManga, buttonText: "人気漫画を見る" },
-    { ...result.limitedVideo, buttonText: "期間限定動画を見る" },
-    { ...result.newManga, buttonText: "新作漫画を見る" }
+    { ...result.main, buttonText: "おすすめジャンルを見る", featured: true },
+    { ...result.popularVideo, buttonText: "人気動画を見る", featured: false },
+    { ...result.popularManga, buttonText: "人気漫画を見る", featured: false },
+    { ...result.limitedVideo, buttonText: "期間限定動画を見る", featured: false },
+    { ...result.newManga, buttonText: "新作漫画を見る", featured: false }
   ];
 
   return `
@@ -918,7 +918,7 @@ function createPopularProducts(result) {
       <h3>あなたにおすすめの作品</h3>
       <div class="product-grid">
         ${items.map(item => `
-          <div class="product-card">
+          <div class="product-card ${item.featured ? "featured" : ""}">
             <div class="product-image">${item.emoji}</div>
             <div class="product-content">
               <span class="badge">${item.badge}</span>
@@ -974,14 +974,6 @@ function showResult() {
 
       ${createGenres(result.genres)}
       ${createStats(result.stats)}
-
-      <div class="recommend">
-        <h3>あなた専用のおすすめ作品</h3>
-        <p class="notice">
-          おすすめジャンル・人気動画・人気漫画・期間限定動画・新作漫画の5箇所に、アフィリエイトID「${AFFILIATE_ID}」を入れています。
-        </p>
-      </div>
-
       ${createPopularProducts(result)}
 
       <a
@@ -999,8 +991,6 @@ function showResult() {
 
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
-
-renderQuestions();
 </script>
 </body>
 </html>
