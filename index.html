@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>性癖タイプ診断｜相性・人気作品もわかる無料診断</title>
-  <meta name="description" content="30問であなたの性癖タイプ・恋愛傾向・相性が良い人を無料診断。タイプ別に人気動画・人気漫画・期間限定動画・新作漫画も紹介。" />
-  <meta name="keywords" content="性癖診断,性癖タイプ診断,恋愛診断,相性診断,S診断,M診断,人妻,素人,漫画,動画,無料診断" />
+  <title>性癖タイプ診断｜相性・おすすめジャンルもわかる無料診断</title>
+  <meta name="description" content="30問であなたの性癖タイプ・恋愛傾向・相性が良いタイプを無料診断。焦らしネコ、甘やかしイヌ、快楽ヘビなど16タイプで診断。" />
+  <meta name="keywords" content="性癖診断,性癖タイプ診断,恋愛診断,相性診断,S診断,M診断,動物診断,無料診断" />
   <meta name="robots" content="index, follow" />
 
   <meta property="og:title" content="性癖タイプ診断" />
-  <meta property="og:description" content="あなたの性癖タイプ・相性の良い人・おすすめジャンルを無料診断。" />
+  <meta property="og:description" content="あなたの性癖タイプ・相性の良いタイプ・おすすめジャンルを無料診断。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://seiheki-shindan.com/" />
   <meta property="og:image" content="https://seiheki-shindan.com/ogp.png" />
@@ -78,6 +78,7 @@
     .question h2 {
       font-size: 18px;
       margin-bottom: 14px;
+      line-height: 1.6;
     }
 
     .buttons {
@@ -158,6 +159,11 @@
       color: #ffd8ff;
     }
 
+    .animal-icon {
+      font-size: 64px;
+      margin-bottom: 8px;
+    }
+
     .tag {
       display: inline-block;
       background: rgba(255,79,216,0.18);
@@ -170,7 +176,8 @@
 
     .match,
     .genre-box,
-    .recommend {
+    .recommend,
+    .status-box {
       background: rgba(255,255,255,0.1);
       border-radius: 18px;
       padding: 18px;
@@ -202,6 +209,35 @@
       font-weight: 700;
     }
 
+    .status-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+      text-align: left;
+    }
+
+    .status-row {
+      display: grid;
+      grid-template-columns: 110px 1fr 42px;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .bar {
+      height: 10px;
+      background: rgba(255,255,255,0.16);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, #ff4fd8, #ffd8ff);
+      border-radius: 999px;
+    }
+
     .product-section {
       margin-top: 30px;
       text-align: left;
@@ -228,12 +264,12 @@
       box-shadow: 0 12px 35px rgba(0,0,0,0.25);
     }
 
-    .product-card img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      display: block;
-      background: #250025;
+    .product-image {
+      height: 180px;
+      display: grid;
+      place-items: center;
+      font-size: 46px;
+      background: linear-gradient(135deg, rgba(255,79,216,0.25), rgba(255,255,255,0.08));
     }
 
     .product-content {
@@ -332,8 +368,9 @@
         gap: 10px;
       }
 
-      .product-card img {
-        height: 180px;
+      .product-image {
+        height: 140px;
+        font-size: 38px;
       }
 
       .product-content {
@@ -348,6 +385,10 @@
         font-size: 13px;
         padding: 12px 10px;
       }
+
+      .status-row {
+        grid-template-columns: 92px 1fr 36px;
+      }
     }
   </style>
 </head>
@@ -358,7 +399,7 @@
     <section class="hero">
       <h1>性癖タイプ診断</h1>
       <p class="lead">
-        30個の質問に答えるだけで、あなたの性癖タイプ・相性の良い人・おすすめジャンルがわかります。
+        30個の質問に答えるだけで、あなたの性癖タイプ・相性の良いタイプ・おすすめジャンルがわかります。
       </p>
     </section>
 
@@ -380,14 +421,14 @@
       <section class="info-box" id="about">
         <h2>性癖タイプ診断とは？</h2>
         <p>
-          性癖タイプ診断は、30個の質問からあなたの恋愛傾向・相性の良いタイプ・隠れた好みをチェックできる無料診断です。
-          診断結果ごとに、固定ジャンル・人気動画・人気漫画・期間限定動画・新作漫画を表示します。
+          性癖タイプ診断は、30個の質問からあなたの恋愛傾向・隠れた好み・相性の良いタイプをチェックできる無料診断です。
+          診断結果は、焦らしネコ、甘やかしイヌ、快楽ヘビ、支配ライオンなど全16タイプで表示されます。
         </p>
 
         <h3>診断結果ごとにおすすめジャンルを表示</h3>
         <p>
-          支配型、受け身甘え型、背徳スリル型、ギャップ覚醒型、妄想ロマン型、独占依存型など、
-          結果に合わせて相性の良い人やおすすめジャンルを紹介します。
+          支配型、依存型、背徳型、ギャップ型、密着型、理性崩壊型など、
+          結果に合わせて相性の良いタイプやおすすめジャンルを紹介します。
         </p>
 
         <h3>注意事項</h3>
@@ -440,167 +481,363 @@
 
 <script>
 const SITE_URL = "https://seiheki-shindan.com/";
+const AFFILIATE_ID = "hikaru0516-011";
+
+function affiliateUrl(keyword) {
+  const searchUrl = `https://www.dmm.co.jp/search/=/searchstr=${encodeURIComponent(keyword)}/`;
+  return `https://al.dmm.co.jp/?lurl=${encodeURIComponent(searchUrl)}&af_id=${encodeURIComponent(AFFILIATE_ID)}`;
+}
 
 const questions = [
-  { text: "自分はどちらかと言えば“S側”だと思う", type: "nurarihyon" },
-  { text: "自分はどちらかと言えば“M側”だと思う", type: "kijo" },
-  { text: "“余裕がなくなっていく声”に弱い", type: "jorogumo" },
-  { text: "相手が我慢している感じを見ると興奮する", type: "kyubi" },
-  { text: "“もっと欲しそう”な反応を見ると満たされる", type: "nurarihyon" },
-  { text: "行為中に主導権を握っていたいタイプだ", type: "kyubi" },
-  { text: "行為中は相手に流されたいタイプだ", type: "yuki" },
-  { text: "“命令される空気”が入ると一気にスイッチが入る", type: "yuki" },
-  { text: "“嫌なのに逆らえない感じ”に妙な興奮を覚える", type: "kijo" },
-  { text: "行為中に距離が近すぎるくらいが好き", type: "umibozu" },
-  { text: "“ダメ…”と言いながら離れない感じに弱い", type: "gashadokuro" },
-  { text: "相手が自分を求めて理性を失う瞬間が好き", type: "jorogumo" },
-  { text: "行為中は静かな空気より荒れる空気の方が好き", type: "shinenoni" },
-  { text: "“このまま止まらなくなりそう”な空気がかなり好き", type: "nekomata" },
-  { text: "相手の反応をわざと試したくなることがある", type: "nurarihyon" },
-  { text: "“自分だけに見せる反応”を見ると優越感を覚える", type: "inugami" },
-  { text: "行為後に急に甘えてくる感じに弱い", type: "umibozu" },
-  { text: "相手が自分に依存していく感じに興奮する", type: "kyubi" },
-  { text: "“本当は嫌じゃない”空気を感じるとドキッとする", type: "kijo" },
-  { text: "相手の余裕をなくしたいと思うことがある", type: "jorogumo" },
-  { text: "行為中に“もうダメ…”みたいな空気になると興奮する", type: "gashadokuro" },
-  { text: "“二人だけの秘密”感が強いほど燃える", type: "kitsunebi" },
-  { text: "“まだダメ”と言いながら反応を見るのが好き", type: "nurarihyon" },
-  { text: "“我慢できなくなる瞬間”を待つのが好き", type: "jorogumo" },
-  { text: "“離してほしくなさそう”な反応に弱い", type: "inugami" },
-  { text: "行為中に相手を困らせたくなることがある", type: "kyubi" },
-  { text: "“自分だけ特別”だと感じると一気にハマる", type: "bakegitsune" },
-  { text: "“もうやめて…”みたいな空気ほどドキドキする", type: "yuki" },
-  { text: "深夜になると欲望が強くなる", type: "nekomata" },
-  { text: "“自分なしじゃ無理そう”になると満たされる", type: "kyubi" }
+  { text: "自分はどちらかと言えば“S側”だと思う", scores: { lion: 3, owashi: 2, tora: 1 } },
+  { text: "自分はどちらかと言えば“M側”だと思う", scores: { usagi: 3, koala: 2, kawauso: 1 } },
+  { text: "“余裕がなくなっていく声”に弱い", scores: { hebi: 3, owashi: 2, risu: 1 } },
+  { text: "相手が我慢している感じを見ると興奮する", scores: { lion: 3, owashi: 2, risu: 1 } },
+  { text: "“もっと欲しそう”な反応を見ると満たされる", scores: { owashi: 3, lion: 2, risu: 1 } },
+  { text: "行為中に主導権を握っていたいタイプだ", scores: { lion: 3, tora: 2, owashi: 1 } },
+  { text: "行為中は相手に流されたいタイプだ", scores: { usagi: 3, penguin: 2, koala: 1 } },
+  { text: "“命令される空気”が入ると一気にスイッチが入る", scores: { usagi: 3, penguin: 2, hebi: 1 } },
+  { text: "“嫌なのに逆らえない感じ”に妙な興奮を覚える", scores: { hyena: 3, usagi: 2, penguin: 1 } },
+  { text: "行為中に距離が近すぎるくらいが好き", scores: { koala: 3, kawauso: 2, inu: 1 } },
+  { text: "“ダメ…”と言いながら離れない感じに弱い", scores: { hyena: 3, usagi: 2, kawauso: 1 } },
+  { text: "相手が自分を求めて理性を失う瞬間が好き", scores: { hebi: 3, tora: 2, owashi: 1 } },
+  { text: "行為中は静かな空気より荒れる空気の方が好き", scores: { tora: 3, hyena: 2, lion: 1 } },
+  { text: "“このまま止まらなくなりそう”な空気がかなり好き", scores: { hebi: 3, tora: 2, fukurou: 1 } },
+  { text: "相手の反応をわざと試したくなることがある", scores: { risu: 3, neko: 2, owashi: 1 } },
+  { text: "“自分だけに見せる反応”を見ると優越感を覚える", scores: { ookami: 3, gorilla: 2, lion: 1 } },
+  { text: "行為後に急に甘えてくる感じに弱い", scores: { inu: 3, kawauso: 2, koala: 1 } },
+  { text: "相手が自分に依存していく感じに興奮する", scores: { ookami: 3, lion: 2, kawauso: 1 } },
+  { text: "“本当は嫌じゃない”空気を感じるとドキッとする", scores: { hyena: 3, penguin: 2, hebi: 1 } },
+  { text: "相手の余裕をなくしたいと思うことがある", scores: { owashi: 3, hebi: 2, lion: 1 } },
+  { text: "行為中に“もうダメ…”みたいな空気になると興奮する", scores: { hebi: 3, hyena: 2, owashi: 1 } },
+  { text: "“二人だけの秘密”感が強いほど燃える", scores: { fukurou: 3, chameleon: 2, ookami: 1 } },
+  { text: "“まだダメ”と言いながら反応を見るのが好き", scores: { risu: 3, neko: 2, owashi: 1 } },
+  { text: "“我慢できなくなる瞬間”を待つのが好き", scores: { hebi: 3, owashi: 2, risu: 1 } },
+  { text: "“離してほしくなさそう”な反応に弱い", scores: { ookami: 3, kawauso: 2, lion: 1 } },
+  { text: "行為中に相手を困らせたくなることがある", scores: { lion: 3, owashi: 2, risu: 1 } },
+  { text: "“自分だけ特別”だと感じると一気にハマる", scores: { ookami: 3, kawauso: 2, inu: 1 } },
+  { text: "“もうやめて…”みたいな空気ほどドキドキする", scores: { hyena: 3, usagi: 2, penguin: 1 } },
+  { text: "深夜になると欲望が強くなる", scores: { fukurou: 3, tora: 2, penguin: 1 } },
+  { text: "“自分なしじゃ無理そう”になると満たされる", scores: { ookami: 3, kawauso: 2, lion: 1 } }
 ];
 
-const dummyImage = "https://via.placeholder.com/400x600/360036/ffffff?text=No+Image";
-
-function productSet(label) {
+function productSet(label, emoji, keywords) {
   return {
-    popularVideo: { title: `${label}ジャンルの人気動画`, image: dummyImage, url: "YOUR_AFFILINK", badge: "人気動画" },
-    popularManga: { title: `${label}ジャンルの人気漫画`, image: dummyImage, url: "YOUR_AFFILINK", badge: "人気漫画" },
-    limitedVideo: { title: `${label}ジャンルの期間限定動画`, image: dummyImage, url: "YOUR_AFFILINK", badge: "期間限定動画" },
-    newManga: { title: `${label}ジャンルの新作漫画`, image: dummyImage, url: "YOUR_AFFILINK", badge: "新作漫画" }
+    popularVideo: {
+      title: `${label}タイプに刺さる人気動画`,
+      emoji,
+      url: affiliateUrl(keywords.video),
+      badge: "人気動画"
+    },
+    popularManga: {
+      title: `${label}タイプに刺さる人気漫画`,
+      emoji,
+      url: affiliateUrl(keywords.manga),
+      badge: "人気漫画"
+    },
+    limitedVideo: {
+      title: `${label}タイプ向けの期間限定動画`,
+      emoji,
+      url: affiliateUrl(keywords.limited),
+      badge: "期間限定動画"
+    },
+    newManga: {
+      title: `${label}タイプ向けの新作漫画`,
+      emoji,
+      url: affiliateUrl(keywords.newManga),
+      badge: "新作漫画"
+    }
   };
 }
 
 const resultData = {
-  nurarihyon: {
-    name: "調教ぬらりひょん",
-    desc: "相手を翻弄しながら反応を見ることに快感を覚えるタイプ。焦らしたり、主導権を握ったりすることで魅力が出ます。",
-    match: "服従雪女",
-    matchDesc: "支配されたい空気を持つ相手と好相性。あなたのペースに自然と乗ってくれる相手ほど関係が深まりやすいです。",
-    genres: ["調教", "焦らし", "支配", "主導権"],
-    ...productSet("調教・焦らし")
+  neko: {
+    name: "焦らしネコ",
+    animal: "🐱",
+    genre: "駆け引き・翻弄・じらし",
+    desc: "相手の反応を見ながら、少しずつ距離を詰める駆け引きタイプ。すぐに答えを出すより、焦らして反応を見るほど気持ちが高まりやすいです。",
+    match: "発情ペンギン",
+    matchDesc: "普段は抑えているのに、スイッチが入ると一気に変わる相手と好相性。あなたの焦らしが相手のギャップを引き出します。",
+    genres: ["焦らし", "駆け引き", "翻弄", "小悪魔"],
+    stats: { 支配欲: 70, 依存度: 45, 独占欲: 55, 背徳値: 60, 理性崩壊値: 65 },
+    ...productSet("焦らしネコ", "🐱", {
+      video: "焦らし 人気",
+      manga: "焦らし 漫画",
+      limited: "焦らし 期間限定",
+      newManga: "焦らし 新作 漫画"
+    })
   },
 
-  kyubi: {
-    name: "支配九尾",
-    desc: "主導権を握り、相手を自分色に染めたい支配型。求められるほど支配欲と独占欲が強くなります。",
-    match: "被虐鬼女",
-    matchDesc: "強く求められる関係に惹かれる相手と相性抜群。あなたの支配性を受け止めてくれる相手が合います。",
-    genres: ["支配", "独占", "超S", "主導権"],
-    ...productSet("支配・独占")
+  inu: {
+    name: "甘やかしイヌ",
+    animal: "🐶",
+    genre: "溺愛・尽くし・安心依存",
+    desc: "好きな相手を甘やかしたり、尽くしたりすることで満たされるタイプ。安心感のある関係ほど深くハマりやすいです。",
+    match: "寂しがりウサギ",
+    matchDesc: "甘えたい気持ちが強い相手と相性抜群。あなたの包み込むような愛情が、相手の依存心を心地よく満たします。",
+    genres: ["溺愛", "尽くし", "安心依存", "甘やかし"],
+    stats: { 支配欲: 45, 依存度: 80, 独占欲: 65, 背徳値: 35, 理性崩壊値: 45 },
+    ...productSet("甘やかしイヌ", "🐶", {
+      video: "溺愛 甘やかし 人気",
+      manga: "溺愛 漫画",
+      limited: "甘やかし 期間限定",
+      newManga: "溺愛 新作 漫画"
+    })
   },
 
-  jorogumo: {
-    name: "理性崩し絡新婦",
-    desc: "相手の理性が崩れていく瞬間に強く惹かれるタイプ。余裕がなくなる声や反応に弱い傾向があります。",
-    match: "深夜黒猫又",
-    matchDesc: "危うい空気や夜の雰囲気を共有できる相手と好相性。お互いに本能を刺激し合いやすいです。",
-    genres: ["理性崩壊", "堕落", "誘惑", "危険"],
-    ...productSet("理性崩壊・誘惑")
+  hebi: {
+    name: "快楽ヘビ",
+    animal: "🐍",
+    genre: "理性崩壊・快楽堕ち・誘惑",
+    desc: "理性がほどけていく瞬間や、欲望に流される空気に強く惹かれるタイプ。誘惑・快楽・理性崩壊の相性がかなり高めです。",
+    match: "本能トラ",
+    matchDesc: "衝動的で本能のままに動く相手と好相性。お互いにブレーキが外れやすく、刺激の強い関係になりやすいです。",
+    genres: ["理性崩壊", "快楽堕ち", "誘惑", "本能"],
+    stats: { 支配欲: 65, 依存度: 55, 独占欲: 60, 背徳値: 75, 理性崩壊値: 95 },
+    ...productSet("快楽ヘビ", "🐍", {
+      video: "理性崩壊 人気",
+      manga: "快楽 漫画",
+      limited: "誘惑 期間限定",
+      newManga: "理性崩壊 新作 漫画"
+    })
   },
 
-  inugami: {
-    name: "束縛犬神",
-    desc: "強い独占欲と執着を抱える一途なタイプ。自分だけに向けられる反応に強く満たされます。",
-    match: "共犯化け狐",
-    matchDesc: "二人だけの特別感を大切にする相手と相性抜群。秘密を共有するほど深くハマりやすいです。",
-    genres: ["独占", "執着", "依存", "束縛"],
-    ...productSet("独占・束縛")
+  lion: {
+    name: "支配ライオン",
+    animal: "🦁",
+    genre: "主導権・支配・征服欲",
+    desc: "主導権を握り、相手を自分のペースに巻き込むことで魅力が出るタイプ。求められるほど支配欲と征服欲が強くなります。",
+    match: "寂しがりウサギ",
+    matchDesc: "引っ張ってくれる相手を求めるタイプと好相性。あなたの強さが、相手に安心感と高揚感を与えます。",
+    genres: ["支配", "主導権", "征服欲", "超S"],
+    stats: { 支配欲: 95, 依存度: 45, 独占欲: 80, 背徳値: 60, 理性崩壊値: 70 },
+    ...productSet("支配ライオン", "🦁", {
+      video: "支配 人気",
+      manga: "支配 漫画",
+      limited: "主導権 期間限定",
+      newManga: "支配 新作 漫画"
+    })
   },
 
-  yuki: {
-    name: "服従雪女",
-    desc: "支配される空気や命令される状況に弱いタイプ。冷静に見えて、内側では深く流されやすい傾向があります。",
-    match: "支配九尾",
-    matchDesc: "主導権を握ってくれる相手と好相性。強めに引っ張ってくれる相手ほど安心して委ねやすいです。",
-    genres: ["服従", "M気質", "背徳", "被支配"],
-    ...productSet("服従・M気質")
+  tora: {
+    name: "本能トラ",
+    animal: "🐯",
+    genre: "衝動・肉食・激しさ",
+    desc: "静かな関係より、感情や欲望がぶつかるような激しい空気に惹かれるタイプ。衝動・本能・勢いで燃えやすいです。",
+    match: "快楽ヘビ",
+    matchDesc: "理性が崩れる空気を楽しめる相手と好相性。あなたの本能的な勢いが、相手の欲望を引き出します。",
+    genres: ["本能", "衝動", "肉食", "激しさ"],
+    stats: { 支配欲: 75, 依存度: 50, 独占欲: 65, 背徳値: 70, 理性崩壊値: 90 },
+    ...productSet("本能トラ", "🐯", {
+      video: "本能 人気",
+      manga: "肉食 漫画",
+      limited: "衝動 期間限定",
+      newManga: "本能 新作 漫画"
+    })
   },
 
-  kijo: {
-    name: "被虐鬼女",
-    desc: "危うさや被支配感に惹かれる背徳タイプ。少し乱されるような空気にドキッとしやすいです。",
-    match: "支配九尾",
-    matchDesc: "強く求めてくれる相手と相性抜群。あなたの背徳感を刺激してくれる相手に惹かれやすいです。",
-    genres: ["被支配", "背徳", "快楽", "M気質"],
-    ...productSet("被支配・背徳")
+  usagi: {
+    name: "寂しがりウサギ",
+    animal: "🐰",
+    genre: "密着・甘え・依存",
+    desc: "強く求められたり、近い距離で包まれたりするほど安心するタイプ。甘えたい気持ちと依存心が出やすい傾向があります。",
+    match: "支配ライオン",
+    matchDesc: "強く引っ張ってくれる相手と相性抜群。あなたの甘えたい気持ちを、相手の支配性が受け止めてくれます。",
+    genres: ["甘え", "密着", "依存", "受け身"],
+    stats: { 支配欲: 30, 依存度: 90, 独占欲: 70, 背徳値: 55, 理性崩壊値: 60 },
+    ...productSet("寂しがりウサギ", "🐰", {
+      video: "甘え 人気",
+      manga: "依存 漫画",
+      limited: "密着 期間限定",
+      newManga: "甘え 新作 漫画"
+    })
   },
 
-  gashadokuro: {
-    name: "堕落餓者髑髏",
-    desc: "止まれない空気や堕ちていく感覚に弱いタイプ。禁断感が強いほど気持ちが高まりやすいです。",
-    match: "理性崩し絡新婦",
-    matchDesc: "危険な雰囲気を共有できる相手と相性抜群。理性より本能で惹かれ合いやすいです。",
-    genres: ["堕落", "禁断", "深夜", "背徳"],
-    ...productSet("堕落・禁断")
+  chameleon: {
+    name: "隠れ変態カメレオン",
+    animal: "🦎",
+    genre: "ギャップ・裏性癖・秘密",
+    desc: "普段の顔と内側の欲望にギャップがあるタイプ。秘密にしている一面を見抜かれたり、二人だけで解放したりする関係に弱いです。",
+    match: "沼らせフクロウ",
+    matchDesc: "深い時間に本音を引き出してくる相手と好相性。隠していた一面を自然に出しやすい関係です。",
+    genres: ["ギャップ", "裏性癖", "秘密", "二面性"],
+    stats: { 支配欲: 55, 依存度: 65, 独占欲: 70, 背徳値: 85, 理性崩壊値: 75 },
+    ...productSet("隠れ変態カメレオン", "🦎", {
+      video: "ギャップ 人気",
+      manga: "秘密 漫画",
+      limited: "裏性癖 期間限定",
+      newManga: "ギャップ 新作 漫画"
+    })
   },
 
-  nekomata: {
-    name: "深夜黒猫又",
-    desc: "夜の空気や危険な雰囲気に惹かれるタイプ。深夜になるほど欲望が強くなりやすいです。",
-    match: "密会狐火",
-    matchDesc: "秘密っぽい空気を楽しめる相手と好相性。二人だけの夜に燃えやすい関係です。",
-    genres: ["深夜", "危険", "妖艶", "夜型"],
-    ...productSet("深夜・妖艶")
+  fukurou: {
+    name: "沼らせフクロウ",
+    animal: "🦉",
+    genre: "深夜依存・感情沼・メンヘラ気質",
+    desc: "深夜の空気や感情の揺れに弱いタイプ。軽い関係より、抜け出せないくらい感情が絡む関係にハマりやすいです。",
+    match: "隠れ変態カメレオン",
+    matchDesc: "本音を隠している相手と好相性。あなたの深い感情が、相手の裏側にある欲望を引き出します。",
+    genres: ["深夜依存", "感情沼", "メンヘラ気質", "秘密"],
+    stats: { 支配欲: 50, 依存度: 95, 独占欲: 85, 背徳値: 75, 理性崩壊値: 80 },
+    ...productSet("沼らせフクロウ", "🦉", {
+      video: "深夜 人気",
+      manga: "依存 漫画",
+      limited: "感情 期間限定",
+      newManga: "沼 新作 漫画"
+    })
   },
 
-  kitsunebi: {
-    name: "密会狐火",
-    desc: "秘密共有や二人だけの関係に燃えるタイプ。隠された関係性や密会感に強く惹かれます。",
-    match: "深夜黒猫又",
-    matchDesc: "夜の空気や非日常感を共有できる相手と好相性。秘密があるほど距離が縮まりやすいです。",
-    genres: ["密会", "秘密", "共犯", "背徳"],
-    ...productSet("密会・秘密")
+  risu: {
+    name: "小悪魔リス",
+    animal: "🐿️",
+    genre: "からかい・挑発・焦らし",
+    desc: "相手の反応をからかいながら楽しむ小悪魔タイプ。軽く挑発したり、焦らしたりすることで魅力が出ます。",
+    match: "快楽ヘビ",
+    matchDesc: "誘惑に弱く、反応が出やすい相手と好相性。あなたのからかいが相手の理性をゆっくり崩します。",
+    genres: ["からかい", "挑発", "焦らし", "小悪魔"],
+    stats: { 支配欲: 70, 依存度: 50, 独占欲: 55, 背徳値: 65, 理性崩壊値: 70 },
+    ...productSet("小悪魔リス", "🐿️", {
+      video: "小悪魔 人気",
+      manga: "焦らし 漫画",
+      limited: "挑発 期間限定",
+      newManga: "小悪魔 新作 漫画"
+    })
   },
 
-  bakegitsune: {
-    name: "共犯化け狐",
-    desc: "特別扱いと二人だけの空気に依存しやすいタイプ。自分だけ特別だと感じると一気にハマります。",
-    match: "束縛犬神",
-    matchDesc: "独占欲が強い相手と好相性。お互いに特別感を求めるほど深い関係になりやすいです。",
-    genres: ["共犯", "特別感", "依存", "秘密"],
-    ...productSet("共犯・特別感")
+  ookami: {
+    name: "狂愛オオカミ",
+    animal: "🐺",
+    genre: "独占欲・執着・共依存",
+    desc: "好きになった相手を深く独占したくなる狂愛タイプ。自分だけを求められるほど、感情が強く燃え上がります。",
+    match: "依存カワウソ",
+    matchDesc: "恋人に深く依存しやすい相手と相性抜群。お互いに必要とされることで関係が濃くなります。",
+    genres: ["独占欲", "執着", "共依存", "狂愛"],
+    stats: { 支配欲: 80, 依存度: 90, 独占欲: 98, 背徳値: 70, 理性崩壊値: 75 },
+    ...productSet("狂愛オオカミ", "🐺", {
+      video: "独占 人気",
+      manga: "共依存 漫画",
+      limited: "執着 期間限定",
+      newManga: "独占 新作 漫画"
+    })
   },
 
-  shinenoni: {
-    name: "深淵鬼",
-    desc: "激しい空気や危険な感情に惹かれる激情型。静かな関係よりも、本能が揺さぶられる関係に弱いです。",
-    match: "理性崩し絡新婦",
-    matchDesc: "本能を刺激し合える相手と好相性。激しい感情を共有できるほど燃えやすいです。",
-    genres: ["激情", "危険", "本能", "荒れる空気"],
-    ...productSet("激情・危険")
+  hyena: {
+    name: "背徳ハイエナ",
+    animal: "🦹",
+    genre: "禁断感・背徳・危険性愛",
+    desc: "普通の関係より、少し危うい空気や禁断感に惹かれる背徳タイプ。ダメだと分かっているほど燃えやすい傾向があります。",
+    match: "寝取りゴリラ",
+    matchDesc: "優越感やスリルを求める相手と好相性。危険な空気を共有するほど距離が縮まりやすいです。",
+    genres: ["背徳", "禁断感", "危険", "スリル"],
+    stats: { 支配欲: 65, 依存度: 60, 独占欲: 75, 背徳値: 98, 理性崩壊値: 85 },
+    ...productSet("背徳ハイエナ", "🦹", {
+      video: "背徳 人気",
+      manga: "禁断 漫画",
+      limited: "危険 期間限定",
+      newManga: "背徳 新作 漫画"
+    })
   },
 
-  umibozu: {
-    name: "密着海坊主",
-    desc: "常に触れていたい甘え依存タイプ。距離が近いほど安心し、相手の甘えにも弱い傾向があります。",
-    match: "束縛犬神",
-    matchDesc: "重めの愛情表現を受け止めてくれる相手と好相性。近い距離感を求める関係に向いています。",
-    genres: ["密着", "甘え", "共依存", "接触"],
-    ...productSet("密着・共依存")
+  penguin: {
+    name: "発情ペンギン",
+    animal: "🐧",
+    genre: "ギャップ発情・抑圧解放",
+    desc: "普段は落ち着いて見えるのに、スイッチが入ると一気に解放されるギャップ型。抑えていた欲望が出る瞬間に魅力があります。",
+    match: "焦らしネコ",
+    matchDesc: "じらしながら反応を引き出してくれる相手と好相性。あなたのギャップが一番おいしく出ます。",
+    genres: ["ギャップ発情", "抑圧解放", "反動", "覚醒"],
+    stats: { 支配欲: 45, 依存度: 65, 独占欲: 60, 背徳値: 70, 理性崩壊値: 88 },
+    ...productSet("発情ペンギン", "🐧", {
+      video: "ギャップ 人気",
+      manga: "発情 漫画",
+      limited: "抑圧 期間限定",
+      newManga: "覚醒 新作 漫画"
+    })
+  },
+
+  koala: {
+    name: "密着コアラ",
+    animal: "🐨",
+    genre: "スキンシップ・安心依存",
+    desc: "距離が近いほど安心する密着タイプ。触れている時間や、離れない空気に強く満たされやすいです。",
+    match: "甘やかしイヌ",
+    matchDesc: "優しく甘やかしてくれる相手と相性抜群。安心感のある関係ほど、あなたの魅力が出ます。",
+    genres: ["密着", "スキンシップ", "安心依存", "ぬくもり"],
+    stats: { 支配欲: 35, 依存度: 88, 独占欲: 70, 背徳値: 35, 理性崩壊値: 50 },
+    ...productSet("密着コアラ", "🐨", {
+      video: "密着 人気",
+      manga: "スキンシップ 漫画",
+      limited: "安心 期間限定",
+      newManga: "密着 新作 漫画"
+    })
+  },
+
+  gorilla: {
+    name: "寝取りゴリラ",
+    animal: "🦍",
+    genre: "優越感・略奪愛・支配欲",
+    desc: "優越感や勝ち取る感覚に強く惹かれるタイプ。自分が選ばれた、奪った、支配したという感覚で満たされやすいです。",
+    match: "背徳ハイエナ",
+    matchDesc: "背徳感や危険な空気を楽しめる相手と好相性。二人でスリルを共有するほど燃えやすいです。",
+    genres: ["優越感", "略奪愛", "支配欲", "勝利感"],
+    stats: { 支配欲: 90, 依存度: 45, 独占欲: 85, 背徳値: 95, 理性崩壊値: 75 },
+    ...productSet("寝取りゴリラ", "🦍", {
+      video: "優越感 人気",
+      manga: "略奪愛 漫画",
+      limited: "背徳 期間限定",
+      newManga: "優越感 新作 漫画"
+    })
+  },
+
+  kawauso: {
+    name: "依存カワウソ",
+    animal: "🦦",
+    genre: "恋人依存・いちゃいちゃ・寂しがり",
+    desc: "好きな人とずっと繋がっていたい恋人依存タイプ。いちゃいちゃした空気や、特別扱いされる関係に弱いです。",
+    match: "狂愛オオカミ",
+    matchDesc: "強く独占してくれる相手と相性抜群。求められるほど安心し、深く依存しやすい関係です。",
+    genres: ["恋人依存", "いちゃいちゃ", "寂しがり", "共依存"],
+    stats: { 支配欲: 40, 依存度: 98, 独占欲: 80, 背徳値: 50, 理性崩壊値: 65 },
+    ...productSet("依存カワウソ", "🦦", {
+      video: "恋人依存 人気",
+      manga: "いちゃいちゃ 漫画",
+      limited: "共依存 期間限定",
+      newManga: "依存 新作 漫画"
+    })
+  },
+
+  owashi: {
+    name: "開発オオワシ",
+    animal: "🦅",
+    genre: "反応開拓・心理支配・理性崩壊",
+    desc: "相手の反応を観察しながら、新しい一面を引き出すことに惹かれるタイプ。心理的に主導権を握り、理性を崩していくのが得意です。",
+    match: "快楽ヘビ",
+    matchDesc: "反応が出やすく、誘惑に流されやすい相手と好相性。あなたの観察力と主導権が、相手の隠れた欲望を引き出します。",
+    genres: ["反応開拓", "心理支配", "理性崩壊", "調教"],
+    stats: { 支配欲: 92, 依存度: 55, 独占欲: 70, 背徳値: 75, 理性崩壊値: 95 },
+    ...productSet("開発オオワシ", "🦅", {
+      video: "調教 人気",
+      manga: "心理支配 漫画",
+      limited: "理性崩壊 期間限定",
+      newManga: "調教 新作 漫画"
+    })
   },
 
   balance: {
-    name: "百鬼夜行",
-    desc: "複数の性質を持つバランス型。支配・依存・密会・背徳など、相手や空気によって違う顔が出ます。",
-    match: "共犯化け狐",
-    matchDesc: "空気を読み合える柔軟な相手と好相性。固定された関係より、状況で変化する関係に向いています。",
-    genres: ["混合型", "総合", "変幻自在", "百鬼夜行"],
-    ...productSet("総合おすすめ")
+    name: "ミックスアニマル",
+    animal: "🌙",
+    genre: "複合型・変幻自在",
+    desc: "ひとつのタイプに収まらない複合型。相手や空気によって、支配・依存・背徳・密着など複数の顔が出るタイプです。",
+    match: "隠れ変態カメレオン",
+    matchDesc: "変化に強く、いろいろな空気を楽しめる相手と好相性。固定された関係より、状況で変わる関係に向いています。",
+    genres: ["複合型", "変幻自在", "気分型", "総合"],
+    stats: { 支配欲: 70, 依存度: 70, 独占欲: 70, 背徳値: 70, 理性崩壊値: 70 },
+    ...productSet("ミックスアニマル", "🌙", {
+      video: "人気 おすすめ",
+      manga: "人気 漫画",
+      limited: "期間限定",
+      newManga: "新作 漫画"
+    })
   }
 };
 
@@ -613,6 +850,7 @@ function startSite() {
 
 function renderQuestions() {
   const wrap = document.getElementById("questions");
+  wrap.innerHTML = "";
 
   questions.forEach((q, index) => {
     const div = document.createElement("div");
@@ -651,6 +889,23 @@ function createGenres(genres) {
   `;
 }
 
+function createStats(stats) {
+  return `
+    <div class="status-box">
+      <h3>あなたの性癖ステータス</h3>
+      <div class="status-list">
+        ${Object.entries(stats).map(([name, value]) => `
+          <div class="status-row">
+            <strong>${name}</strong>
+            <div class="bar"><span style="width:${value}%"></span></div>
+            <span>${value}</span>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
 function createPopularProducts(result) {
   const items = [
     { ...result.popularVideo, buttonText: "人気動画を見る" },
@@ -665,7 +920,7 @@ function createPopularProducts(result) {
       <div class="product-grid">
         ${items.map(item => `
           <div class="product-card">
-            <img src="${item.image}" alt="${item.title}">
+            <div class="product-image">${item.emoji}</div>
             <div class="product-content">
               <span class="badge">${item.badge}</span>
               <p class="product-title">${item.title}</p>
@@ -691,47 +946,49 @@ function showResult() {
   const scores = {};
 
   questions.forEach((q, i) => {
-    scores[q.type] = (scores[q.type] || 0) + answers[i];
+    Object.entries(q.scores).forEach(([type, weight]) => {
+      scores[type] = (scores[type] || 0) + answers[i] * weight;
+    });
   });
 
   const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
   const topType = sorted[0][0];
   const topScore = sorted[0][1];
   const secondScore = sorted[1] ? sorted[1][1] : 0;
-  const totalScore = answers.reduce((a, b) => a + b, 0);
 
   let result;
 
-  if (topScore - secondScore <= 1 && totalScore >= 35) {
-    result = resultData.balance;
-  } else if (topScore - secondScore <= 1) {
+  if (topScore - secondScore <= 2) {
     result = resultData.balance;
   } else {
     result = resultData[topType];
   }
 
-  const shareText = `私の診断結果は「${result.name}」でした！相性が良い妖怪は「${result.match}」`;
+  const shareText = `私の性癖タイプ診断結果は「${result.name}」でした！｜${result.genre}`;
 
   document.querySelector(".card").style.display = "none";
 
   document.getElementById("result").innerHTML = `
     <section class="result">
       <span class="tag">診断結果</span>
+      <div class="animal-icon">${result.animal}</div>
       <h2>${result.name}</h2>
+      <p><strong>${result.genre}</strong></p>
       <p>${result.desc}</p>
 
       <div class="match">
-        <h3>相性が良い妖怪</h3>
+        <h3>相性が良いタイプ</h3>
         <div class="match-name">${result.match}</div>
         <p>${result.matchDesc}</p>
       </div>
 
       ${createGenres(result.genres)}
+      ${createStats(result.stats)}
 
       <div class="recommend">
         <h3>あなた専用のおすすめ作品</h3>
         <p class="notice">
-          ※下の作品URLを自分のアフィリエイトリンクに差し替えると収益化用リンクとして使えます。
+          ※各ボタンにはアフィリエイトID「${AFFILIATE_ID}」を含めています。
         </p>
       </div>
 
