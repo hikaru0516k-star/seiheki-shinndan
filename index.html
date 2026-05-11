@@ -143,15 +143,8 @@
     }
 
     @keyframes fadeResult {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .result h2 {
@@ -265,7 +258,7 @@
     }
 
     .product-image {
-      height: 180px;
+      height: 150px;
       display: grid;
       place-items: center;
       font-size: 46px;
@@ -353,7 +346,6 @@
 
     @media (max-width: 600px) {
       h1 { font-size: 30px; }
-
       .result h2 { font-size: 24px; }
 
       .card,
@@ -364,17 +356,17 @@
       }
 
       .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        grid-template-columns: 1fr;
+        gap: 12px;
       }
 
       .product-image {
-        height: 140px;
+        height: 130px;
         font-size: 38px;
       }
 
       .product-content {
-        padding: 10px;
+        padding: 12px;
       }
 
       .product-title {
@@ -484,45 +476,52 @@ const SITE_URL = "https://seiheki-shindan.com/";
 const AFFILIATE_ID = "hikaru0516-011";
 
 function affiliateUrl(keyword) {
-  const searchUrl = `https://www.dmm.co.jp/search/=/searchstr=${encodeURIComponent(keyword)}/`;
+  const encodedKeyword = encodeURIComponent(keyword);
+  const searchUrl = `https://www.dmm.co.jp/search/=/searchstr=${encodedKeyword}/`;
   return `https://al.dmm.co.jp/?lurl=${encodeURIComponent(searchUrl)}&af_id=${encodeURIComponent(AFFILIATE_ID)}`;
 }
 
 const questions = [
-  { text: "自分はどちらかと言えば“S側”だと思う", scores: { lion: 3, owashi: 2, tora: 1 } },
-  { text: "自分はどちらかと言えば“M側”だと思う", scores: { usagi: 3, koala: 2, kawauso: 1 } },
-  { text: "“余裕がなくなっていく声”に弱い", scores: { hebi: 3, owashi: 2, risu: 1 } },
-  { text: "相手が我慢している感じを見ると興奮する", scores: { lion: 3, owashi: 2, risu: 1 } },
-  { text: "“もっと欲しそう”な反応を見ると満たされる", scores: { owashi: 3, lion: 2, risu: 1 } },
-  { text: "行為中に主導権を握っていたいタイプだ", scores: { lion: 3, tora: 2, owashi: 1 } },
-  { text: "行為中は相手に流されたいタイプだ", scores: { usagi: 3, penguin: 2, koala: 1 } },
-  { text: "“命令される空気”が入ると一気にスイッチが入る", scores: { usagi: 3, penguin: 2, hebi: 1 } },
-  { text: "“嫌なのに逆らえない感じ”に妙な興奮を覚える", scores: { hyena: 3, usagi: 2, penguin: 1 } },
-  { text: "行為中に距離が近すぎるくらいが好き", scores: { koala: 3, kawauso: 2, inu: 1 } },
-  { text: "“ダメ…”と言いながら離れない感じに弱い", scores: { hyena: 3, usagi: 2, kawauso: 1 } },
-  { text: "相手が自分を求めて理性を失う瞬間が好き", scores: { hebi: 3, tora: 2, owashi: 1 } },
-  { text: "行為中は静かな空気より荒れる空気の方が好き", scores: { tora: 3, hyena: 2, lion: 1 } },
-  { text: "“このまま止まらなくなりそう”な空気がかなり好き", scores: { hebi: 3, tora: 2, fukurou: 1 } },
-  { text: "相手の反応をわざと試したくなることがある", scores: { risu: 3, neko: 2, owashi: 1 } },
-  { text: "“自分だけに見せる反応”を見ると優越感を覚える", scores: { ookami: 3, gorilla: 2, lion: 1 } },
-  { text: "行為後に急に甘えてくる感じに弱い", scores: { inu: 3, kawauso: 2, koala: 1 } },
-  { text: "相手が自分に依存していく感じに興奮する", scores: { ookami: 3, lion: 2, kawauso: 1 } },
-  { text: "“本当は嫌じゃない”空気を感じるとドキッとする", scores: { hyena: 3, penguin: 2, hebi: 1 } },
-  { text: "相手の余裕をなくしたいと思うことがある", scores: { owashi: 3, hebi: 2, lion: 1 } },
-  { text: "行為中に“もうダメ…”みたいな空気になると興奮する", scores: { hebi: 3, hyena: 2, owashi: 1 } },
-  { text: "“二人だけの秘密”感が強いほど燃える", scores: { fukurou: 3, chameleon: 2, ookami: 1 } },
-  { text: "“まだダメ”と言いながら反応を見るのが好き", scores: { risu: 3, neko: 2, owashi: 1 } },
-  { text: "“我慢できなくなる瞬間”を待つのが好き", scores: { hebi: 3, owashi: 2, risu: 1 } },
-  { text: "“離してほしくなさそう”な反応に弱い", scores: { ookami: 3, kawauso: 2, lion: 1 } },
-  { text: "行為中に相手を困らせたくなることがある", scores: { lion: 3, owashi: 2, risu: 1 } },
-  { text: "“自分だけ特別”だと感じると一気にハマる", scores: { ookami: 3, kawauso: 2, inu: 1 } },
-  { text: "“もうやめて…”みたいな空気ほどドキドキする", scores: { hyena: 3, usagi: 2, penguin: 1 } },
-  { text: "深夜になると欲望が強くなる", scores: { fukurou: 3, tora: 2, penguin: 1 } },
-  { text: "“自分なしじゃ無理そう”になると満たされる", scores: { ookami: 3, kawauso: 2, lion: 1 } }
+  { text: "自分はどちらかと言えば“S側”だと思う", scores: { lion: 5, owashi: 4, tora: 3, gorilla: 2 } },
+  { text: "自分はどちらかと言えば“M側”だと思う", scores: { usagi: 5, koala: 4, kawauso: 3, penguin: 2 } },
+  { text: "“余裕がなくなっていく声”に弱い", scores: { hebi: 5, owashi: 4, risu: 3, neko: 2 } },
+  { text: "相手が我慢している感じを見ると興奮する", scores: { lion: 5, owashi: 4, risu: 3, neko: 2 } },
+  { text: "“もっと欲しそう”な反応を見ると満たされる", scores: { owashi: 5, lion: 4, hebi: 3, risu: 2 } },
+  { text: "行為中に主導権を握っていたいタイプだ", scores: { lion: 5, tora: 4, owashi: 3, gorilla: 2 } },
+  { text: "行為中は相手に流されたいタイプだ", scores: { usagi: 5, penguin: 4, koala: 3, kawauso: 2 } },
+  { text: "“命令される空気”が入ると一気にスイッチが入る", scores: { usagi: 5, penguin: 4, hebi: 3, koala: 2 } },
+  { text: "“嫌なのに逆らえない感じ”に妙な興奮を覚える", scores: { hyena: 5, usagi: 4, penguin: 3, hebi: 2 } },
+  { text: "行為中に距離が近すぎるくらいが好き", scores: { koala: 5, kawauso: 4, inu: 3, usagi: 2 } },
+  { text: "“ダメ…”と言いながら離れない感じに弱い", scores: { hyena: 5, usagi: 4, kawauso: 3, penguin: 2 } },
+  { text: "相手が自分を求めて理性を失う瞬間が好き", scores: { hebi: 5, tora: 4, owashi: 3, lion: 2 } },
+  { text: "行為中は静かな空気より荒れる空気の方が好き", scores: { tora: 5, hyena: 4, lion: 3, gorilla: 2 } },
+  { text: "“このまま止まらなくなりそう”な空気がかなり好き", scores: { hebi: 5, tora: 4, fukurou: 3, penguin: 2 } },
+  { text: "相手の反応をわざと試したくなることがある", scores: { risu: 5, neko: 4, owashi: 3, chameleon: 2 } },
+  { text: "“自分だけに見せる反応”を見ると優越感を覚える", scores: { ookami: 5, gorilla: 4, lion: 3, owashi: 2 } },
+  { text: "行為後に急に甘えてくる感じに弱い", scores: { inu: 5, kawauso: 4, koala: 3, usagi: 2 } },
+  { text: "相手が自分に依存していく感じに興奮する", scores: { ookami: 5, lion: 4, kawauso: 3, fukurou: 2 } },
+  { text: "“本当は嫌じゃない”空気を感じるとドキッとする", scores: { hyena: 5, penguin: 4, hebi: 3, chameleon: 2 } },
+  { text: "相手の余裕をなくしたいと思うことがある", scores: { owashi: 5, hebi: 4, lion: 3, risu: 2 } },
+  { text: "行為中に“もうダメ…”みたいな空気になると興奮する", scores: { hebi: 5, hyena: 4, owashi: 3, tora: 2 } },
+  { text: "“二人だけの秘密”感が強いほど燃える", scores: { fukurou: 5, chameleon: 4, ookami: 3, hyena: 2 } },
+  { text: "“まだダメ”と言いながら反応を見るのが好き", scores: { risu: 5, neko: 4, owashi: 3, lion: 2 } },
+  { text: "“我慢できなくなる瞬間”を待つのが好き", scores: { hebi: 5, owashi: 4, risu: 3, neko: 2 } },
+  { text: "“離してほしくなさそう”な反応に弱い", scores: { ookami: 5, kawauso: 4, lion: 3, koala: 2 } },
+  { text: "行為中に相手を困らせたくなることがある", scores: { lion: 5, owashi: 4, risu: 3, tora: 2 } },
+  { text: "“自分だけ特別”だと感じると一気にハマる", scores: { ookami: 5, kawauso: 4, inu: 3, fukurou: 2 } },
+  { text: "“もうやめて…”みたいな空気ほどドキドキする", scores: { hyena: 5, usagi: 4, penguin: 3, hebi: 2 } },
+  { text: "深夜になると欲望が強くなる", scores: { fukurou: 5, tora: 4, penguin: 3, hebi: 2 } },
+  { text: "“自分なしじゃ無理そう”になると満たされる", scores: { ookami: 5, kawauso: 4, lion: 3, fukurou: 2 } }
 ];
 
 function productSet(label, emoji, keywords) {
   return {
+    main: {
+      title: `${label}におすすめの総合ジャンル`,
+      emoji,
+      url: affiliateUrl(keywords.main),
+      badge: "おすすめ"
+    },
     popularVideo: {
       title: `${label}タイプに刺さる人気動画`,
       emoji,
@@ -561,9 +560,10 @@ const resultData = {
     genres: ["焦らし", "駆け引き", "翻弄", "小悪魔"],
     stats: { 支配欲: 70, 依存度: 45, 独占欲: 55, 背徳値: 60, 理性崩壊値: 65 },
     ...productSet("焦らしネコ", "🐱", {
-      video: "焦らし 人気",
+      main: "焦らし",
+      video: "焦らし 人気 動画",
       manga: "焦らし 漫画",
-      limited: "焦らし 期間限定",
+      limited: "焦らし 期間限定 動画",
       newManga: "焦らし 新作 漫画"
     })
   },
@@ -578,9 +578,10 @@ const resultData = {
     genres: ["溺愛", "尽くし", "安心依存", "甘やかし"],
     stats: { 支配欲: 45, 依存度: 80, 独占欲: 65, 背徳値: 35, 理性崩壊値: 45 },
     ...productSet("甘やかしイヌ", "🐶", {
-      video: "溺愛 甘やかし 人気",
+      main: "溺愛",
+      video: "溺愛 甘やかし 人気 動画",
       manga: "溺愛 漫画",
-      limited: "甘やかし 期間限定",
+      limited: "甘やかし 期間限定 動画",
       newManga: "溺愛 新作 漫画"
     })
   },
@@ -595,9 +596,10 @@ const resultData = {
     genres: ["理性崩壊", "快楽堕ち", "誘惑", "本能"],
     stats: { 支配欲: 65, 依存度: 55, 独占欲: 60, 背徳値: 75, 理性崩壊値: 95 },
     ...productSet("快楽ヘビ", "🐍", {
-      video: "理性崩壊 人気",
+      main: "快楽",
+      video: "理性崩壊 人気 動画",
       manga: "快楽 漫画",
-      limited: "誘惑 期間限定",
+      limited: "誘惑 期間限定 動画",
       newManga: "理性崩壊 新作 漫画"
     })
   },
@@ -612,9 +614,10 @@ const resultData = {
     genres: ["支配", "主導権", "征服欲", "超S"],
     stats: { 支配欲: 95, 依存度: 45, 独占欲: 80, 背徳値: 60, 理性崩壊値: 70 },
     ...productSet("支配ライオン", "🦁", {
-      video: "支配 人気",
+      main: "支配",
+      video: "支配 人気 動画",
       manga: "支配 漫画",
-      limited: "主導権 期間限定",
+      limited: "主導権 期間限定 動画",
       newManga: "支配 新作 漫画"
     })
   },
@@ -629,9 +632,10 @@ const resultData = {
     genres: ["本能", "衝動", "肉食", "激しさ"],
     stats: { 支配欲: 75, 依存度: 50, 独占欲: 65, 背徳値: 70, 理性崩壊値: 90 },
     ...productSet("本能トラ", "🐯", {
-      video: "本能 人気",
+      main: "本能",
+      video: "本能 人気 動画",
       manga: "肉食 漫画",
-      limited: "衝動 期間限定",
+      limited: "衝動 期間限定 動画",
       newManga: "本能 新作 漫画"
     })
   },
@@ -646,9 +650,10 @@ const resultData = {
     genres: ["甘え", "密着", "依存", "受け身"],
     stats: { 支配欲: 30, 依存度: 90, 独占欲: 70, 背徳値: 55, 理性崩壊値: 60 },
     ...productSet("寂しがりウサギ", "🐰", {
-      video: "甘え 人気",
+      main: "甘え",
+      video: "甘え 人気 動画",
       manga: "依存 漫画",
-      limited: "密着 期間限定",
+      limited: "密着 期間限定 動画",
       newManga: "甘え 新作 漫画"
     })
   },
@@ -663,9 +668,10 @@ const resultData = {
     genres: ["ギャップ", "裏性癖", "秘密", "二面性"],
     stats: { 支配欲: 55, 依存度: 65, 独占欲: 70, 背徳値: 85, 理性崩壊値: 75 },
     ...productSet("隠れ変態カメレオン", "🦎", {
-      video: "ギャップ 人気",
+      main: "ギャップ",
+      video: "ギャップ 人気 動画",
       manga: "秘密 漫画",
-      limited: "裏性癖 期間限定",
+      limited: "裏性癖 期間限定 動画",
       newManga: "ギャップ 新作 漫画"
     })
   },
@@ -680,9 +686,10 @@ const resultData = {
     genres: ["深夜依存", "感情沼", "メンヘラ気質", "秘密"],
     stats: { 支配欲: 50, 依存度: 95, 独占欲: 85, 背徳値: 75, 理性崩壊値: 80 },
     ...productSet("沼らせフクロウ", "🦉", {
-      video: "深夜 人気",
+      main: "深夜",
+      video: "深夜 人気 動画",
       manga: "依存 漫画",
-      limited: "感情 期間限定",
+      limited: "感情 期間限定 動画",
       newManga: "沼 新作 漫画"
     })
   },
@@ -697,9 +704,10 @@ const resultData = {
     genres: ["からかい", "挑発", "焦らし", "小悪魔"],
     stats: { 支配欲: 70, 依存度: 50, 独占欲: 55, 背徳値: 65, 理性崩壊値: 70 },
     ...productSet("小悪魔リス", "🐿️", {
-      video: "小悪魔 人気",
+      main: "小悪魔",
+      video: "小悪魔 人気 動画",
       manga: "焦らし 漫画",
-      limited: "挑発 期間限定",
+      limited: "挑発 期間限定 動画",
       newManga: "小悪魔 新作 漫画"
     })
   },
@@ -714,26 +722,28 @@ const resultData = {
     genres: ["独占欲", "執着", "共依存", "狂愛"],
     stats: { 支配欲: 80, 依存度: 90, 独占欲: 98, 背徳値: 70, 理性崩壊値: 75 },
     ...productSet("狂愛オオカミ", "🐺", {
-      video: "独占 人気",
+      main: "独占",
+      video: "独占 人気 動画",
       manga: "共依存 漫画",
-      limited: "執着 期間限定",
+      limited: "執着 期間限定 動画",
       newManga: "独占 新作 漫画"
     })
   },
 
   hyena: {
     name: "背徳ハイエナ",
-    animal: "🦹",
+    animal: "🐾",
     genre: "禁断感・背徳・危険性愛",
     desc: "普通の関係より、少し危うい空気や禁断感に惹かれる背徳タイプ。ダメだと分かっているほど燃えやすい傾向があります。",
     match: "寝取りゴリラ",
     matchDesc: "優越感やスリルを求める相手と好相性。危険な空気を共有するほど距離が縮まりやすいです。",
     genres: ["背徳", "禁断感", "危険", "スリル"],
     stats: { 支配欲: 65, 依存度: 60, 独占欲: 75, 背徳値: 98, 理性崩壊値: 85 },
-    ...productSet("背徳ハイエナ", "🦹", {
-      video: "背徳 人気",
+    ...productSet("背徳ハイエナ", "🐾", {
+      main: "背徳",
+      video: "背徳 人気 動画",
       manga: "禁断 漫画",
-      limited: "危険 期間限定",
+      limited: "危険 期間限定 動画",
       newManga: "背徳 新作 漫画"
     })
   },
@@ -748,9 +758,10 @@ const resultData = {
     genres: ["ギャップ発情", "抑圧解放", "反動", "覚醒"],
     stats: { 支配欲: 45, 依存度: 65, 独占欲: 60, 背徳値: 70, 理性崩壊値: 88 },
     ...productSet("発情ペンギン", "🐧", {
-      video: "ギャップ 人気",
+      main: "ギャップ",
+      video: "ギャップ 人気 動画",
       manga: "発情 漫画",
-      limited: "抑圧 期間限定",
+      limited: "抑圧 期間限定 動画",
       newManga: "覚醒 新作 漫画"
     })
   },
@@ -765,9 +776,10 @@ const resultData = {
     genres: ["密着", "スキンシップ", "安心依存", "ぬくもり"],
     stats: { 支配欲: 35, 依存度: 88, 独占欲: 70, 背徳値: 35, 理性崩壊値: 50 },
     ...productSet("密着コアラ", "🐨", {
-      video: "密着 人気",
+      main: "密着",
+      video: "密着 人気 動画",
       manga: "スキンシップ 漫画",
-      limited: "安心 期間限定",
+      limited: "安心 期間限定 動画",
       newManga: "密着 新作 漫画"
     })
   },
@@ -782,9 +794,10 @@ const resultData = {
     genres: ["優越感", "略奪愛", "支配欲", "勝利感"],
     stats: { 支配欲: 90, 依存度: 45, 独占欲: 85, 背徳値: 95, 理性崩壊値: 75 },
     ...productSet("寝取りゴリラ", "🦍", {
-      video: "優越感 人気",
+      main: "優越感",
+      video: "優越感 人気 動画",
       manga: "略奪愛 漫画",
-      limited: "背徳 期間限定",
+      limited: "背徳 期間限定 動画",
       newManga: "優越感 新作 漫画"
     })
   },
@@ -799,9 +812,10 @@ const resultData = {
     genres: ["恋人依存", "いちゃいちゃ", "寂しがり", "共依存"],
     stats: { 支配欲: 40, 依存度: 98, 独占欲: 80, 背徳値: 50, 理性崩壊値: 65 },
     ...productSet("依存カワウソ", "🦦", {
-      video: "恋人依存 人気",
+      main: "恋人依存",
+      video: "恋人依存 人気 動画",
       manga: "いちゃいちゃ 漫画",
-      limited: "共依存 期間限定",
+      limited: "共依存 期間限定 動画",
       newManga: "依存 新作 漫画"
     })
   },
@@ -816,27 +830,11 @@ const resultData = {
     genres: ["反応開拓", "心理支配", "理性崩壊", "調教"],
     stats: { 支配欲: 92, 依存度: 55, 独占欲: 70, 背徳値: 75, 理性崩壊値: 95 },
     ...productSet("開発オオワシ", "🦅", {
-      video: "調教 人気",
+      main: "調教",
+      video: "調教 人気 動画",
       manga: "心理支配 漫画",
-      limited: "理性崩壊 期間限定",
+      limited: "理性崩壊 期間限定 動画",
       newManga: "調教 新作 漫画"
-    })
-  },
-
-  balance: {
-    name: "ミックスアニマル",
-    animal: "🌙",
-    genre: "複合型・変幻自在",
-    desc: "ひとつのタイプに収まらない複合型。相手や空気によって、支配・依存・背徳・密着など複数の顔が出るタイプです。",
-    match: "隠れ変態カメレオン",
-    matchDesc: "変化に強く、いろいろな空気を楽しめる相手と好相性。固定された関係より、状況で変わる関係に向いています。",
-    genres: ["複合型", "変幻自在", "気分型", "総合"],
-    stats: { 支配欲: 70, 依存度: 70, 独占欲: 70, 背徳値: 70, 理性崩壊値: 70 },
-    ...productSet("ミックスアニマル", "🌙", {
-      video: "人気 おすすめ",
-      manga: "人気 漫画",
-      limited: "期間限定",
-      newManga: "新作 漫画"
     })
   }
 };
@@ -908,6 +906,7 @@ function createStats(stats) {
 
 function createPopularProducts(result) {
   const items = [
+    { ...result.main, buttonText: "おすすめジャンルを見る" },
     { ...result.popularVideo, buttonText: "人気動画を見る" },
     { ...result.popularManga, buttonText: "人気漫画を見る" },
     { ...result.limitedVideo, buttonText: "期間限定動画を見る" },
@@ -953,16 +952,7 @@ function showResult() {
 
   const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
   const topType = sorted[0][0];
-  const topScore = sorted[0][1];
-  const secondScore = sorted[1] ? sorted[1][1] : 0;
-
-  let result;
-
-  if (topScore - secondScore <= 2) {
-    result = resultData.balance;
-  } else {
-    result = resultData[topType];
-  }
+  const result = resultData[topType];
 
   const shareText = `私の性癖タイプ診断結果は「${result.name}」でした！｜${result.genre}`;
 
@@ -988,7 +978,7 @@ function showResult() {
       <div class="recommend">
         <h3>あなた専用のおすすめ作品</h3>
         <p class="notice">
-          ※各ボタンにはアフィリエイトID「${AFFILIATE_ID}」を含めています。
+          下の5つの訴求リンクには、アフィリエイトID「${AFFILIATE_ID}」を入れています。
         </p>
       </div>
 
